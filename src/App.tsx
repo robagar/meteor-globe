@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { useTexture } from "@react-three/drei"
+import { useTexture, OrbitControls } from "@react-three/drei"
 import './App.css';
 
 const EARTH_RADIUS=6371
@@ -25,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Canvas frameloop="demand" camera={camera}>
+        <OrbitControls />
         <ambientLight intensity={0.1} />
         <directionalLight color="white" position={[0, 0, 5]} />
         <mesh rotation={[0, -Math.PI/2, 0]}>
