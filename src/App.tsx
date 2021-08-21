@@ -2,9 +2,11 @@ import { Globe } from "./Globe";
 import "./App.css";
 
 function App() {
+  const markers = [{ latitude: 50.224871, longitude: -4.949858 }];
+
   return (
     <div className="App">
-      <Globe />
+      <Globe markers={markers} />
     </div>
   );
 }

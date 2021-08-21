@@ -1,14 +1,20 @@
 import { Canvas } from "@react-three/fiber";
 import { useTexture, OrbitControls } from "@react-three/drei";
 
-import { EARTH_RADIUS, position } from "./functions";
+import { EARTH_RADIUS, position } from "./geometry";
 
-export interface GlobeProps {}
+import { Marker, MarkerProps } from "./Marker";
+
+export interface GlobeProps {
+  markers?: MarkerProps[];
+}
 
 export function Globe(props: GlobeProps) {
+  const { markers } = props;
+
   const camera = {
     fov: 75,
-    near: 1000,
+    near: 10,
     far: 100000,
     position: position(52, 0, 5000),
   };
@@ -27,6 +33,7 @@ export function Globe(props: GlobeProps) {
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial {...material} />
       </mesh>
+      {markers && markers.map((m) => <Marker {...m} />)}
     </Canvas>
   );
 }

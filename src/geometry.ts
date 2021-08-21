@@ -18,8 +18,8 @@ export function position(
   const lat = radians(latitude);
   const long = radians(longitude);
   const r = altitude + EARTH_RADIUS;
-  const x = r * Math.cos(lat) * Math.cos(long);
+  const x = r * Math.cos(lat) * Math.cos(-long);
   const y = r * Math.sin(lat);
-  const z = r * Math.cos(lat) * Math.sin(long);
+  const z = r * Math.cos(lat) * Math.sin(-long);
   return [x, y, z];
 }
