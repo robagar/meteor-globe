@@ -20,6 +20,8 @@ export function Globe() {
   };
   const material = useTexture({
     map: "textures/2_no_clouds_4k.jpeg",
+    bumpMap: "textures/elev_bump_4k.jpeg",
+    specularMap: "textures/water_4k.png",
   });
   return (
     <Canvas frameloop="demand" camera={camera}>
@@ -28,7 +30,7 @@ export function Globe() {
       <directionalLight color="white" position={[0, 0, 5]} />
       <mesh rotation={[0, -Math.PI / 2, 0]}>
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
-        <meshStandardMaterial {...material} />
+        <meshPhongMaterial {...material} />
       </mesh>
     </Canvas>
   );
