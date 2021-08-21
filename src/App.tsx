@@ -1,10 +1,10 @@
 import { Globe } from "./Globe";
 import "./App.css";
 
+import { store } from "./store";
+
 function App() {
-  const markers = [
-    { latitude: 50.224871, longitude: -4.949858, label: "UK003C" },
-  ];
+  const markers = store.useState((s) => s.markers);
 
   return (
     <div className="App">
