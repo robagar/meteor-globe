@@ -6,6 +6,7 @@ import { MarkerProps } from "./Marker";
 enableMapSet();
 
 export const store = new Store({
+    highlightedMarker: "",
     markers: new Map<string, MarkerProps>([
         [
             "UK003C",
