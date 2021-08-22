@@ -26,7 +26,7 @@ export function Globe(props: GlobeProps) {
   return (
     <Canvas frameloop="demand" camera={camera}>
       <OrbitControls />
-      <axesHelper args={[10000]} />
+      {/* <axesHelper args={[10000]} /> */}
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={position(0, 0, 1)} />
       <mesh>
