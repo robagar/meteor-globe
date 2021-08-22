@@ -1,6 +1,7 @@
 {
   "name": "meteor-globe",
   "version": "0.1.0",
+  "homepage": "/meteor-globe/",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^7.5.0",
