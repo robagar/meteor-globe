@@ -2,6 +2,7 @@ import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
 import { MarkerProps } from "./Marker";
+import { MeteorProps } from "./Meteor";
 
 enableMapSet();
 
@@ -18,4 +19,5 @@ export const store = new Store({
             },
         ],
     ]),
+    meteors: [] as MeteorProps[],
 });

@@ -4,15 +4,17 @@ import { useTexture, OrbitControls } from "@react-three/drei";
 import { EARTH_RADIUS, position } from "./geometry";
 
 import { Marker, MarkerProps } from "./Marker";
+import { Meteor, MeteorProps } from "./Meteor";
 
 export interface GlobeProps {
   markers: MarkerProps[];
+  meteors: MeteorProps[];
 }
 
 const MIN_CAMERA_ALTITUDE = 100;
 
 export function Globe(props: GlobeProps) {
-  const { markers } = props;
+  const { markers, meteors } = props;
 
   const camera = {
     fov: 75,
@@ -37,6 +39,9 @@ export function Globe(props: GlobeProps) {
       </mesh>
       {markers.map((m) => (
         <Marker key={`marker-${m.identifier}`} {...m} />
+      ))}
+      {meteors.map((m, i) => (
+        <Meteor key={`meteor-${i}`} {...m} />
       ))}
     </Canvas>
   );
