@@ -19,9 +19,9 @@ export function Globe(props: GlobeProps) {
     position: position(52, 0, 5000),
   };
   const material = useTexture({
-    map: "textures/2_no_clouds_4k.jpeg",
-    bumpMap: "textures/elev_bump_4k.jpeg",
-    specularMap: "textures/water_4k.png",
+    map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
+    bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",
+    specularMap: "/meteor-globe/textures/water_4k.png",
   });
   return (
     <Canvas frameloop="demand" camera={camera}>
