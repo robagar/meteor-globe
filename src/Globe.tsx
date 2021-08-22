@@ -6,8 +6,10 @@ import { EARTH_RADIUS, position } from "./geometry";
 import { Marker, MarkerProps } from "./Marker";
 
 export interface GlobeProps {
-  markers?: MarkerProps[];
+  markers: MarkerProps[];
 }
+
+const MIN_CAMERA_ALTITUDE = 100;
 
 export function Globe(props: GlobeProps) {
   const { markers } = props;
@@ -25,7 +27,7 @@ export function Globe(props: GlobeProps) {
   });
   return (
     <Canvas frameloop="demand" camera={camera}>
-      <OrbitControls />
+      <OrbitControls minDistance={EARTH_RADIUS + MIN_CAMERA_ALTITUDE} />
       {/* <axesHelper args={[10000]} /> */}
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={position(0, 0, 1)} />
@@ -33,7 +35,9 @@ export function Globe(props: GlobeProps) {
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial {...material} />
       </mesh>
-      {markers && markers.map((m) => <Marker {...m} />)}
+      {markers.map((m) => (
+        <Marker key={`marker-${m.identifier}`} {...m} />
+      ))}
     </Canvas>
   );
 }

@@ -2,6 +2,7 @@ import { Billboard, Text } from "@react-three/drei";
 import { Degrees, Km, position } from "./geometry";
 
 export interface MarkerProps {
+  identifier: string;
   latitude: Degrees;
   longitude: Degrees;
   altitude?: Km;
