@@ -6,6 +6,8 @@ import { EARTH_RADIUS, position } from "./geometry";
 import { Marker, MarkerProps } from "./Marker";
 import { Meteor, MeteorProps } from "./Meteor";
 
+import { BillboardTest } from "./BillboardTest";
+
 export interface GlobeProps {
   markers: MarkerProps[];
   meteors: MeteorProps[];
@@ -20,7 +22,7 @@ export function Globe(props: GlobeProps) {
     fov: 75,
     near: 10,
     far: 100000,
-    position: position(52, 0, 5000),
+    position: position(51, 0, 1000),
   };
   const material = useTexture({
     map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
@@ -29,14 +31,21 @@ export function Globe(props: GlobeProps) {
   });
   return (
     <Canvas frameloop="demand" camera={camera}>
-      <OrbitControls minDistance={EARTH_RADIUS + MIN_CAMERA_ALTITUDE} />
-      {/* <axesHelper args={[10000]} /> */}
+      <OrbitControls
+        minDistance={EARTH_RADIUS + MIN_CAMERA_ALTITUDE}
+        zoomSpeed={1}
+        rotateSpeed={1}
+      />
+      {/*<axesHelper args={[5000]} />*/}
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={position(0, 0, 1)} />
+      <BillboardTest />
+
       <mesh>
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial {...material} />
       </mesh>
+
       {markers.map((m) => (
         <Marker key={`marker-${m.identifier}`} {...m} />
       ))}

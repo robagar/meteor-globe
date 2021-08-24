@@ -7,15 +7,13 @@ export interface MeteorData {}
 export function initMeteors() {
   loadMeteors(
     "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
+    // "/meteor-globe/data/one_perseid.txt"
   ).catch((e) => {
     console.error("[meteors] load failed", e);
   });
 }
 
 // column indices
-// +/-  ;   RAapp  ;   +/-  ;   DECapp ;   +/-  ;  Azim +E ;   +/-  ;    Elev  ;   +/-  ;
-//   Vinit  ;    +/- ;    Vavg  ;    +/- ;
-//    LatBeg   ;   +/-  ;    LonBeg   ;   +/-  ;   HtBeg ;   +/-  ;    LatEnd   ;   +/-  ;    LonEnd   ;   +/-  ;   HtEnd ;   +/-  ; Duration;  Peak ;  Peak Ht;   F  ;  Mass kg;
 const BEGIN_UTC_TIME = 1;
 const IAU_CODE = 3;
 const BEGIN_LATITUDE = 60;
@@ -48,24 +46,23 @@ async function loadMeteors(url: string) {
 
     const beginUTC = s(BEGIN_UTC_TIME);
     const showerCode = s(IAU_CODE);
-    const beginLatitude = f(BEGIN_LATITUDE);
-    const beginLongitude = f(BEGIN_LONGITUDE);
-    const beginHeight = f(BEGIN_HEIGHT);
+    const begin = {
+      latitude: f(BEGIN_LATITUDE),
+      longitude: f(BEGIN_LONGITUDE),
+      height: f(BEGIN_HEIGHT),
+    };
+    const end = {
+      latitude: f(END_LATITUDE),
+      longitude: f(END_LONGITUDE),
+      height: f(END_HEIGHT),
+    };
     const mass = f(MASS);
     const stationCodes = s(STATION_CODES);
 
     if (stationCodes.includes("UK")) {
-      console.info(
-        beginUTC,
-        showerCode,
-        beginLatitude,
-        beginLongitude,
-        beginHeight,
-        mass,
-        stationCodes
-      );
+      console.info(beginUTC, showerCode, begin, end, mass, stationCodes);
       store.update((s) => {
-        s.meteors.push({ beginLatitude, beginLongitude, beginHeight });
+        s.meteors.push({ begin, end });
       });
     }
   }
