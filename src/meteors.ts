@@ -1,12 +1,12 @@
 import fetchline from "fetchline";
 
 import { store } from "./store";
-
-export interface MeteorData {}
+import { MeteorProps } from "./Meteor";
 
 export function initMeteors() {
   loadMeteors(
-    "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
+    "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
+    // "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
     // "/meteor-globe/data/one_perseid.txt"
   ).catch((e) => {
     console.error("[meteors] load failed", e);
@@ -27,13 +27,17 @@ const PEAK_HEIGHT = 74;
 const MASS = 76;
 const STATION_CODES = 82;
 
+const NUM_COLUMNS = 83;
+
 async function loadMeteors(url: string) {
+  const meteors: MeteorProps[] = [];
   for await (let line of fetchline(url)) {
     if (line.length === 0) continue;
     if (line[0] === "\r") line = line.slice(1); // fetchline bug?
     if (line[0] === "#") continue; // comment, probably column headers
 
     const fields = line.split(";");
+    if (fields.length !== NUM_COLUMNS) continue;
 
     const s = (i: number): string => {
       const f = fields[i];
@@ -59,11 +63,13 @@ async function loadMeteors(url: string) {
     const mass = f(MASS);
     const stationCodes = s(STATION_CODES);
 
-    if (stationCodes.includes("UK")) {
-      console.info(beginUTC, showerCode, begin, end, mass, stationCodes);
-      store.update((s) => {
-        s.meteors.push({ begin, end });
-      });
-    }
+    // if (stationCodes.includes("UK")) {
+    console.info(beginUTC, showerCode, begin, end, mass, stationCodes);
+    meteors.push({ begin, end });
+    // }
   }
+
+  store.update((s) => {
+    s.meteors = meteors;
+  });
 }

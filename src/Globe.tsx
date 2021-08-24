@@ -22,7 +22,7 @@ export function Globe(props: GlobeProps) {
     fov: 75,
     near: 10,
     far: 100000,
-    position: position(51, 0, 1000),
+    position: position(50.22, -4.95, 3000),
   };
   const material = useTexture({
     map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",

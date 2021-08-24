@@ -11,7 +11,7 @@ function App() {
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
 
-  // useEffect(initCameras, []);
+  useEffect(initCameras, []);
   useEffect(initMeteors, []);
 
   return (
