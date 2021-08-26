@@ -23,8 +23,13 @@ export interface MeteorProps {
   stationCodes: StationCode[];
 }
 
+const MIN_WIDTH = 0.1;
+const MAG_ZERO_WIDTH = 2;
+
 export function Meteor(props: MeteorProps) {
-  const { begin, end } = props;
+  const { begin, end, magnitude } = props;
+
+  const brightness = 1 - magnitude * 0.2;
 
   const tail = xyz(begin);
   const head = xyz(end);
@@ -42,7 +47,7 @@ export function Meteor(props: MeteorProps) {
     head[2] - tail[2]
   );
   const length = vector.length();
-  const width = 3;
+  const width = Math.max(MIN_WIDTH, MAG_ZERO_WIDTH * brightness);
   const direction = vector.clone();
   direction.normalize();
 
