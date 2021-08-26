@@ -70,10 +70,36 @@ export function Meteor(props: MeteorProps) {
     }
   });
 
+  const vertexShader = `
+    varying vec2 vUv;
+
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    }
+  `;
+
+  const fragmentShader = `
+    varying vec2 vUv;
+
+    void main() {
+      float x = vUv.x;
+      float y = vUv.y;
+      float c = (x < 0.5 ? x : (1.0 - x)) * 2.0;
+      float l = (y < 0.5 ? y : (1.0 - y)) * 2.0;
+      float opacity = c * l;
+      gl_FragColor = vec4(1, 1, 1, opacity);
+    }
+  `;
+
   return (
     <mesh ref={ref} position={center}>
       <planeGeometry args={[width, length]} />
-      <meshBasicMaterial color="white" />
+      <shaderMaterial
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        transparent={true}
+      />
     </mesh>
   );
 }
