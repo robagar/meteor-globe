@@ -86,7 +86,8 @@ export function Meteor(props: MeteorProps) {
       float x = vUv.x;
       float y = vUv.y;
       float c = (x < 0.5 ? x : (1.0 - x)) * 2.0;
-      float l = (y < 0.5 ? y : (1.0 - y)) * 2.0;
+      float p = 0.75;
+      float l = y < p ? (y / p) : (1.0 - y) / (1.0 - p);
       float opacity = c * l;
       gl_FragColor = vec4(1, 1, 1, opacity);
     }

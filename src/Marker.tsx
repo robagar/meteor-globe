@@ -20,7 +20,7 @@ export function Marker(props: MarkerProps) {
     altitude = 5,
     radius = 5,
     label,
-    labelSize = 50,
+    labelSize = 30,
   } = props;
 
   const highlighted = store.useState((s) => s.highlightedMarker) === identifier;

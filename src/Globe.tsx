@@ -11,7 +11,7 @@ export interface GlobeProps {
   meteors: MeteorProps[];
 }
 
-const MIN_CAMERA_ALTITUDE = 100;
+const MIN_CAMERA_ALTITUDE = 200;
 
 export function Globe(props: GlobeProps) {
   const { markers, meteors } = props;
@@ -20,7 +20,7 @@ export function Globe(props: GlobeProps) {
     fov: 75,
     near: 10,
     far: 100000,
-    position: position(50.22, -4.95, 500),
+    position: position(50.22, -4.95, 1500),
   };
   const material = useTexture({
     map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",

@@ -5,8 +5,8 @@ import { MeteorProps } from "./Meteor";
 
 export function initMeteors() {
   loadMeteors(
-    //"https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
-    "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
+    "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
+    // "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
     // "/meteor-globe/data/one_perseid.txt"
   ).catch((e) => {
     console.error("[meteors] load failed", e);
