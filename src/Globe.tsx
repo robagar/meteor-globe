@@ -6,8 +6,6 @@ import { EARTH_RADIUS, position } from "./geometry";
 import { Marker, MarkerProps } from "./Marker";
 import { Meteor, MeteorProps } from "./Meteor";
 
-import { BillboardTest } from "./BillboardTest";
-
 export interface GlobeProps {
   markers: MarkerProps[];
   meteors: MeteorProps[];
@@ -22,7 +20,7 @@ export function Globe(props: GlobeProps) {
     fov: 75,
     near: 10,
     far: 100000,
-    position: position(50.22, -4.95, 3000),
+    position: position(50.22, -4.95, 500),
   };
   const material = useTexture({
     map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
@@ -39,7 +37,6 @@ export function Globe(props: GlobeProps) {
       {/*<axesHelper args={[5000]} />*/}
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={position(0, 0, 1)} />
-      <BillboardTest />
 
       <mesh>
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />

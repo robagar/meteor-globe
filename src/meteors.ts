@@ -5,8 +5,8 @@ import { MeteorProps } from "./Meteor";
 
 export function initMeteors() {
   loadMeteors(
-    "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
-    // "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
+    //"https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
+    "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
     // "/meteor-globe/data/one_perseid.txt"
   ).catch((e) => {
     console.error("[meteors] load failed", e);
@@ -23,6 +23,7 @@ const END_LATITUDE = 66;
 const END_LONGITUDE = 68;
 const END_HEIGHT = 70;
 const DURATION = 72;
+const MAGNITUDE = 73;
 const PEAK_HEIGHT = 74;
 const MASS = 76;
 const STATION_CODES = 82;
@@ -48,7 +49,7 @@ async function loadMeteors(url: string) {
       return parseFloat(s(i));
     };
 
-    const beginUTC = s(BEGIN_UTC_TIME);
+    const time = f(BEGIN_UTC_TIME);
     const showerCode = s(IAU_CODE);
     const begin = {
       latitude: f(BEGIN_LATITUDE),
@@ -60,13 +61,23 @@ async function loadMeteors(url: string) {
       longitude: f(END_LONGITUDE),
       height: f(END_HEIGHT),
     };
+    const duration = f(DURATION);
+    const magnitude = f(MAGNITUDE);
+    const peakHeight = f(PEAK_HEIGHT);
     const mass = f(MASS);
-    const stationCodes = s(STATION_CODES);
+    const stationCodes = s(STATION_CODES).split(",");
 
-    // if (stationCodes.includes("UK")) {
-    console.info(beginUTC, showerCode, begin, end, mass, stationCodes);
-    meteors.push({ begin, end });
-    // }
+    meteors.push({
+      time,
+      showerCode,
+      begin,
+      end,
+      peakHeight,
+      magnitude,
+      duration,
+      mass,
+      stationCodes,
+    });
   }
 
   store.update((s) => {
