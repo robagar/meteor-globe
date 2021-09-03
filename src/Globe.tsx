@@ -11,7 +11,8 @@ export interface GlobeProps {
   meteors: MeteorProps[];
 }
 
-const MIN_CAMERA_ALTITUDE = 200;
+const MIN_CAMERA_HEIGHT = 200;
+const MAX_CAMERA_HEIGHT = 10000;
 
 export function Globe(props: GlobeProps) {
   const { markers, meteors } = props;
@@ -30,9 +31,10 @@ export function Globe(props: GlobeProps) {
   return (
     <Canvas frameloop="demand" camera={camera}>
       <OrbitControls
-        minDistance={EARTH_RADIUS + MIN_CAMERA_ALTITUDE}
-        zoomSpeed={1}
-        rotateSpeed={1}
+        minDistance={EARTH_RADIUS + MIN_CAMERA_HEIGHT}
+        maxDistance={EARTH_RADIUS + MAX_CAMERA_HEIGHT}
+        zoomSpeed={0.1}
+        rotateSpeed={0.1}
       />
       {/*<axesHelper args={[5000]} />*/}
       <ambientLight intensity={0.1} />
