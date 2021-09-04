@@ -4,13 +4,14 @@ import { useTexture, OrbitControls } from "@react-three/drei";
 import { EARTH_RADIUS, position } from "./geometry";
 
 import { /*Marker, */ MarkerProps } from "./Marker";
-import { Meteor, MeteorProps } from "./Meteor";
+import { MeteorData } from "./meteors";
+import { Meteor } from "./Meteor";
 
 import "./Globe.css";
 
 export interface GlobeProps {
   markers: MarkerProps[];
-  meteors: MeteorProps[];
+  meteors: MeteorData[];
 }
 
 const MIN_CAMERA_HEIGHT = 200;
@@ -49,7 +50,7 @@ export function Globe(props: GlobeProps) {
       ))}
 */}{" "}
       {meteors.map((m, i) => (
-        <Meteor key={`meteor-${m.index}`} {...m} />
+        <Meteor key={`meteor-${m.index}`} data={m} />
       ))}
     </Canvas>
   );

@@ -1,7 +1,27 @@
 import fetchline from "fetchline";
 
 import { store } from "./store";
-import { MeteorProps } from "./Meteor";
+import { LatLongHt, Km } from "./geometry";
+
+export type UTCTime = string;
+export type ShowerCode = string;
+export type Seconds = number;
+export type Magnitude = number;
+export type Kg = number;
+export type StationCode = string;
+
+export interface MeteorData {
+  index: number;
+  beginTime: UTCTime;
+  showerCode: ShowerCode;
+  begin: LatLongHt;
+  end: LatLongHt;
+  peakHeight: Km;
+  magnitude: Magnitude;
+  duration: Seconds;
+  mass: Kg;
+  stationCodes: StationCode[];
+}
 
 function meteorDataUrl(params: URLSearchParams) {
   const test = params.get("test");
@@ -20,9 +40,16 @@ function meteorDataUrl(params: URLSearchParams) {
 
 export function initMeteors(params: URLSearchParams) {
   const url = meteorDataUrl(params);
-  loadMeteors(url).catch((e) => {
-    console.error("[meteors] load failed", e);
-  });
+  fetchMeteorData(url)
+    .then((meteors) => {
+      store.update((s) => {
+        s.meteors = meteors;
+      });
+    })
+    .catch((e) => {
+      console.error("[meteors] fetch failed", e);
+      throw e;
+    });
 }
 
 // column indices
@@ -42,8 +69,8 @@ const STATION_CODES = 82;
 
 const NUM_COLUMNS = 83;
 
-async function loadMeteors(url: string) {
-  const meteors: MeteorProps[] = [];
+async function fetchMeteorData(url: string): Promise<MeteorData[]> {
+  const meteors: MeteorData[] = [];
   let nextIndex = 0;
   for await (let line of fetchline(url)) {
     if (line.length === 0) continue;
@@ -94,7 +121,5 @@ async function loadMeteors(url: string) {
     });
   }
 
-  store.update((s) => {
-    s.meteors = meteors;
-  });
+  return meteors;
 }

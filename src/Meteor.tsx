@@ -3,28 +3,13 @@ import { Mesh, Vector3, Matrix4 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
-import { LatLongHt, xyz, XYZ, Km } from "./geometry";
+import { xyz, XYZ } from "./geometry";
+import { MeteorData } from "./meteors";
 
 import "./Meteor.css";
 
-export type UTCTime = string;
-export type ShowerCode = string;
-export type Seconds = number;
-export type Magnitude = number;
-export type Kg = number;
-export type StationCode = string;
-
 export interface MeteorProps {
-  index: number;
-  beginTime: UTCTime;
-  showerCode: ShowerCode;
-  begin: LatLongHt;
-  end: LatLongHt;
-  peakHeight: Km;
-  magnitude: Magnitude;
-  duration: Seconds;
-  mass: Kg;
-  stationCodes: StationCode[];
+  data: MeteorData;
 }
 
 const MIN_WIDTH = 0.1;
@@ -42,7 +27,7 @@ export function Meteor(props: MeteorProps) {
     magnitude,
     duration,
     stationCodes,
-  } = props;
+  } = props.data;
 
   const brightness = 1 - magnitude * 0.2;
 

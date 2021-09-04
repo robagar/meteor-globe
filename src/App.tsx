@@ -14,7 +14,7 @@ function App() {
   const meteors = store.useState((s) => s.meteors);
 
   useEffect(initCameras, []);
-  useEffect(() => initMeteors(queryParams), [queryParams]);
+  useEffect(() => initMeteors(queryParams));
 
   return (
     <div className="App">
