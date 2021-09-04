@@ -15,7 +15,7 @@ const MIN_CAMERA_HEIGHT = 200;
 const MAX_CAMERA_HEIGHT = 10000;
 
 export function Globe(props: GlobeProps) {
-  const { markers, meteors } = props;
+  const { /*markers,*/ meteors } = props;
 
   const camera = {
     fov: 75,
@@ -36,20 +36,18 @@ export function Globe(props: GlobeProps) {
         zoomSpeed={0.1}
         rotateSpeed={0.1}
       />
-      {/*<axesHelper args={[5000]} />*/}
       <ambientLight intensity={0.1} />
       <directionalLight color="white" position={position(0, 0, 1)} />
-
       <mesh>
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial {...material} />
       </mesh>
-
-      {markers.map((m) => (
+      {/*      {markers.map((m) => (
         <Marker key={`marker-${m.identifier}`} {...m} />
       ))}
+*/}{" "}
       {meteors.map((m, i) => (
-        <Meteor key={`meteor-${i}`} {...m} />
+        <Meteor key={`meteor-${m.index}`} {...m} />
       ))}
     </Canvas>
   );
