@@ -107,10 +107,11 @@ export function Meteor(props: MeteorProps) {
     <mesh
       ref={ref}
       position={center}
+      scale={[width, length, 1]}
       onPointerOver={(e) => setHighlighted(true)}
       onPointerOut={(e) => setHighlighted(false)}
     >
-      <planeGeometry args={[width, length]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
