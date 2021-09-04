@@ -3,13 +3,24 @@ import fetchline from "fetchline";
 import { store } from "./store";
 import { MeteorProps } from "./Meteor";
 
-export function initMeteors() {
-  loadMeteors(
-    "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
-    //"/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
-    // "/meteor-globe/data/one_perseid.txt"
-    // "/meteor-globe/data/ten.txt"
-  ).catch((e) => {
+function meteorDataUrl(params: URLSearchParams) {
+  const test = params.get("test");
+  if (test !== null) {
+    switch (test) {
+      case "one_perseid":
+        return "/meteor-globe/data/one_perseid.txt";
+      default:
+        return "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt";
+    }
+  }
+
+  // default to all detected by GMN yesterday
+  return "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt";
+}
+
+export function initMeteors(params: URLSearchParams) {
+  const url = meteorDataUrl(params);
+  loadMeteors(url).catch((e) => {
     console.error("[meteors] load failed", e);
   });
 }
