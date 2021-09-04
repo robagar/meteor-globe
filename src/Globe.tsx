@@ -5,7 +5,7 @@ import { EARTH_RADIUS, position } from "./geometry";
 
 import { /*Marker, */ MarkerProps } from "./Marker";
 import { MeteorData } from "./meteors";
-import { Meteor } from "./Meteor";
+import { InstancedMeteors } from "./InstancedMeteors";
 
 import "./Globe.css";
 
@@ -48,10 +48,8 @@ export function Globe(props: GlobeProps) {
       {/*      {markers.map((m) => (
         <Marker key={`marker-${m.identifier}`} {...m} />
       ))}
-*/}{" "}
-      {meteors.map((m, i) => (
-        <Meteor key={`meteor-${m.index}`} data={m} />
-      ))}
+*/}
+      <InstancedMeteors data={meteors} />
     </Canvas>
   );
 }
