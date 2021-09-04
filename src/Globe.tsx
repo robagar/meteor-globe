@@ -3,8 +3,10 @@ import { useTexture, OrbitControls } from "@react-three/drei";
 
 import { EARTH_RADIUS, position } from "./geometry";
 
-import { Marker, MarkerProps } from "./Marker";
+import { /*Marker, */ MarkerProps } from "./Marker";
 import { Meteor, MeteorProps } from "./Meteor";
+
+import "./Globe.css";
 
 export interface GlobeProps {
   markers: MarkerProps[];
@@ -29,7 +31,7 @@ export function Globe(props: GlobeProps) {
     specularMap: "/meteor-globe/textures/water_4k.png",
   });
   return (
-    <Canvas frameloop="demand" camera={camera}>
+    <Canvas className="globeCanvas" frameloop="demand" camera={camera}>
       <OrbitControls
         minDistance={EARTH_RADIUS + MIN_CAMERA_HEIGHT}
         maxDistance={EARTH_RADIUS + MAX_CAMERA_HEIGHT}
