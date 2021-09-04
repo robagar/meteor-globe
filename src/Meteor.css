@@ -1,0 +1,25 @@
+.tooltip {
+  pointer-events: none;
+}
+
+.shower {
+  font-weight: bold;
+}
+
+.beginTime {
+  font-size: 85%;
+  font-style: italic;
+}
+
+.magnitude {
+  font-size: 85%;
+}
+
+.duration {
+  font-size: 85%;
+}
+
+.stationCodes {
+  font-size: 60%;
+  font-style: italic;
+}

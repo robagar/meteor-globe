@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Mesh, Vector3, Matrix4 } from "three";
 import { useFrame } from "@react-three/fiber";
+import { Html } from "@react-three/drei";
 
 import { LatLongHt, xyz, XYZ, Km } from "./geometry";
 
-export type UTCTime = number;
+import "./Meteor.css";
+
+export type UTCTime = string;
 export type ShowerCode = string;
 export type Seconds = number;
 export type Magnitude = number;
@@ -12,7 +15,8 @@ export type Kg = number;
 export type StationCode = string;
 
 export interface MeteorProps {
-  time: UTCTime;
+  index: number;
+  beginTime: UTCTime;
   showerCode: ShowerCode;
   begin: LatLongHt;
   end: LatLongHt;
@@ -26,8 +30,19 @@ export interface MeteorProps {
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;
 
+const DEFAULT_COLOR = [1, 1, 1];
+const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
+
 export function Meteor(props: MeteorProps) {
-  const { begin, end, magnitude } = props;
+  const {
+    beginTime,
+    showerCode,
+    begin,
+    end,
+    magnitude,
+    duration,
+    stationCodes,
+  } = props;
 
   const brightness = 1 - magnitude * 0.2;
 
@@ -80,6 +95,7 @@ export function Meteor(props: MeteorProps) {
   `;
 
   const fragmentShader = `
+    uniform vec3 color;
     varying vec2 vUv;
 
     void main() {
@@ -89,18 +105,45 @@ export function Meteor(props: MeteorProps) {
       float p = 0.75;
       float l = y < p ? (y / p) : (1.0 - y) / (1.0 - p);
       float opacity = c * l;
-      gl_FragColor = vec4(1, 1, 1, opacity);
+      gl_FragColor = vec4(color, opacity);
     }
   `;
 
+  const [highlighted, setHighlighted] = useState(false);
+  const color = highlighted ? HIGHLIGHTED_COLOR : DEFAULT_COLOR;
+  const uniforms = useRef({
+    color: {
+      value: color,
+    },
+  });
+  uniforms.current.color.value = color;
+
   return (
-    <mesh ref={ref} position={center}>
+    <mesh
+      ref={ref}
+      position={center}
+      onPointerOver={(e) => setHighlighted(true)}
+      onPointerOut={(e) => setHighlighted(false)}
+    >
       <planeGeometry args={[width, length]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         transparent={true}
+        uniforms={uniforms.current}
       />
+      {highlighted && (
+        <Html>
+          <div className="tooltip">
+            <div className="shower">{showerCode}</div>
+            <div className="beginTime">{beginTime}</div>
+            <div className="magnitude">Mag {magnitude}</div>
+            <div className="duration">{duration}s</div>
+
+            <div className="stationCodes">{stationCodes.join(", ")}</div>
+          </div>
+        </Html>
+      )}
     </mesh>
   );
 }

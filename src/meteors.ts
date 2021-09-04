@@ -6,8 +6,9 @@ import { MeteorProps } from "./Meteor";
 export function initMeteors() {
   loadMeteors(
     "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt"
-    // "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
+    //"/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt"
     // "/meteor-globe/data/one_perseid.txt"
+    // "/meteor-globe/data/ten.txt"
   ).catch((e) => {
     console.error("[meteors] load failed", e);
   });
@@ -32,6 +33,7 @@ const NUM_COLUMNS = 83;
 
 async function loadMeteors(url: string) {
   const meteors: MeteorProps[] = [];
+  let nextIndex = 0;
   for await (let line of fetchline(url)) {
     if (line.length === 0) continue;
     if (line[0] === "\r") line = line.slice(1); // fetchline bug?
@@ -49,7 +51,7 @@ async function loadMeteors(url: string) {
       return parseFloat(s(i));
     };
 
-    const time = f(BEGIN_UTC_TIME);
+    const beginTime = s(BEGIN_UTC_TIME);
     const showerCode = s(IAU_CODE);
     const begin = {
       latitude: f(BEGIN_LATITUDE),
@@ -68,7 +70,8 @@ async function loadMeteors(url: string) {
     const stationCodes = s(STATION_CODES).split(",");
 
     meteors.push({
-      time,
+      index: nextIndex++,
+      beginTime,
       showerCode,
       begin,
       end,
