@@ -1,12 +1,5 @@
-import { useMemo, useRef } from "react";
-import {
-  Matrix4,
-  Vector3,
-  Quaternion,
-  InstancedMesh,
-  PlaneGeometry,
-  ShaderMaterial,
-} from "three";
+import { useRef } from "react";
+import { Matrix4, Vector3, Quaternion, InstancedMesh } from "three";
 import { useFrame } from "@react-three/fiber";
 
 import { xyz, XYZ } from "./geometry";
@@ -22,14 +15,12 @@ export interface InstancedMeteorsProps {
 export function InstancedMeteors(props: InstancedMeteorsProps) {
   const { data } = props;
 
-  const geometry = useMemo(() => new PlaneGeometry(), []);
-
   const vertexShader = `
     varying vec2 vUv;
 
     void main() {
       vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+      gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(position,1.0);
     }
   `;
 
@@ -48,22 +39,12 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     }
   `;
 
-  const color = [1, 0, 0];
-  const uniformsRef = useRef({
+  const color = [1, 1, 1];
+  const uniforms = useRef({
     color: {
       value: color,
     },
   });
-  const material = useMemo(
-    () =>
-      new ShaderMaterial({
-        vertexShader,
-        fragmentShader,
-        uniforms: uniformsRef.current,
-        transparent: true,
-      }),
-    [vertexShader, fragmentShader, uniformsRef]
-  );
 
   const ref = useRef<InstancedMesh>();
   useFrame(({ camera }) => {
@@ -79,7 +60,18 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     }
   });
 
-  return <instancedMesh ref={ref} args={[geometry, material, data.length]} />;
+  return (
+    <instancedMesh ref={ref} args={[undefined, undefined, data.length]}>
+      <planeGeometry args={[1, 1]} />
+      <shaderMaterial
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        transparent={true}
+        depthWrite={false}
+        uniforms={uniforms.current}
+      />
+    </instancedMesh>
+  );
 }
 
 function buildMeteorMatrix(
