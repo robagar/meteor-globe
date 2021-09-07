@@ -1,12 +1,16 @@
-import { useRef } from "react";
-import { Matrix4, Vector3, Quaternion, InstancedMesh } from "three";
+import { useRef, useState } from "react";
+import { Matrix4, Vector3, Quaternion, InstancedMesh, Color } from "three";
 import { useFrame } from "@react-three/fiber";
+import { Html } from "@react-three/drei";
 
 import { xyz, XYZ } from "./geometry";
 import { MeteorData } from "./meteors";
 
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;
+
+const DEFAULT_COLOR = new Color(1, 1, 1);
+const HIGHLIGHTED_COLOR = new Color(1.0, 0.27, 0.71); // CSS hotpink #FF69B4
 
 export interface InstancedMeteorsProps {
   data: MeteorData[];
@@ -17,16 +21,18 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
 
   const vertexShader = `
     varying vec2 vUv;
+    varying vec3 vColor;
 
     void main() {
       vUv = uv;
+      vColor = instanceColor;
       gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(position,1.0);
     }
   `;
 
   const fragmentShader = `
-    uniform vec3 color;
     varying vec2 vUv;
+    varying vec3 vColor;
 
     void main() {
       float x = vUv.x;
@@ -35,42 +41,64 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
       float p = 0.75;
       float l = y < p ? (y / p) : (1.0 - y) / (1.0 - p);
       float opacity = c * l;
-      gl_FragColor = vec4(color, opacity);
+      gl_FragColor = vec4(vColor, opacity);
     }
   `;
 
-  const color = [1, 1, 1];
-  const uniforms = useRef({
-    color: {
-      value: color,
-    },
-  });
-
   const ref = useRef<InstancedMesh>();
   useFrame(({ camera }) => {
+    // console.info("frame!", data.length);
     const mesh = ref.current;
     if (mesh) {
       for (const meteor of data) {
-        mesh.setMatrixAt(
-          meteor.index,
-          buildMeteorMatrix(meteor, camera.position)
+        const i = meteor.index;
+        mesh.setMatrixAt(i, buildMeteorMatrix(meteor, camera.position));
+        mesh.setColorAt(
+          i,
+          i === hoverInstanceIdRef.current ? HIGHLIGHTED_COLOR : DEFAULT_COLOR
         );
       }
       mesh.instanceMatrix.needsUpdate = true;
+      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
     }
   });
 
+  const [hover, setHover] = useState(false);
+  const hoverInstanceIdRef = useRef<number | undefined>();
+
   return (
-    <instancedMesh ref={ref} args={[undefined, undefined, data.length]}>
-      <planeGeometry args={[1, 1]} />
-      <shaderMaterial
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        transparent={true}
-        depthWrite={false}
-        uniforms={uniforms.current}
-      />
-    </instancedMesh>
+    <>
+      {data.length && (
+        <instancedMesh
+          ref={ref}
+          args={[undefined, undefined, data.length]}
+          onPointerOver={(e) => {
+            console.info("over", e.instanceId);
+            setHover(true);
+            if (hoverInstanceIdRef.current !== e.instanceId) {
+              hoverInstanceIdRef.current = e.instanceId;
+            }
+          }}
+          onPointerOut={(e) => {
+            console.info("out", e.instanceId);
+            setHover(false);
+            if (hoverInstanceIdRef.current === e.instanceId) {
+              hoverInstanceIdRef.current = undefined;
+            }
+          }}
+        >
+          <planeGeometry args={[1, 1]} />
+          <shaderMaterial
+            vertexShader={vertexShader}
+            fragmentShader={fragmentShader}
+            transparent={true}
+            depthWrite={false}
+          />
+
+          {hover && <Html>TOOLTIP</Html>}
+        </instancedMesh>
+      )}
+    </>
   );
 }
 
