@@ -13,6 +13,7 @@ import { Html } from "@react-three/drei";
 
 import { xyz, XYZ } from "./geometry";
 import { MeteorData } from "./meteors";
+import { MeteorTooltip } from "./MeteorTooltip";
 
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;
@@ -71,7 +72,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     }
   });
 
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState<MeteorData | undefined>(undefined);
   const hoverInstanceIdRef = useRef<number | undefined>();
 
   return (
@@ -81,15 +82,16 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
           ref={ref}
           args={[undefined, undefined, data.length]}
           onPointerOver={(e) => {
-            console.info("over", e.instanceId, e);
-            setHover(true);
-            if (hoverInstanceIdRef.current !== e.instanceId) {
-              hoverInstanceIdRef.current = e.instanceId;
+            const i = e.instanceId;
+            if (i !== undefined) {
+              setHover(data[i]);
+              if (hoverInstanceIdRef.current !== i) {
+                hoverInstanceIdRef.current = i;
+              }
             }
           }}
           onPointerOut={(e) => {
-            console.info("out", e.instanceId);
-            setHover(false);
+            setHover(undefined);
             if (hoverInstanceIdRef.current === e.instanceId) {
               hoverInstanceIdRef.current = undefined;
             }
@@ -114,7 +116,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
                 )
               }
             >
-              TOOLTIP
+              <MeteorTooltip meteor={hover} />
             </Html>
           )}
         </instancedMesh>
