@@ -1,5 +1,13 @@
 import { useRef, useState } from "react";
-import { Matrix4, Vector3, Quaternion, InstancedMesh, Color } from "three";
+import {
+  Matrix4,
+  Vector3,
+  Quaternion,
+  InstancedMesh,
+  Color,
+  Object3D,
+  Camera,
+} from "three";
 import { useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
@@ -73,7 +81,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
           ref={ref}
           args={[undefined, undefined, data.length]}
           onPointerOver={(e) => {
-            console.info("over", e.instanceId);
+            console.info("over", e.instanceId, e);
             setHover(true);
             if (hoverInstanceIdRef.current !== e.instanceId) {
               hoverInstanceIdRef.current = e.instanceId;
@@ -95,11 +103,49 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
             depthWrite={false}
           />
 
-          {hover && <Html>TOOLTIP</Html>}
+          {hover && (
+            <Html
+              calculatePosition={(el, camera, size) =>
+                calculateTooltipPosition(
+                  el,
+                  camera,
+                  size,
+                  () => hoverInstanceIdRef.current
+                )
+              }
+            >
+              TOOLTIP
+            </Html>
+          )}
         </instancedMesh>
       )}
     </>
   );
+}
+
+const v1 = new Vector3();
+const m = new Matrix4();
+function calculateTooltipPosition(
+  el: Object3D,
+  camera: Camera,
+  size: { width: number; height: number },
+  getIndex: () => number | undefined
+) {
+  const index = getIndex();
+
+  if (el.parent instanceof InstancedMesh && index !== undefined) {
+    el.parent.getMatrixAt(index, m);
+  } else {
+    m.copy(el.matrixWorld);
+  }
+  const objectPos = v1.setFromMatrixPosition(m);
+  objectPos.project(camera);
+  const widthHalf = size.width / 2;
+  const heightHalf = size.height / 2;
+  return [
+    objectPos.x * widthHalf + widthHalf,
+    -(objectPos.y * heightHalf) + heightHalf,
+  ];
 }
 
 function buildMeteorMatrix(
