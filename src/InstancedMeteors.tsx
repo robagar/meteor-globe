@@ -138,7 +138,8 @@ function calculateTooltipPosition(
   if (el.parent instanceof InstancedMesh && index !== undefined) {
     el.parent.getMatrixAt(index, m);
   } else {
-    m.copy(el.matrixWorld);
+    // hide tooltip offscreen
+    return [-9999999, -9999999];
   }
   const objectPos = v1.setFromMatrixPosition(m);
   objectPos.project(camera);
@@ -154,15 +155,7 @@ function buildMeteorMatrix(
   meteor: MeteorData,
   cameraPosition: Vector3
 ): Matrix4 {
-  const {
-    // beginTime,
-    // showerCode,
-    begin,
-    end,
-    magnitude,
-    // duration,
-    // stationCodes,
-  } = meteor;
+  const { begin, end, magnitude } = meteor;
 
   const brightness = 1 - magnitude * 0.2;
 
