@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
@@ -34,10 +33,26 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}.
+      {new Date().getFullYear()}{" "}
+      <Link
+        color="inherit"
+        href="https://github.com/robagar/meteor-globe"
+        target="_blank"
+        rel="noopener"
+      >
+        Rob Agar
+      </Link>
+      {" (UK003C) "}
+      {" — "}
+      {"Meteor data from the "}
+      <Link
+        color="inherit"
+        href="https://globalmeteornetwork.org/"
+        target="_blank"
+        rel="noopener"
+      >
+        Global Meteor Network
+      </Link>
     </Typography>
   );
 }
@@ -52,11 +67,11 @@ export default function App() {
   useEffect(() => initMeteors(queryParams));
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
+    <Box sx={{ height: "100vh", display: "flex", flexFlow: "column" }}>
+      <Box sx={{ flex: "1 1 auto" }}>
         <Globe markers={[...markers.values()]} meteors={meteors} />
-        <Copyright />
       </Box>
-    </Container>
+      <Copyright />
+    </Box>
   );
 }
