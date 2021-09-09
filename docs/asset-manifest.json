@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/meteor-globe/static/css/main.8cedafc4.chunk.css",
-    "main.js": "/meteor-globe/static/js/main.6f71707e.chunk.js",
-    "main.js.map": "/meteor-globe/static/js/main.6f71707e.chunk.js.map",
+    "main.css": "/meteor-globe/static/css/main.1d2db017.chunk.css",
+    "main.js": "/meteor-globe/static/js/main.d32992c0.chunk.js",
+    "main.js.map": "/meteor-globe/static/js/main.d32992c0.chunk.js.map",
     "runtime-main.js": "/meteor-globe/static/js/runtime-main.f01909e3.js",
     "runtime-main.js.map": "/meteor-globe/static/js/runtime-main.f01909e3.js.map",
     "static/js/2.711b6c23.chunk.js": "/meteor-globe/static/js/2.711b6c23.chunk.js",
     "static/js/2.711b6c23.chunk.js.map": "/meteor-globe/static/js/2.711b6c23.chunk.js.map",
     "index.html": "/meteor-globe/index.html",
-    "static/css/main.8cedafc4.chunk.css.map": "/meteor-globe/static/css/main.8cedafc4.chunk.css.map",
+    "static/css/main.1d2db017.chunk.css.map": "/meteor-globe/static/css/main.1d2db017.chunk.css.map",
     "static/js/2.711b6c23.chunk.js.LICENSE.txt": "/meteor-globe/static/js/2.711b6c23.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f01909e3.js",
     "static/js/2.711b6c23.chunk.js",
-    "static/css/main.8cedafc4.chunk.css",
-    "static/js/main.6f71707e.chunk.js"
+    "static/css/main.1d2db017.chunk.css",
+    "static/js/main.d32992c0.chunk.js"
   ]
 }
