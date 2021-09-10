@@ -21,7 +21,8 @@ export const store = new Store({
   ]),
   meteorDataInfo: {
     url: "",
-    title: "Loading...",
-  },
+    title: "Loading meteors...",
+  } as MeteorDataInfo,
   meteors: [] as MeteorData[],
+  selectedMeteor: undefined as MeteorData | undefined,
 });

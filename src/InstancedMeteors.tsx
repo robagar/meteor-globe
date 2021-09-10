@@ -23,10 +23,11 @@ const HIGHLIGHTED_COLOR = new Color(1.0, 0.27, 0.71); // CSS hotpink #FF69B4
 
 export interface InstancedMeteorsProps {
   data: MeteorData[];
+  selectMeteor: (meteor: MeteorData) => void;
 }
 
 export function InstancedMeteors(props: InstancedMeteorsProps) {
-  const { data } = props;
+  const { data, selectMeteor } = props;
 
   const vertexShader = `
     varying vec2 vUv;
@@ -81,6 +82,12 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
         <instancedMesh
           ref={ref}
           args={[undefined, undefined, data.length]}
+          onClick={(e) => {
+            const i = e.instanceId;
+            if (i !== undefined) {
+              selectMeteor(data[i]);
+            }
+          }}
           onPointerOver={(e) => {
             const i = e.instanceId;
             if (i !== undefined) {

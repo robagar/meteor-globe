@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 
 import { AppBar, Toolbar, Typography, Box, Link } from "@mui/material";
+
 import { Globe } from "./Globe";
+import { MeteorInfo } from "./MeteorInfo";
+
 import "./App.css";
 
 import { store } from "./store";
 import { initCameras } from "./cameras";
-import { initMeteors } from "./meteors";
+import { initMeteors, MeteorData } from "./meteors";
 
 const formatter = new Intl.NumberFormat();
 
@@ -60,6 +63,7 @@ export default function App() {
 
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
+  const selectedMeteor = store.useState((s) => s.selectedMeteor);
 
   useEffect(initCameras, []);
   useEffect(() => initMeteors(queryParams));
@@ -68,7 +72,17 @@ export default function App() {
     <Box sx={{ height: "100vh", display: "flex", flexFlow: "column" }}>
       <Header />
       <Box sx={{ flex: "1 1 auto" }}>
-        <Globe markers={[...markers.values()]} meteors={meteors} />
+        <Globe
+          markers={[...markers.values()]}
+          meteors={meteors}
+          selectMeteor={(m: MeteorData) => {
+            console.info("SELECT", m);
+            store.update((s) => {
+              s.selectedMeteor = m;
+            });
+          }}
+        />
+        {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
       </Box>
       <Footer />
     </Box>
