@@ -2,22 +2,26 @@ import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
 import { MarkerProps } from "./Marker";
-import { MeteorData } from "./meteors";
+import { MeteorData, MeteorDataInfo } from "./meteors";
 
 enableMapSet();
 
 export const store = new Store({
-    highlightedMarker: "",
-    markers: new Map<string, MarkerProps>([
-        [
-            "UK003C",
-            {
-                identifier: "UK003C",
-                latitude: 50.224871,
-                longitude: -4.949858,
-                label: "UK003C",
-            },
-        ],
-    ]),
-    meteors: [] as MeteorData[],
+  highlightedMarker: "",
+  markers: new Map<string, MarkerProps>([
+    [
+      "UK003C",
+      {
+        identifier: "UK003C",
+        latitude: 50.224871,
+        longitude: -4.949858,
+        label: "UK003C",
+      },
+    ],
+  ]),
+  meteorDataInfo: {
+    url: "",
+    title: "Loading...",
+  },
+  meteors: [] as MeteorData[],
 });

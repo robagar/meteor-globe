@@ -26,26 +26,41 @@ export interface MeteorData {
   stationCodes: StationCode[];
 }
 
-function meteorDataUrl(params: URLSearchParams) {
+export interface MeteorDataInfo {
+  url: string;
+  title: string;
+}
+
+function meteorDataInfo(params: URLSearchParams): MeteorDataInfo {
   const test = params.get("test");
   if (test !== null) {
     switch (test) {
       case "one_perseid":
-        return "/meteor-globe/data/one_perseid.txt";
+        return {
+          url: "/meteor-globe/data/one_perseid.txt",
+          title: "Test - One Perseid",
+        };
       default:
-        return "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt";
+        return {
+          url: "/meteor-globe/data/traj_summary_20210812_solrange_140.0-141.0.txt",
+          title: "Test - Lots of Perseids",
+        };
     }
   }
 
   // default to all detected by GMN yesterday
-  return "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt";
+  return {
+    url: "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt",
+    title: "Yesterday",
+  };
 }
 
 export function initMeteors(params: URLSearchParams) {
-  const url = meteorDataUrl(params);
-  fetchMeteorData(url)
+  const info = meteorDataInfo(params);
+  fetchMeteorData(info.url)
     .then((meteors) => {
       store.update((s) => {
+        s.meteorDataInfo = info;
         s.meteors = meteors;
       });
     })
