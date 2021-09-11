@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import {
   AppBar,
@@ -41,13 +41,14 @@ export default function App() {
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
 
   useEffect(initCameras, []);
-  useEffect(() => {
-    tryLoadMeteors(meteorDataInfoFromParams(queryParams));
+
+  const tryLoadMeteors = useCallback((info: MeteorDataInfo) => {
+    loadMeteors(info).catch((e) => setError(`Failed to load meteors - ${e}`));
   }, []);
 
-  const tryLoadMeteors = (info: MeteorDataInfo) => {
-    loadMeteors(info).catch((e) => setError(`Failed to load meteors - ${e}`));
-  };
+  useEffect(() => {
+    tryLoadMeteors(meteorDataInfoFromParams(queryParams));
+  }, [tryLoadMeteors]);
 
   const Header = () => {
     const title = store.useState((s) => s.meteorDataInfo.title);

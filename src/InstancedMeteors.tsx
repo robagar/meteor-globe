@@ -22,6 +22,11 @@ const DEFAULT_COLOR = new Color("white");
 const HIGHLIGHTED_COLOR = new Color("goldenrod");
 const SELECTED_COLOR = new Color("hotpink");
 
+// workaround for R3F bug - pointer events stop working if instanced mesh is reinstantiated
+const MAX_METEORS = 10000;
+
+const ZERO_MATRIX = new Matrix4();
+
 export interface InstancedMeteorsProps {
   data: MeteorData[];
   selectedMeteor?: MeteorData;
@@ -58,7 +63,14 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
   `;
 
   const ref = useRef<InstancedMesh>();
+  const old = useRef<InstancedMesh>();
+
   useFrame(({ camera }) => {
+    if (old.current !== ref.current) {
+      console.warn("new InstancedMesh", ref.current);
+      old.current = ref.current;
+    }
+
     // console.info("frame!", data.length);
     const mesh = ref.current;
     if (mesh) {
@@ -70,6 +82,11 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
         else if (i === hoverInstanceIdRef.current) color = HIGHLIGHTED_COLOR;
         mesh.setColorAt(i, color);
       }
+
+      for (let i = data.length; i < MAX_METEORS; ++i) {
+        mesh.setMatrixAt(i, ZERO_MATRIX);
+      }
+
       mesh.instanceMatrix.needsUpdate = true;
       if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
     }
@@ -85,8 +102,9 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
       {data.length && (
         <instancedMesh
           ref={ref}
-          args={[undefined, undefined, data.length]}
+          args={[undefined, undefined, MAX_METEORS /*data.length*/]}
           onClick={(e) => {
+            // console.info("onClick", e.instanceId);
             const i = e.instanceId;
             if (i !== undefined) {
               selectMeteor(data[i]);
@@ -94,6 +112,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
             }
           }}
           onPointerOver={(e) => {
+            // console.info("onPointerOver", e.instanceId);
             const i = e.instanceId;
             if (i !== undefined) {
               setHover(data[i]);
