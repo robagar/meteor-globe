@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/meteor-globe/static/css/main.1d2db017.chunk.css",
-    "main.js": "/meteor-globe/static/js/main.d32992c0.chunk.js",
-    "main.js.map": "/meteor-globe/static/js/main.d32992c0.chunk.js.map",
+    "main.css": "/meteor-globe/static/css/main.d59f6bb8.chunk.css",
+    "main.js": "/meteor-globe/static/js/main.40c153ac.chunk.js",
+    "main.js.map": "/meteor-globe/static/js/main.40c153ac.chunk.js.map",
     "runtime-main.js": "/meteor-globe/static/js/runtime-main.f01909e3.js",
     "runtime-main.js.map": "/meteor-globe/static/js/runtime-main.f01909e3.js.map",
-    "static/js/2.711b6c23.chunk.js": "/meteor-globe/static/js/2.711b6c23.chunk.js",
-    "static/js/2.711b6c23.chunk.js.map": "/meteor-globe/static/js/2.711b6c23.chunk.js.map",
+    "static/css/2.20ca3d47.chunk.css": "/meteor-globe/static/css/2.20ca3d47.chunk.css",
+    "static/js/2.45a42d75.chunk.js": "/meteor-globe/static/js/2.45a42d75.chunk.js",
+    "static/js/2.45a42d75.chunk.js.map": "/meteor-globe/static/js/2.45a42d75.chunk.js.map",
     "index.html": "/meteor-globe/index.html",
-    "static/css/main.1d2db017.chunk.css.map": "/meteor-globe/static/css/main.1d2db017.chunk.css.map",
-    "static/js/2.711b6c23.chunk.js.LICENSE.txt": "/meteor-globe/static/js/2.711b6c23.chunk.js.LICENSE.txt"
+    "static/css/2.20ca3d47.chunk.css.map": "/meteor-globe/static/css/2.20ca3d47.chunk.css.map",
+    "static/css/main.d59f6bb8.chunk.css.map": "/meteor-globe/static/css/main.d59f6bb8.chunk.css.map",
+    "static/js/2.45a42d75.chunk.js.LICENSE.txt": "/meteor-globe/static/js/2.45a42d75.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/meteor-globe/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.f01909e3.js",
-    "static/js/2.711b6c23.chunk.js",
-    "static/css/main.1d2db017.chunk.css",
-    "static/js/main.d32992c0.chunk.js"
+    "static/css/2.20ca3d47.chunk.css",
+    "static/js/2.45a42d75.chunk.js",
+    "static/css/main.d59f6bb8.chunk.css",
+    "static/js/main.40c153ac.chunk.js"
   ]
 }
