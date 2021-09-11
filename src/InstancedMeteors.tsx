@@ -8,7 +8,7 @@ import {
   Object3D,
   Camera,
 } from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
 import { xyz, XYZ } from "./geometry";
@@ -18,16 +18,18 @@ import { MeteorTooltip } from "./MeteorTooltip";
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;
 
-const DEFAULT_COLOR = new Color(1, 1, 1);
-const HIGHLIGHTED_COLOR = new Color(1.0, 0.27, 0.71); // CSS hotpink #FF69B4
+const DEFAULT_COLOR = new Color("white");
+const HIGHLIGHTED_COLOR = new Color("goldenrod");
+const SELECTED_COLOR = new Color("hotpink");
 
 export interface InstancedMeteorsProps {
   data: MeteorData[];
+  selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
 }
 
 export function InstancedMeteors(props: InstancedMeteorsProps) {
-  const { data, selectMeteor } = props;
+  const { data, selectedMeteor, selectMeteor } = props;
 
   const vertexShader = `
     varying vec2 vUv;
@@ -63,10 +65,10 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
       for (const meteor of data) {
         const i = meteor.index;
         mesh.setMatrixAt(i, buildMeteorMatrix(meteor, camera.position));
-        mesh.setColorAt(
-          i,
-          i === hoverInstanceIdRef.current ? HIGHLIGHTED_COLOR : DEFAULT_COLOR
-        );
+        let color = DEFAULT_COLOR;
+        if (meteor === selectedMeteor) color = SELECTED_COLOR;
+        else if (i === hoverInstanceIdRef.current) color = HIGHLIGHTED_COLOR;
+        mesh.setColorAt(i, color);
       }
       mesh.instanceMatrix.needsUpdate = true;
       if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
@@ -75,6 +77,8 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
 
   const [hover, setHover] = useState<MeteorData | undefined>(undefined);
   const hoverInstanceIdRef = useRef<number | undefined>();
+
+  const { invalidate } = useThree();
 
   return (
     <>
@@ -86,6 +90,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
             const i = e.instanceId;
             if (i !== undefined) {
               selectMeteor(data[i]);
+              invalidate();
             }
           }}
           onPointerOver={(e) => {

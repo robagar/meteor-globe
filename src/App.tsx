@@ -75,6 +75,7 @@ export default function App() {
         <Globe
           markers={[...markers.values()]}
           meteors={meteors}
+          selectedMeteor={selectedMeteor}
           selectMeteor={(m: MeteorData) => {
             console.info("SELECT", m);
             store.update((s) => {

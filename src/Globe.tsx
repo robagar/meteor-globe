@@ -12,6 +12,7 @@ import "./Globe.css";
 export interface GlobeProps {
   markers: MarkerProps[];
   meteors: MeteorData[];
+  selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
 }
 
@@ -19,7 +20,7 @@ const MIN_CAMERA_HEIGHT = 200;
 const MAX_CAMERA_HEIGHT = 10000;
 
 export function Globe(props: GlobeProps) {
-  const { /*markers,*/ meteors, selectMeteor } = props;
+  const { /*markers,*/ meteors, selectedMeteor, selectMeteor } = props;
 
   const camera = {
     fov: 75,
@@ -50,7 +51,11 @@ export function Globe(props: GlobeProps) {
         <Marker key={`marker-${m.identifier}`} {...m} />
       ))}
 */}
-      <InstancedMeteors data={meteors} selectMeteor={selectMeteor} />
+      <InstancedMeteors
+        data={meteors}
+        selectedMeteor={selectedMeteor}
+        selectMeteor={selectMeteor}
+      />
     </Canvas>
   );
 }
