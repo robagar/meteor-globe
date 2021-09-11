@@ -12,6 +12,7 @@ export type Seconds = number;
 export type Magnitude = number;
 export type Kg = number;
 export type StationCode = string;
+export type Kms = number;
 
 export interface MeteorData {
   index: number;
@@ -23,6 +24,7 @@ export interface MeteorData {
   magnitude: Magnitude;
   duration: Seconds;
   mass: Kg;
+  averageSpeed: Kms;
   stationCodes: StationCode[];
 }
 
@@ -73,6 +75,7 @@ export function initMeteors(params: URLSearchParams) {
 // column indices
 const BEGIN_UTC_TIME = 1;
 const IAU_CODE = 3;
+const AVERAGE_SPEED = 58;
 const BEGIN_LATITUDE = 60;
 const BEGIN_LONGITUDE = 62;
 const BEGIN_HEIGHT = 64;
@@ -119,6 +122,7 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
       longitude: f(END_LONGITUDE),
       height: f(END_HEIGHT),
     };
+    const averageSpeed = f(AVERAGE_SPEED);
     const duration = f(DURATION);
     const magnitude = f(MAGNITUDE);
     const peakHeight = f(PEAK_HEIGHT);
@@ -135,6 +139,7 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
       magnitude,
       duration,
       mass,
+      averageSpeed,
       stationCodes,
     });
   }
