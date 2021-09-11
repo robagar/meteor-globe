@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { AppBar, Toolbar, Typography, Box, Link } from "@mui/material";
+import Div100vh from "react-div-100vh";
 
 import { Globe } from "./Globe";
 import { MeteorInfo } from "./MeteorInfo";
@@ -69,7 +70,7 @@ export default function App() {
   useEffect(() => initMeteors(queryParams));
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexFlow: "column" }}>
+    <Div100vh style={{ display: "flex", flexFlow: "column" }}>
       <Header />
       <Box sx={{ flex: "1 1 auto" }}>
         <Globe
@@ -86,6 +87,6 @@ export default function App() {
         {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
       </Box>
       <Footer />
-    </Box>
+    </Div100vh>
   );
 }
