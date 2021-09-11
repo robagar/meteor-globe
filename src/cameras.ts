@@ -26,7 +26,7 @@ export async function loadCameras(url: string): Promise<CameraData[]> {
 export function initCameras() {
   loadCameras("/meteor-globe/data/cameradetails.csv")
     .then((cameras) => {
-      console.info("[cameras]", cameras);
+      // console.info("[cameras]", cameras);
       store.update((s) => {
         const m = s.markers;
         for (const c of cameras) {

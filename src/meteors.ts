@@ -33,7 +33,17 @@ export interface MeteorDataInfo {
   title: string;
 }
 
-function meteorDataInfo(params: URLSearchParams): MeteorDataInfo {
+export const METEORS_YESTERDAY = {
+  url: "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt",
+  title: "Yesterday",
+};
+
+export const METEORS_LATEST_DAILY = {
+  url: "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_latest_daily.txt",
+  title: "Latest Daily",
+};
+
+function meteorDataInfoFromParams(params: URLSearchParams): MeteorDataInfo {
   const test = params.get("test");
   if (test !== null) {
     switch (test) {
@@ -51,25 +61,21 @@ function meteorDataInfo(params: URLSearchParams): MeteorDataInfo {
   }
 
   // default to all detected by GMN yesterday
-  return {
-    url: "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt",
-    title: "Yesterday",
-  };
+  return METEORS_YESTERDAY;
 }
 
-export function initMeteors(params: URLSearchParams) {
-  const info = meteorDataInfo(params);
-  fetchMeteorData(info.url)
-    .then((meteors) => {
-      store.update((s) => {
-        s.meteorDataInfo = info;
-        s.meteors = meteors;
-      });
-    })
-    .catch((e) => {
-      console.error("[meteors] fetch failed", e);
-      throw e;
-    });
+export async function initMeteors(params: URLSearchParams) {
+  const info = meteorDataInfoFromParams(params);
+  await loadMeteors(info);
+}
+
+export async function loadMeteors(info: MeteorDataInfo) {
+  console.info("[meteors] LOAD", info.title, info.url);
+  const meteors = await fetchMeteorData(info.url);
+  store.update((s) => {
+    s.meteorDataInfo = info;
+    s.meteors = meteors;
+  });
 }
 
 // column indices
