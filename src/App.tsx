@@ -44,6 +44,9 @@ export default function App() {
 
   const tryLoadMeteors = useCallback((info: MeteorDataInfo) => {
     loadMeteors(info).catch((e) => setError(`Failed to load meteors - ${e}`));
+    store.update((s) => {
+      s.selectedMeteor = undefined;
+    });
   }, []);
 
   useEffect(() => {
