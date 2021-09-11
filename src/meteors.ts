@@ -43,7 +43,9 @@ export const METEORS_LATEST_DAILY = {
   title: "Latest Daily",
 };
 
-function meteorDataInfoFromParams(params: URLSearchParams): MeteorDataInfo {
+export function meteorDataInfoFromParams(
+  params: URLSearchParams
+): MeteorDataInfo {
   const test = params.get("test");
   if (test !== null) {
     switch (test) {
@@ -62,11 +64,6 @@ function meteorDataInfoFromParams(params: URLSearchParams): MeteorDataInfo {
 
   // default to all detected by GMN yesterday
   return METEORS_YESTERDAY;
-}
-
-export async function initMeteors(params: URLSearchParams) {
-  const info = meteorDataInfoFromParams(params);
-  await loadMeteors(info);
 }
 
 export async function loadMeteors(info: MeteorDataInfo) {

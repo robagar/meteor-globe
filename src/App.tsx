@@ -9,6 +9,8 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Alert,
+  Snackbar,
 } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Div100vh from "react-div-100vh";
@@ -21,8 +23,9 @@ import "./App.css";
 import { store } from "./store";
 import { initCameras } from "./cameras";
 import {
-  initMeteors,
+  meteorDataInfoFromParams,
   loadMeteors,
+  MeteorDataInfo,
   MeteorData,
   METEORS_YESTERDAY,
   METEORS_LATEST_DAILY,
@@ -32,14 +35,19 @@ const queryParams = new URLSearchParams(window.location.search);
 const formatter = new Intl.NumberFormat();
 
 export default function App() {
+  const [error, setError] = useState<string | undefined>();
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
 
   useEffect(initCameras, []);
   useEffect(() => {
-    initMeteors(queryParams);
+    tryLoadMeteors(meteorDataInfoFromParams(queryParams));
   }, []);
+
+  const tryLoadMeteors = (info: MeteorDataInfo) => {
+    loadMeteors(info).catch((e) => setError(`Failed to load meteors - ${e}`));
+  };
 
   const Header = () => {
     const title = store.useState((s) => s.meteorDataInfo.title);
@@ -73,7 +81,7 @@ export default function App() {
         >
           <MenuItem
             onClick={() => {
-              loadMeteors(METEORS_YESTERDAY);
+              tryLoadMeteors(METEORS_YESTERDAY);
               setMenuVisible(false);
             }}
           >
@@ -81,7 +89,7 @@ export default function App() {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              loadMeteors(METEORS_LATEST_DAILY);
+              tryLoadMeteors(METEORS_LATEST_DAILY);
               setMenuVisible(false);
             }}
           >
@@ -93,24 +101,31 @@ export default function App() {
   };
 
   return (
-    <Div100vh style={{ display: "flex", flexFlow: "column" }}>
-      <Header />
-      <Box sx={{ flex: "1 1 auto" }}>
-        <Globe
-          markers={[...markers.values()]}
-          meteors={meteors}
-          selectedMeteor={selectedMeteor}
-          selectMeteor={(m: MeteorData) => {
-            console.info("SELECT", m);
-            store.update((s) => {
-              s.selectedMeteor = m;
-            });
-          }}
-        />
-        {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
-      </Box>
-      <Footer />
-    </Div100vh>
+    <>
+      <Snackbar open={error !== undefined}>
+        <Alert severity="error" onClose={() => setError(undefined)}>
+          {error}
+        </Alert>
+      </Snackbar>
+      <Div100vh style={{ display: "flex", flexFlow: "column" }}>
+        <Header />
+        <Box sx={{ flex: "1 1 auto" }}>
+          <Globe
+            markers={[...markers.values()]}
+            meteors={meteors}
+            selectedMeteor={selectedMeteor}
+            selectMeteor={(m: MeteorData) => {
+              console.info("SELECT", m);
+              store.update((s) => {
+                s.selectedMeteor = m;
+              });
+            }}
+          />
+          {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
+        </Box>
+        <Footer />
+      </Div100vh>
+    </>
   );
 }
 
