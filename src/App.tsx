@@ -15,13 +15,13 @@ import {
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Div100vh from "react-div-100vh";
 
-import { Globe } from "./Globe";
-import { MeteorInfo } from "./MeteorInfo";
+import { Globe } from "./3d/Globe";
+import { MeteorInfo } from "./ui/MeteorInfo";
 
 import "./App.css";
 
 import { store } from "./store";
-import { initCameras } from "./cameras";
+import { initCameras } from "./data/cameras";
 import {
   meteorDataInfoFromParams,
   loadMeteors,
@@ -29,7 +29,7 @@ import {
   MeteorData,
   METEORS_YESTERDAY,
   METEORS_LATEST_DAILY,
-} from "./meteors";
+} from "./data/meteors";
 
 const queryParams = new URLSearchParams(window.location.search);
 const formatter = new Intl.NumberFormat();

@@ -1,8 +1,8 @@
 import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
-import { MarkerProps } from "./Marker";
-import { MeteorData, MeteorDataInfo } from "./meteors";
+import { MarkerProps } from "./3d/Marker";
+import { MeteorData, MeteorDataInfo } from "./data/meteors";
 
 enableMapSet();
 

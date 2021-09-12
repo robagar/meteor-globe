@@ -12,8 +12,8 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
 import { xyz, XYZ } from "./geometry";
-import { MeteorData } from "./meteors";
-import { MeteorTooltip } from "./MeteorTooltip";
+import { MeteorData } from "../data/meteors";
+import { MeteorTooltip } from "../ui/MeteorTooltip";
 
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;

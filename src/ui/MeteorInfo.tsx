@@ -1,13 +1,20 @@
-import { MeteorData } from "./meteors";
-import "./MeteorTooltip.css";
+import { MeteorData } from "../data/meteors";
+import "./MeteorInfo.css";
 
-export interface MeteorTooltipProps {
+export interface MeteorInfoProps {
   meteor: MeteorData;
 }
 
-export function MeteorTooltip(props: MeteorTooltipProps) {
+export function MeteorInfo(props: MeteorInfoProps) {
   const { meteor } = props;
-  const { showerCode, beginTime, magnitude, duration, stationCodes } = meteor;
+  const {
+    showerCode,
+    beginTime,
+    magnitude,
+    duration,
+    // averageSpeed,
+    stationCodes,
+  } = meteor;
 
   return (
     <div className="root">
@@ -15,7 +22,7 @@ export function MeteorTooltip(props: MeteorTooltipProps) {
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>
-
+      {/*<div className="averageSpeed">{averageSpeed}kms⁻¹</div>*/}
       <div className="stationCodes">{stationCodes.join(", ")}</div>
     </div>
   );

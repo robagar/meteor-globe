@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
 import { xyz, XYZ } from "./geometry";
-import { MeteorData } from "./meteors";
+import { MeteorData } from "../data/meteors";
 
 import "./Meteor.css";
 

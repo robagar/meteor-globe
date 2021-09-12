@@ -1,6 +1,6 @@
 import parse from "csv-parse/lib/sync";
-import { Degrees } from "./geometry";
-import { store } from "./store";
+import { Degrees } from "../3d/geometry";
+import { store } from "../store";
 
 export interface CameraData {
   identifier: string;
