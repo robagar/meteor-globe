@@ -17,6 +17,7 @@ import Div100vh from "react-div-100vh";
 
 import { Globe } from "./3d/Globe";
 import { MeteorInfo } from "./ui/MeteorInfo";
+import { LoadDailyDialog } from "./ui/LoadDailyDialog";
 
 import "./App.css";
 
@@ -58,6 +59,7 @@ export default function App() {
     const numMeteors = store.useState((s) => s.meteors.length);
     const [menuVisible, setMenuVisible] = useState(false);
     const [menuAnchorEl, setMenuAnchorEl] = useState<HTMLElement | null>(null);
+    const [loadDailyDialogOpen, setLoadDailyDialogOpen] = useState(false);
 
     return (
       <>
@@ -99,7 +101,20 @@ export default function App() {
           >
             {METEORS_LATEST_DAILY.title}
           </MenuItem>
+          <MenuItem
+            onClick={() => {
+              setLoadDailyDialogOpen(true);
+              setMenuVisible(false);
+            }}
+          >
+            Daily...
+          </MenuItem>
         </Menu>
+        <LoadDailyDialog
+          open={loadDailyDialogOpen}
+          onClose={() => setLoadDailyDialogOpen(false)}
+          onLoad={() => setLoadDailyDialogOpen(false)}
+        />
       </>
     );
   };
