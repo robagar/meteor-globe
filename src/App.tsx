@@ -7,8 +7,6 @@ import {
   Box,
   Link,
   IconButton,
-  Menu,
-  MenuItem,
   Alert,
   Snackbar,
 } from "@mui/material";
@@ -17,7 +15,8 @@ import Div100vh from "react-div-100vh";
 
 import { Globe } from "./3d/Globe";
 import { MeteorInfo } from "./ui/MeteorInfo";
-import { LoadDailyDialog } from "./ui/LoadDailyDialog";
+import { LoadMeteorsMenu } from "./ui/LoadMeteorsMenu";
+import { LoadDailyMeteorsDialog } from "./ui/LoadDailyMeteorsDialog";
 
 import "./App.css";
 
@@ -28,8 +27,6 @@ import {
   loadMeteors,
   MeteorDataInfo,
   MeteorData,
-  METEORS_YESTERDAY,
-  METEORS_LATEST_DAILY,
 } from "./data/meteors";
 
 const queryParams = new URLSearchParams(window.location.search);
@@ -59,7 +56,8 @@ export default function App() {
     const numMeteors = store.useState((s) => s.meteors.length);
     const [menuVisible, setMenuVisible] = useState(false);
     const [menuAnchorEl, setMenuAnchorEl] = useState<HTMLElement | null>(null);
-    const [loadDailyDialogOpen, setLoadDailyDialogOpen] = useState(false);
+    const [loadDailyMeteorsDialogOpen, setLoadDailyMeteorsDialogOpen] =
+      useState(false);
 
     return (
       <>
@@ -80,40 +78,23 @@ export default function App() {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Menu
+        <LoadMeteorsMenu
           open={menuVisible}
           onClose={() => setMenuVisible(false)}
           anchorEl={menuAnchorEl}
-        >
-          <MenuItem
-            onClick={() => {
-              tryLoadMeteors(METEORS_YESTERDAY);
-              setMenuVisible(false);
-            }}
-          >
-            {METEORS_YESTERDAY.title}
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              tryLoadMeteors(METEORS_LATEST_DAILY);
-              setMenuVisible(false);
-            }}
-          >
-            {METEORS_LATEST_DAILY.title}
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              setLoadDailyDialogOpen(true);
-              setMenuVisible(false);
-            }}
-          >
-            Daily...
-          </MenuItem>
-        </Menu>
-        <LoadDailyDialog
-          open={loadDailyDialogOpen}
-          onClose={() => setLoadDailyDialogOpen(false)}
-          onLoad={() => setLoadDailyDialogOpen(false)}
+          onLoadMeteors={(info: MeteorDataInfo) => {
+            tryLoadMeteors(info);
+            setMenuVisible(false);
+          }}
+          showLoadDailyDialog={() => {
+            setLoadDailyMeteorsDialogOpen(true);
+            setMenuVisible(false);
+          }}
+        />
+        <LoadDailyMeteorsDialog
+          open={loadDailyMeteorsDialogOpen}
+          onClose={() => setLoadDailyMeteorsDialogOpen(false)}
+          onLoadMeteors={() => setLoadDailyMeteorsDialogOpen(false)}
         />
       </>
     );
