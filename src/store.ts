@@ -19,9 +19,10 @@ export const store = new Store({
       },
     ],
   ]),
+  loading: true,
   meteorDataInfo: {
     url: "",
-    title: "Loading meteors...",
+    title: "",
   } as MeteorDataInfo,
   meteors: [] as MeteorData[],
   selectedMeteor: undefined as MeteorData | undefined,

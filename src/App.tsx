@@ -11,7 +11,11 @@ import {
   Snackbar,
 } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import { LocalizationProvider } from "@mui/lab";
+import DateAdapter from "@mui/lab/AdapterLuxon";
+
 import Div100vh from "react-div-100vh";
+import { Settings } from "luxon";
 
 import { Globe } from "./3d/Globe";
 import { MeteorInfo } from "./ui/MeteorInfo";
@@ -28,6 +32,9 @@ import {
   MeteorDataInfo,
   MeteorData,
 } from "./data/meteors";
+import { useGMN } from "./GMNProvider";
+
+Settings.defaultZone = "Europe/London";
 
 const queryParams = new URLSearchParams(window.location.search);
 const formatter = new Intl.NumberFormat();
@@ -40,10 +47,12 @@ export default function App() {
 
   useEffect(initCameras, []);
 
+  const { gmn } = useGMN();
+
   const tryLoadMeteors = useCallback((info: MeteorDataInfo) => {
-    loadMeteors(info).catch((e) => setError(`Failed to load meteors - ${e}`));
-    store.update((s) => {
-      s.selectedMeteor = undefined;
+    loadMeteors(info).catch((e) => {
+      console.error("loading", info, e);
+      setError(`Failed to load ${info.title}`);
     });
   }, []);
 
@@ -52,6 +61,7 @@ export default function App() {
   }, [tryLoadMeteors]);
 
   const Header = () => {
+    const loading = store.useState((s) => s.loading);
     const title = store.useState((s) => s.meteorDataInfo.title);
     const numMeteors = store.useState((s) => s.meteors.length);
     const [menuVisible, setMenuVisible] = useState(false);
@@ -72,7 +82,8 @@ export default function App() {
               <MenuRoundedIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {title}
+              {loading && `Loading ${title}...`}
+              {!loading && title}
               {numMeteors === 1 && ` — 1 meteor`}
               {numMeteors > 1 && ` — ${formatter.format(numMeteors)} meteors`}
             </Typography>
@@ -94,7 +105,12 @@ export default function App() {
         <LoadDailyMeteorsDialog
           open={loadDailyMeteorsDialogOpen}
           onClose={() => setLoadDailyMeteorsDialogOpen(false)}
-          onLoadMeteors={() => setLoadDailyMeteorsDialogOpen(false)}
+          onLoadMeteors={(date) => {
+            const info = gmn.dailyMeteorsInfo(date);
+            console.info(info);
+            tryLoadMeteors(info);
+            setLoadDailyMeteorsDialogOpen(false);
+          }}
         />
       </>
     );
@@ -102,29 +118,31 @@ export default function App() {
 
   return (
     <>
-      <Snackbar open={error !== undefined}>
-        <Alert severity="error" onClose={() => setError(undefined)}>
-          {error}
-        </Alert>
-      </Snackbar>
-      <Div100vh style={{ display: "flex", flexFlow: "column" }}>
-        <Header />
-        <Box sx={{ flex: "1 1 auto" }}>
-          <Globe
-            markers={[...markers.values()]}
-            meteors={meteors}
-            selectedMeteor={selectedMeteor}
-            selectMeteor={(m: MeteorData) => {
-              console.info("SELECT", m);
-              store.update((s) => {
-                s.selectedMeteor = m;
-              });
-            }}
-          />
-          {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
-        </Box>
-        <Footer />
-      </Div100vh>
+      <LocalizationProvider dateAdapter={DateAdapter}>
+        <Snackbar open={error !== undefined}>
+          <Alert severity="error" onClose={() => setError(undefined)}>
+            {error}
+          </Alert>
+        </Snackbar>
+        <Div100vh style={{ display: "flex", flexFlow: "column" }}>
+          <Header />
+          <Box sx={{ flex: "1 1 auto" }}>
+            <Globe
+              markers={[...markers.values()]}
+              meteors={meteors}
+              selectedMeteor={selectedMeteor}
+              selectMeteor={(m: MeteorData) => {
+                console.info("SELECT", m);
+                store.update((s) => {
+                  s.selectedMeteor = m;
+                });
+              }}
+            />
+            {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
+          </Box>
+          <Footer />
+        </Div100vh>
+      </LocalizationProvider>
     </>
   );
 }

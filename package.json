@@ -6,25 +6,31 @@
   "homepage": "/meteor-globe/",
   "private": true,
   "dependencies": {
+    "@date-io/luxon": "^2.11.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@fontsource/roboto": "^4.5.0",
     "@mui/icons-material": "^5.0.0-rc.1",
+    "@mui/lab": "^5.0.0-alpha.46",
     "@mui/material": "^5.0.0-rc.1",
     "@react-three/drei": "^7.5.0",
     "@react-three/fiber": "^7.0.6",
     "@types/node": "^12.20.19",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
+    "astronomia": "^4.0.1",
     "csv-parse": "^4.16.0",
     "fetchline": "^1.0.1",
+    "luxon": "^2.0.2",
     "pullstate": "^1.22.1",
     "react": "^17.0.2",
     "react-div-100vh": "^0.6.0",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "three": "^0.131.3",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "use-async-effect": "^2.2.3",
+    "use-constant": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/luxon": "^2.0.3",
     "@types/three": "^0.131.0",
     "prettier": "^2.3.2"
   }

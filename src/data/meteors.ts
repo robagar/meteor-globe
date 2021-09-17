@@ -68,11 +68,25 @@ export function meteorDataInfoFromParams(
 
 export async function loadMeteors(info: MeteorDataInfo) {
   console.info("[meteors] LOAD", info.title, info.url);
-  const meteors = await fetchMeteorData(info.url);
+
   store.update((s) => {
     s.meteorDataInfo = info;
-    s.meteors = meteors;
+    s.loading = true;
+    s.selectedMeteor = undefined;
+    s.meteors = [];
   });
+
+  try {
+    const meteors = await fetchMeteorData(info.url);
+    store.update((s) => {
+      s.loading = false;
+      s.meteors = meteors;
+    });
+  } finally {
+    store.update((s) => {
+      s.loading = false;
+    });
+  }
 }
 
 // column indices

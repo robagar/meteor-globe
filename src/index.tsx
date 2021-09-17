@@ -10,13 +10,16 @@ import theme from "./theme";
 
 import "./index.css";
 import App from "./App";
+import { GMNProvider } from "./GMNProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <React.Suspense fallback={<div>Loading... </div>}>
-        <App />
+        <GMNProvider>
+          <App />
+        </GMNProvider>
       </React.Suspense>
     </ThemeProvider>
   </React.StrictMode>,
