@@ -9,13 +9,17 @@ import {
   IconButton,
   Alert,
   Snackbar,
+  Drawer,
 } from "@mui/material";
+
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+
 import { LocalizationProvider } from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterLuxon";
 
 import Div100vh from "react-div-100vh";
-import { Settings } from "luxon";
+import { Settings as LuxonSettings } from "luxon";
 
 import { Globe } from "./3d/Globe";
 import { MeteorInfo } from "./ui/MeteorInfo";
@@ -33,8 +37,9 @@ import {
   MeteorData,
 } from "./data/meteors";
 import { useGMN } from "./GMNProvider";
+import { Settings } from "./Settings";
 
-Settings.defaultZone = "Europe/London";
+LuxonSettings.defaultZone = "Europe/London";
 
 const queryParams = new URLSearchParams(window.location.search);
 const formatter = new Intl.NumberFormat();
@@ -60,6 +65,8 @@ export default function App() {
     tryLoadMeteors(meteorDataInfoFromParams(queryParams));
   }, [tryLoadMeteors]);
 
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
   const Header = () => {
     const loading = store.useState((s) => s.loading);
     const title = store.useState((s) => s.meteorDataInfo.title);
@@ -72,21 +79,37 @@ export default function App() {
     return (
       <>
         <AppBar color="transparent" sx={{ boxShadow: "none" }}>
-          <Toolbar>
-            <IconButton
-              onClick={(event) => {
-                setMenuVisible(!menuVisible);
-                setMenuAnchorEl(event.currentTarget);
+          <Toolbar sx={{ justifyContent: "space-between" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                flexGrow: 1,
               }}
             >
-              <MenuRoundedIcon />
+              <IconButton
+                onClick={(event) => {
+                  setMenuVisible(!menuVisible);
+                  setMenuAnchorEl(event.currentTarget);
+                }}
+              >
+                <MenuRoundedIcon />
+              </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                {loading && `Loading ${title}...`}
+                {!loading && title}
+                {numMeteors === 1 && ` — 1 meteor`}
+                {numMeteors > 1 && ` — ${formatter.format(numMeteors)} meteors`}
+              </Typography>
+            </Box>
+            <IconButton
+              onClick={(event) => {
+                setSidebarVisible(!sidebarVisible);
+                // setSidebarAnchorEl(event.currentTarget);
+              }}
+            >
+              <SettingsRoundedIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {loading && `Loading ${title}...`}
-              {!loading && title}
-              {numMeteors === 1 && ` — 1 meteor`}
-              {numMeteors > 1 && ` — ${formatter.format(numMeteors)} meteors`}
-            </Typography>
           </Toolbar>
         </AppBar>
         <LoadMeteorsMenu
@@ -141,6 +164,15 @@ export default function App() {
             {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
           </Box>
           <Footer />
+          <Drawer
+            anchor="right"
+            open={sidebarVisible}
+            onClose={() => {
+              setSidebarVisible(false);
+            }}
+          >
+            <Settings />
+          </Drawer>
         </Div100vh>
       </LocalizationProvider>
     </>

@@ -48,10 +48,8 @@ export class GMN {
     if (!this._dailyInitialized) {
       try {
         const r = await fetch(URL_BASE + "daily/");
-        // console.info(r);
         if (r.ok) {
           const s = await r.text();
-          // console.info(s);
           const ms = s.matchAll(DAILY_URL_REGEX);
           for (const m of ms) {
             if (m.groups) {
