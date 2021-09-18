@@ -30,7 +30,11 @@ import "./App.css";
 
 import { store } from "./store";
 import { initCameras } from "./data/cameras";
-import { meteorDataInfoFromParams, loadMeteors } from "./data/meteors";
+import {
+  meteorDataInfoFromParams,
+  loadMeteors,
+  filterMeteors,
+} from "./data/meteors";
 import { MeteorDataInfo, MeteorData } from "./interfaces";
 import { useGMN } from "./GMNProvider";
 import { Settings } from "./Settings";
@@ -45,6 +49,8 @@ export default function App() {
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
+  const filter = store.useState((s) => s.filter);
+  const touched = store.useState((s) => s.touched);
 
   useEffect(initCameras, []);
 
@@ -148,7 +154,7 @@ export default function App() {
           <Box sx={{ flex: "1 1 auto" }}>
             <Globe
               markers={[...markers.values()]}
-              meteors={meteors}
+              meteors={filterMeteors(filter, meteors)}
               selectedMeteor={selectedMeteor}
               selectMeteor={(m: MeteorData) => {
                 console.info("SELECT", m);
@@ -156,6 +162,7 @@ export default function App() {
                   s.selectedMeteor = m;
                 });
               }}
+              touched={touched}
             />
             {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
           </Box>

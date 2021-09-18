@@ -1,7 +1,12 @@
 import fetchline from "fetchline";
 
 import { store } from "../store";
-import { MeteorDataInfo, MeteorData, ShowerData } from "../interfaces";
+import {
+  MeteorDataInfo,
+  MeteorData,
+  ShowerData,
+  FilterData,
+} from "../interfaces";
 import { getShower, isSporadic } from "./showers";
 
 export const DEFAULT_COLOR = [1, 1, 1];
@@ -144,4 +149,20 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
   }
 
   return meteors;
+}
+
+export function filterMeteors(
+  filter: FilterData,
+  meteors: MeteorData[]
+): MeteorData[] {
+  const filtered: MeteorData[] = [];
+
+  for (const m of meteors) {
+    const { shower } = m;
+    if (!filter.showers.includes(shower)) continue;
+
+    filtered.push(m);
+  }
+
+  return filtered;
 }

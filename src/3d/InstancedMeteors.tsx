@@ -78,7 +78,8 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
         const i = meteor.index;
         mesh.setMatrixAt(i, buildMeteorMatrix(meteor, camera.position));
         let color = DEFAULT_COLOR;
-        if (meteor === selectedMeteor) color = SELECTED_COLOR;
+        if (selectedMeteor && i === selectedMeteor.index)
+          color = SELECTED_COLOR;
         else if (i === hoverInstanceIdRef.current) color = HIGHLIGHTED_COLOR;
         mesh.setColorAt(i, color);
       }

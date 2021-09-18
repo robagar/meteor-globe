@@ -44,6 +44,10 @@ export interface ShowerData {
   numMeteors: number;
 }
 
+export interface FilterData {
+  showers: ShowerData[];
+}
+
 export interface AppState {
   highlightedMarker: string;
   markers: Map<string, MarkerProps>;
@@ -52,7 +56,6 @@ export interface AppState {
   meteors: MeteorData[];
   selectedMeteor: MeteorData | undefined;
   showers: ShowerData[];
-  filter: {
-    showers: ShowerData[];
-  };
+  filter: FilterData;
+  touched: number;
 }

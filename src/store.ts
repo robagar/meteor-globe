@@ -30,4 +30,5 @@ export const store = new Store<AppState>({
   filter: {
     showers: [],
   },
+  touched: 0,
 });

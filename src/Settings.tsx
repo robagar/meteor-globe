@@ -56,6 +56,7 @@ export function Settings(props: Props) {
             if (typeof value === "string") return;
             store.update((s) => {
               s.filter.showers = value;
+              s.touched = Date.now();
             });
           }}
           MenuProps={MenuProps}

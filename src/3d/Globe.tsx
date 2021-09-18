@@ -14,6 +14,7 @@ export interface GlobeProps {
   meteors: MeteorData[];
   selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
+  touched: number;
 }
 
 const MIN_CAMERA_HEIGHT = 200;
