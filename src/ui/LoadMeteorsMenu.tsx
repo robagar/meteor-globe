@@ -1,10 +1,7 @@
 import { Menu, MenuItem } from "@mui/material";
 
-import {
-  MeteorDataInfo,
-  METEORS_YESTERDAY,
-  METEORS_LATEST_DAILY,
-} from "../data/meteors";
+import { MeteorDataInfo } from "../interfaces";
+import { METEORS_YESTERDAY, METEORS_LATEST_DAILY } from "../data/meteors";
 
 interface Props {
   anchorEl: HTMLElement | null;

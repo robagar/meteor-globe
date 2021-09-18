@@ -1,4 +1,4 @@
-import { MeteorData } from "../data/meteors";
+import { MeteorData } from "../interfaces";
 import "./MeteorInfo.css";
 
 export interface MeteorInfoProps {

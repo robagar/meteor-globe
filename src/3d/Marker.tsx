@@ -1,6 +1,7 @@
 import { Billboard, Text } from "@react-three/drei";
-import { Degrees, Km, position } from "./geometry";
+import { Degrees, Km } from "../interfaces";
 import { store } from "../store";
+import { position } from "./geometry";
 
 export interface MarkerProps {
   identifier: string;

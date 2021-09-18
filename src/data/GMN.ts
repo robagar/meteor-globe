@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 // import { base, julian, solar } from "astronomia";
-import { MeteorDataInfo } from "./meteors";
+import { MeteorDataInfo } from "../interfaces";
 
 const URL_BASE = "https://globalmeteornetwork.org/data/traj_summary_data/";
 

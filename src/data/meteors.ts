@@ -1,37 +1,10 @@
 import fetchline from "fetchline";
 
 import { store } from "../store";
-import { LatLongHt, Km } from "../3d/geometry";
+import { MeteorDataInfo, MeteorData } from "../interfaces";
 
 export const DEFAULT_COLOR = [1, 1, 1];
 export const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
-
-export type UTCTime = string;
-export type ShowerCode = string;
-export type Seconds = number;
-export type Magnitude = number;
-export type Kg = number;
-export type StationCode = string;
-export type Kms = number;
-
-export interface MeteorData {
-  index: number;
-  beginTime: UTCTime;
-  showerCode: ShowerCode;
-  begin: LatLongHt;
-  end: LatLongHt;
-  peakHeight: Km;
-  magnitude: Magnitude;
-  duration: Seconds;
-  mass: Kg;
-  averageSpeed: Kms;
-  stationCodes: StationCode[];
-}
-
-export interface MeteorDataInfo {
-  url: string;
-  title: string;
-}
 
 export const METEORS_YESTERDAY = {
   url: "https://globalmeteornetwork.org/data/traj_summary_data/daily/traj_summary_yesterday.txt",

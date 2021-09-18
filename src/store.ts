@@ -1,12 +1,12 @@
 import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
+import { AppState } from "./interfaces";
 import { MarkerProps } from "./3d/Marker";
-import { MeteorData, MeteorDataInfo } from "./data/meteors";
 
 enableMapSet();
 
-export const store = new Store({
+export const store = new Store<AppState>({
   highlightedMarker: "",
   markers: new Map<string, MarkerProps>([
     [
@@ -23,7 +23,7 @@ export const store = new Store({
   meteorDataInfo: {
     url: "",
     title: "",
-  } as MeteorDataInfo,
-  meteors: [] as MeteorData[],
-  selectedMeteor: undefined as MeteorData | undefined,
+  },
+  meteors: [],
+  selectedMeteor: undefined,
 });

@@ -4,7 +4,7 @@ import { useTexture, OrbitControls } from "@react-three/drei";
 import { EARTH_RADIUS, position } from "./geometry";
 
 import { /*Marker, */ MarkerProps } from "./Marker";
-import { MeteorData } from "../data/meteors";
+import { MeteorData } from "../interfaces";
 import { InstancedMeteors } from "./InstancedMeteors";
 
 import "./Globe.css";

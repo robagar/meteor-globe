@@ -3,8 +3,8 @@ import { Mesh, Vector3, Matrix4 } from "three";
 import { useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
-import { xyz, XYZ } from "./geometry";
-import { MeteorData } from "../data/meteors";
+import { xyz } from "./geometry";
+import { MeteorData, XYZ } from "../interfaces";
 
 import "./Meteor.css";
 

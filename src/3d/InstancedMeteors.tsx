@@ -11,9 +11,9 @@ import {
 import { useFrame, useThree } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 
-import { xyz, XYZ } from "./geometry";
-import { MeteorData } from "../data/meteors";
+import { MeteorData, XYZ } from "../interfaces";
 import { MeteorTooltip } from "../ui/MeteorTooltip";
+import { xyz } from "./geometry";
 
 const MIN_WIDTH = 0.1;
 const MAG_ZERO_WIDTH = 2;

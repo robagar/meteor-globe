@@ -30,12 +30,8 @@ import "./App.css";
 
 import { store } from "./store";
 import { initCameras } from "./data/cameras";
-import {
-  meteorDataInfoFromParams,
-  loadMeteors,
-  MeteorDataInfo,
-  MeteorData,
-} from "./data/meteors";
+import { meteorDataInfoFromParams, loadMeteors } from "./data/meteors";
+import { MeteorDataInfo, MeteorData } from "./interfaces";
 import { useGMN } from "./GMNProvider";
 import { Settings } from "./Settings";
 
