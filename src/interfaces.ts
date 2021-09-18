@@ -27,7 +27,7 @@ export interface MeteorDataInfo {
 export interface MeteorData {
   index: number;
   beginTime: UTCTime;
-  showerCode: ShowerCode;
+  shower: ShowerData;
   begin: LatLongHt;
   end: LatLongHt;
   peakHeight: Km;
@@ -36,6 +36,11 @@ export interface MeteorData {
   mass: Kg;
   averageSpeed: Kms;
   stationCodes: StationCode[];
+}
+
+export interface ShowerData {
+  code: string;
+  name: string;
 }
 
 export interface AppState {

@@ -1,4 +1,5 @@
 import { MeteorData } from "../interfaces";
+import { isSporadic } from "../data/showers";
 import "./MeteorInfo.css";
 
 export interface MeteorInfoProps {
@@ -8,7 +9,7 @@ export interface MeteorInfoProps {
 export function MeteorInfo(props: MeteorInfoProps) {
   const { meteor } = props;
   const {
-    showerCode,
+    shower,
     beginTime,
     magnitude,
     duration,
@@ -18,7 +19,15 @@ export function MeteorInfo(props: MeteorInfoProps) {
 
   return (
     <div className="root">
-      <div className="shower">{showerCode}</div>
+      <div>
+        {!isSporadic(shower) && (
+          <span className="showerCode">
+            {shower.code}
+            {" — "}
+          </span>
+        )}
+        <span className="showerName">{shower.name}</span>
+      </div>
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>

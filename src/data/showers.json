@@ -1,0 +1,3842 @@
+{
+    "AAA": {
+        "code": "AAA",
+        "name": "April alpha Antliids"
+    },
+    "AAC": {
+        "code": "AAC",
+        "name": "April alpha Capricornids"
+    },
+    "AAH": {
+        "code": "AAH",
+        "name": "August alpha Herculids"
+    },
+    "AAL": {
+        "code": "AAL",
+        "name": "April alpha Librids"
+    },
+    "AAN": {
+        "code": "AAN",
+        "name": "alpha Antliids"
+    },
+    "AAQ": {
+        "code": "AAQ",
+        "name": "Alpha Aquariids"
+    },
+    "ABA": {
+        "code": "ABA",
+        "name": "August beta Aquariids"
+    },
+    "ABC": {
+        "code": "ABC",
+        "name": "August beta Capricornids"
+    },
+    "ABH": {
+        "code": "ABH",
+        "name": "April beta Herculids"
+    },
+    "ABO": {
+        "code": "ABO",
+        "name": "alpha Bootids"
+    },
+    "ABS": {
+        "code": "ABS",
+        "name": "April beta Sextantids"
+    },
+    "ACA": {
+        "code": "ACA",
+        "name": "alpha Canis Majorids"
+    },
+    "ACB": {
+        "code": "ACB",
+        "name": "alpha Coronae Borealids"
+    },
+    "ACC": {
+        "code": "ACC",
+        "name": "alpha Cancrids"
+    },
+    "ACD": {
+        "code": "ACD",
+        "name": "August Caelids"
+    },
+    "ACE": {
+        "code": "ACE",
+        "name": "alpha Centaurids"
+    },
+    "ACI": {
+        "code": "ACI",
+        "name": "alpha Circinids"
+    },
+    "ACL": {
+        "code": "ACL",
+        "name": "alpha Camelopardalids"
+    },
+    "ACM": {
+        "code": "ACM",
+        "name": "Daytime alpha Canis Majorids"
+    },
+    "ACN": {
+        "code": "ACN",
+        "name": "alpha Carinids"
+    },
+    "ACO": {
+        "code": "ACO",
+        "name": "April alpha Comae Berenicids"
+    },
+    "ACP": {
+        "code": "ACP",
+        "name": "alpha Cepheids"
+    },
+    "ACR": {
+        "code": "ACR",
+        "name": "alpha Crucids"
+    },
+    "ACT": {
+        "code": "ACT",
+        "name": "August Cetids"
+    },
+    "ACU": {
+        "code": "ACU",
+        "name": "April theta Centaurids"
+    },
+    "ACV": {
+        "code": "ACV",
+        "name": "alpha Corvids"
+    },
+    "ACZ": {
+        "code": "ACZ",
+        "name": "zeta1 Cancrids"
+    },
+    "ADC": {
+        "code": "ADC",
+        "name": "August delta Capricornids"
+    },
+    "ADL": {
+        "code": "ADL",
+        "name": "delta Librids"
+    },
+    "ADR": {
+        "code": "ADR",
+        "name": "alpha Draconids"
+    },
+    "ADS": {
+        "code": "ADS",
+        "name": "June Aquariids"
+    },
+    "AED": {
+        "code": "AED",
+        "name": "April epsilon Delphinids"
+    },
+    "AET": {
+        "code": "AET",
+        "name": "August eta Taurids"
+    },
+    "AGC": {
+        "code": "AGC",
+        "name": "August gamma Cepheids"
+    },
+    "AGE": {
+        "code": "AGE",
+        "name": "alpha Geminids"
+    },
+    "AGP": {
+        "code": "AGP",
+        "name": "August gamma Pegasids"
+    },
+    "AHE": {
+        "code": "AHE",
+        "name": "April 102 Herculids"
+    },
+    "AHY": {
+        "code": "AHY",
+        "name": "alpha Hydrids"
+    },
+    "AIC": {
+        "code": "AIC",
+        "name": "August iota Cetids"
+    },
+    "AKC": {
+        "code": "AKC",
+        "name": "April kappa Cygnids"
+    },
+    "ALA": {
+        "code": "ALA",
+        "name": "alpha Lacertids"
+    },
+    "ALL": {
+        "code": "ALL",
+        "name": "alpha Leonid Complex"
+    },
+    "ALN": {
+        "code": "ALN",
+        "name": "August Lyncids"
+    },
+    "ALO": {
+        "code": "ALO",
+        "name": "April lambda Ophiuchids"
+    },
+    "ALY": {
+        "code": "ALY",
+        "name": "alpha Lyncids"
+    },
+    "AMD": {
+        "code": "AMD",
+        "name": "August mu Draconids"
+    },
+    "AMO": {
+        "code": "AMO",
+        "name": "alpha Monocerotids"
+    },
+    "ANA": {
+        "code": "ANA",
+        "name": "August nu Aquariids"
+    },
+    "AND": {
+        "code": "AND",
+        "name": "Andromedids"
+    },
+    "ANE": {
+        "code": "ANE",
+        "name": "August nu Eridanids"
+    },
+    "ANP": {
+        "code": "ANP",
+        "name": "August nu Perseids"
+    },
+    "ANT": {
+        "code": "ANT",
+        "name": "August nu Taurids"
+    },
+    "AOA": {
+        "code": "AOA",
+        "name": "August omicron Aquariids"
+    },
+    "AOC": {
+        "code": "AOC",
+        "name": "August omicron Cetids"
+    },
+    "AOE": {
+        "code": "AOE",
+        "name": "August omicron Eridanids"
+    },
+    "AOR": {
+        "code": "AOR",
+        "name": "September alpha Orionids"
+    },
+    "APA": {
+        "code": "APA",
+        "name": "August psi Aurigids"
+    },
+    "APC": {
+        "code": "APC",
+        "name": "April phi Capricornids"
+    },
+    "APE": {
+        "code": "APE",
+        "name": "alpha Perseids"
+    },
+    "APG": {
+        "code": "APG",
+        "name": "alpha Pegasids"
+    },
+    "APH": {
+        "code": "APH",
+        "name": "alpha Phoenicids"
+    },
+    "API": {
+        "code": "API",
+        "name": "alpha Pictorids"
+    },
+    "APO": {
+        "code": "APO",
+        "name": "Apodids"
+    },
+    "APP": {
+        "code": "APP",
+        "name": "August psi Pegasids"
+    },
+    "APS": {
+        "code": "APS",
+        "name": "Daytime April Piscids"
+    },
+    "APX": {
+        "code": "APX",
+        "name": "alpha Pyxidids"
+    },
+    "APY": {
+        "code": "APY",
+        "name": "January alpha Pyxidids"
+    },
+    "AQI": {
+        "code": "AQI",
+        "name": "Aquilids"
+    },
+    "ARC": {
+        "code": "ARC",
+        "name": "April rho Cygnids"
+    },
+    "ARI": {
+        "code": "ARI",
+        "name": "Daytime Arietids"
+    },
+    "ASC": {
+        "code": "ASC",
+        "name": "alpha Scorpiids"
+    },
+    "ASG": {
+        "code": "ASG",
+        "name": "alpha Sagittariids"
+    },
+    "ASP": {
+        "code": "ASP",
+        "name": "August 78 Pegasids"
+    },
+    "AST": {
+        "code": "AST",
+        "name": "alpha Sculptorids"
+    },
+    "ASX": {
+        "code": "ASX",
+        "name": "alpha Sextantids"
+    },
+    "ATA": {
+        "code": "ATA",
+        "name": "August theta Aquilids"
+    },
+    "ATD": {
+        "code": "ATD",
+        "name": "August tau Draconids"
+    },
+    "ATH": {
+        "code": "ATH",
+        "name": "April 21 Herculids"
+    },
+    "ATI": {
+        "code": "ATI",
+        "name": "alpha Taurids"
+    },
+    "ATR": {
+        "code": "ATR",
+        "name": "alpha Triangulids"
+    },
+    "ATS": {
+        "code": "ATS",
+        "name": "A2 Taurids"
+    },
+    "ATU": {
+        "code": "ATU",
+        "name": "A1 Taurids"
+    },
+    "ATV": {
+        "code": "ATV",
+        "name": "April theta Virginids"
+    },
+    "AUA": {
+        "code": "AUA",
+        "name": "August Aquariids"
+    },
+    "AUD": {
+        "code": "AUD",
+        "name": "August Draconids"
+    },
+    "AUM": {
+        "code": "AUM",
+        "name": "alpha Ursae Majorids"
+    },
+    "AUP": {
+        "code": "AUP",
+        "name": "August Piscids"
+    },
+    "AUR": {
+        "code": "AUR",
+        "name": "Aurigids"
+    },
+    "AUS": {
+        "code": "AUS",
+        "name": "August upsilon Sagittariids"
+    },
+    "AVB": {
+        "code": "AVB",
+        "name": "alpha Virginids"
+    },
+    "AXC": {
+        "code": "AXC",
+        "name": "August xi Cassiopeiids"
+    },
+    "AZC": {
+        "code": "AZC",
+        "name": "April zeta Cygnids"
+    },
+    "BAD": {
+        "code": "BAD",
+        "name": "beta Aquilids"
+    },
+    "BAQ": {
+        "code": "BAQ",
+        "name": "beta Aquariids"
+    },
+    "BAR": {
+        "code": "BAR",
+        "name": "beta Arietids"
+    },
+    "BAU": {
+        "code": "BAU",
+        "name": "beta Aurigids"
+    },
+    "BBO": {
+        "code": "BBO",
+        "name": "beta Bootids"
+    },
+    "BCA": {
+        "code": "BCA",
+        "name": "beta Cassiopeiids"
+    },
+    "BCB": {
+        "code": "BCB",
+        "name": "Bootid-Coronae Borealid Complex"
+    },
+    "BCD": {
+        "code": "BCD",
+        "name": "beta Cancrids"
+    },
+    "BCE": {
+        "code": "BCE",
+        "name": "beta Cepheids"
+    },
+    "BCF": {
+        "code": "BCF",
+        "name": "5 Comae Berenicids"
+    },
+    "BCM": {
+        "code": "BCM",
+        "name": "beta Camelopardalids"
+    },
+    "BCN": {
+        "code": "BCN",
+        "name": "Daytime beta Cancrids"
+    },
+    "BCO": {
+        "code": "BCO",
+        "name": "beta Comae Berenicids"
+    },
+    "BCP": {
+        "code": "BCP",
+        "name": "beta Capricornids"
+    },
+    "BCR": {
+        "code": "BCR",
+        "name": "beta Craterids"
+    },
+    "BCT": {
+        "code": "BCT",
+        "name": "13 Comae Berenicids"
+    },
+    "BCY": {
+        "code": "BCY",
+        "name": "beta Cygnids"
+    },
+    "BEC": {
+        "code": "BEC",
+        "name": "beta Carinids"
+    },
+    "BEL": {
+        "code": "BEL",
+        "name": "beta Leonids"
+    },
+    "BEQ": {
+        "code": "BEQ",
+        "name": "beta Equuleids"
+    },
+    "BHD": {
+        "code": "BHD",
+        "name": "beta Hydrids"
+    },
+    "BHE": {
+        "code": "BHE",
+        "name": "beta Herculids"
+    },
+    "BHY": {
+        "code": "BHY",
+        "name": "beta Hydrusids"
+    },
+    "BIN": {
+        "code": "BIN",
+        "name": "beta Indids"
+    },
+    "BMO": {
+        "code": "BMO",
+        "name": "beta Monocerotids"
+    },
+    "BOT": {
+        "code": "BOT",
+        "name": "37 Comae Berenicids"
+    },
+    "BPE": {
+        "code": "BPE",
+        "name": "beta Perseids"
+    },
+    "BPG": {
+        "code": "BPG",
+        "name": "beta Pegasids"
+    },
+    "BPI": {
+        "code": "BPI",
+        "name": "August Beta Piscids"
+    },
+    "BPX": {
+        "code": "BPX",
+        "name": "beta Pyxidids"
+    },
+    "BRC": {
+        "code": "BRC",
+        "name": "beta Gruids"
+    },
+    "BSX": {
+        "code": "BSX",
+        "name": "beta Sextantids"
+    },
+    "BTA": {
+        "code": "BTA",
+        "name": "Daytime beta Taurids"
+    },
+    "BTC": {
+        "code": "BTC",
+        "name": "beta2 Cygnids"
+    },
+    "BTR": {
+        "code": "BTR",
+        "name": "beta Triangulids"
+    },
+    "BTU": {
+        "code": "BTU",
+        "name": "beta Tucanids"
+    },
+    "BUM": {
+        "code": "BUM",
+        "name": "beta Ursae Majorids"
+    },
+    "CAE": {
+        "code": "CAE",
+        "name": "Caelids"
+    },
+    "CAM": {
+        "code": "CAM",
+        "name": "Camelopardalids"
+    },
+    "CAN": {
+        "code": "CAN",
+        "name": "c Andromedids"
+    },
+    "CAP": {
+        "code": "CAP",
+        "name": "alpha Capricornids"
+    },
+    "CAQ": {
+        "code": "CAQ",
+        "name": "chi Aquilids"
+    },
+    "CAR": {
+        "code": "CAR",
+        "name": "Carinid Complex"
+    },
+    "CAU": {
+        "code": "CAU",
+        "name": "beta Coronae Australids"
+    },
+    "CCA": {
+        "code": "CCA",
+        "name": "chi Capricornids"
+    },
+    "CCR": {
+        "code": "CCR",
+        "name": "chi Cancrids"
+    },
+    "CCY": {
+        "code": "CCY",
+        "name": "chi Cygnids"
+    },
+    "CEP": {
+        "code": "CEP",
+        "name": "May beta Cepheids"
+    },
+    "CET": {
+        "code": "CET",
+        "name": "pi Cetids"
+    },
+    "CHA": {
+        "code": "CHA",
+        "name": "chi Andromedids"
+    },
+    "CHP": {
+        "code": "CHP",
+        "name": "chi Pegasids"
+    },
+    "CLI": {
+        "code": "CLI",
+        "name": "chi Librids"
+    },
+    "CMI": {
+        "code": "CMI",
+        "name": "December Canis Minorids"
+    },
+    "COL": {
+        "code": "COL",
+        "name": "Columbids"
+    },
+    "COM": {
+        "code": "COM",
+        "name": "Comae Berenicids"
+    },
+    "COR": {
+        "code": "COR",
+        "name": "Corvids"
+    },
+    "CPH": {
+        "code": "CPH",
+        "name": "chi Phoenicids"
+    },
+    "CRN": {
+        "code": "CRN",
+        "name": "A Carinids"
+    },
+    "CTA": {
+        "code": "CTA",
+        "name": "chi Taurids"
+    },
+    "CTS": {
+        "code": "CTS",
+        "name": "September tau Cetids"
+    },
+    "CUR": {
+        "code": "CUR",
+        "name": "xi Ursae Majorids"
+    },
+    "CVD": {
+        "code": "CVD",
+        "name": "January Canum Venaticids"
+    },
+    "CVE": {
+        "code": "CVE",
+        "name": "c Velids"
+    },
+    "CVN": {
+        "code": "CVN",
+        "name": "Canum Venaticids"
+    },
+    "CVT": {
+        "code": "CVT",
+        "name": "February Canum Venaticids"
+    },
+    "DAB": {
+        "code": "DAB",
+        "name": "December alpha Bootids"
+    },
+    "DAC": {
+        "code": "DAC",
+        "name": "Daytime April Cetids"
+    },
+    "DAD": {
+        "code": "DAD",
+        "name": "December alpha Draconids"
+    },
+    "DAL": {
+        "code": "DAL",
+        "name": "delta Aquilids"
+    },
+    "DAQ": {
+        "code": "DAQ",
+        "name": "delta Aquariid Complex"
+    },
+    "DAR": {
+        "code": "DAR",
+        "name": "December alpha Aurigids"
+    },
+    "DAS": {
+        "code": "DAS",
+        "name": "December alpha Sextantids"
+    },
+    "DAT": {
+        "code": "DAT",
+        "name": "delta Arietids"
+    },
+    "DAU": {
+        "code": "DAU",
+        "name": "October delta Aurigids"
+    },
+    "DBA": {
+        "code": "DBA",
+        "name": "Daytime beta Andromedids"
+    },
+    "DCA": {
+        "code": "DCA",
+        "name": "delta Cancrid Complex"
+    },
+    "DCC": {
+        "code": "DCC",
+        "name": "December delta Cancrids"
+    },
+    "DCD": {
+        "code": "DCD",
+        "name": "delta Cepheids"
+    },
+    "DCE": {
+        "code": "DCE",
+        "name": "Daytime omega Cetid Complex"
+    },
+    "DCH": {
+        "code": "DCH",
+        "name": "delta Chamaeleontids"
+    },
+    "DCL": {
+        "code": "DCL",
+        "name": "December Leonids"
+    },
+    "DCM": {
+        "code": "DCM",
+        "name": "December Canis Majorids"
+    },
+    "DCO": {
+        "code": "DCO",
+        "name": "delta Corvids"
+    },
+    "DCP": {
+        "code": "DCP",
+        "name": "Daytime chi Piscids"
+    },
+    "DCQ": {
+        "code": "DCQ",
+        "name": "Daytime c Aquariids"
+    },
+    "DCR": {
+        "code": "DCR",
+        "name": "Daytime Craterids"
+    },
+    "DCS": {
+        "code": "DCS",
+        "name": "Daytime Capricornids-Sagittariids"
+    },
+    "DCT": {
+        "code": "DCT",
+        "name": "delta Cetids"
+    },
+    "DCY": {
+        "code": "DCY",
+        "name": "delta Cygnids"
+    },
+    "DDC": {
+        "code": "DDC",
+        "name": "Daytime delta Scorpiids"
+    },
+    "DDL": {
+        "code": "DDL",
+        "name": "December delta Leonids"
+    },
+    "DDT": {
+        "code": "DDT",
+        "name": "Daytime delta Triangulids"
+    },
+    "DDl": {
+        "code": "DDl",
+        "name": "Daytime delta Leonids"
+    },
+    "DEA": {
+        "code": "DEA",
+        "name": "Daytime epsilon Arietids"
+    },
+    "DEC": {
+        "code": "DEC",
+        "name": "December epsilon Craterids"
+    },
+    "DED": {
+        "code": "DED",
+        "name": "December epsilon Eridanids"
+    },
+    "DEG": {
+        "code": "DEG",
+        "name": "December epsilon Geminids"
+    },
+    "DEL": {
+        "code": "DEL",
+        "name": "December Lyncids"
+    },
+    "DEQ": {
+        "code": "DEQ",
+        "name": "Daytime epsilon Aquariids"
+    },
+    "DES": {
+        "code": "DES",
+        "name": "delta Sextantids"
+    },
+    "DEV": {
+        "code": "DEV",
+        "name": "December epsilon Virginids"
+    },
+    "DEX": {
+        "code": "DEX",
+        "name": "December Sextantids"
+    },
+    "DFV": {
+        "code": "DFV",
+        "name": "Daytime psi Virginids"
+    },
+    "DGE": {
+        "code": "DGE",
+        "name": "December delta Eridanids"
+    },
+    "DGR": {
+        "code": "DGR",
+        "name": "delta Gruids"
+    },
+    "DHE": {
+        "code": "DHE",
+        "name": "delta Herculids"
+    },
+    "DHY": {
+        "code": "DHY",
+        "name": "December Hydrids"
+    },
+    "DIU": {
+        "code": "DIU",
+        "name": "December iota Ursae Majorids"
+    },
+    "DKD": {
+        "code": "DKD",
+        "name": "December kappa Draconids"
+    },
+    "DLE": {
+        "code": "DLE",
+        "name": "delta Leonid Complex"
+    },
+    "DLI": {
+        "code": "DLI",
+        "name": "mu Virginids"
+    },
+    "DLM": {
+        "code": "DLM",
+        "name": "December Leonis Minorids"
+    },
+    "DLT": {
+        "code": "DLT",
+        "name": "Daytime lambda Taurids"
+    },
+    "DMA": {
+        "code": "DMA",
+        "name": "Daytime May Arietid Complex"
+    },
+    "DMC": {
+        "code": "DMC",
+        "name": "Daytime mu Cancrids"
+    },
+    "DMD": {
+        "code": "DMD",
+        "name": "December mu Draconids"
+    },
+    "DME": {
+        "code": "DME",
+        "name": "delta Mensids"
+    },
+    "DMH": {
+        "code": "DMH",
+        "name": "December mu Hydrids"
+    },
+    "DMO": {
+        "code": "DMO",
+        "name": "Daytime Monocerotids"
+    },
+    "DMT": {
+        "code": "DMT",
+        "name": "December mu Taurids"
+    },
+    "DNA": {
+        "code": "DNA",
+        "name": "Northern December delta Arietids"
+    },
+    "DNO": {
+        "code": "DNO",
+        "name": "delta Normids"
+    },
+    "DOH": {
+        "code": "DOH",
+        "name": "December omega Hydrids"
+    },
+    "DOR": {
+        "code": "DOR",
+        "name": "alpha Doradids"
+    },
+    "DOU": {
+        "code": "DOU",
+        "name": "December omega Ursae Majorids"
+    },
+    "DPA": {
+        "code": "DPA",
+        "name": "delta Pavonids"
+    },
+    "DPC": {
+        "code": "DPC",
+        "name": "December phi Cassiopeiids"
+    },
+    "DPE": {
+        "code": "DPE",
+        "name": "delta Perseids"
+    },
+    "DPI": {
+        "code": "DPI",
+        "name": "delta Piscids"
+    },
+    "DPL": {
+        "code": "DPL",
+        "name": "Daytime pi Leonids"
+    },
+    "DRA": {
+        "code": "DRA",
+        "name": "October Draconids"
+    },
+    "DRG": {
+        "code": "DRG",
+        "name": "December rho Geminids"
+    },
+    "DRP": {
+        "code": "DRP",
+        "name": "December rho Puppids"
+    },
+    "DRV": {
+        "code": "DRV",
+        "name": "December rho Virginids"
+    },
+    "DSA": {
+        "code": "DSA",
+        "name": "Southern December delta Arietids"
+    },
+    "DSE": {
+        "code": "DSE",
+        "name": "delta Serpentids"
+    },
+    "DSG": {
+        "code": "DSG",
+        "name": "delta Sagittariids"
+    },
+    "DSV": {
+        "code": "DSV",
+        "name": "December sigma Virginids"
+    },
+    "DSX": {
+        "code": "DSX",
+        "name": "Daytime Sextantids"
+    },
+    "DTA": {
+        "code": "DTA",
+        "name": "December theta Aurigids"
+    },
+    "DTH": {
+        "code": "DTH",
+        "name": "December theta Hydrids"
+    },
+    "DTP": {
+        "code": "DTP",
+        "name": "December theta Pyxidids"
+    },
+    "DTR": {
+        "code": "DTR",
+        "name": "Daytime Triangulids"
+    },
+    "DUM": {
+        "code": "DUM",
+        "name": "delta Ursae Minorids"
+    },
+    "DVE": {
+        "code": "DVE",
+        "name": "delta Velids"
+    },
+    "DXC": {
+        "code": "DXC",
+        "name": "Daytime chi Capricornids"
+    },
+    "DXL": {
+        "code": "DXL",
+        "name": "Daytime chi Leonids"
+    },
+    "DZB": {
+        "code": "DZB",
+        "name": "December zeta Bootids"
+    },
+    "DZC": {
+        "code": "DZC",
+        "name": "December zeta Cygnids"
+    },
+    "DZT": {
+        "code": "DZT",
+        "name": "December zeta Taurids"
+    },
+    "EAN": {
+        "code": "EAN",
+        "name": "eta Andromedids"
+    },
+    "EAU": {
+        "code": "EAU",
+        "name": "epsilon Aquilids"
+    },
+    "ECA": {
+        "code": "ECA",
+        "name": "epsilon Carinids"
+    },
+    "ECB": {
+        "code": "ECB",
+        "name": "epsilon Coronae Borealids"
+    },
+    "ECM": {
+        "code": "ECM",
+        "name": "eta Canis Majorids"
+    },
+    "ECO": {
+        "code": "ECO",
+        "name": "epsilon Columbids"
+    },
+    "ECR": {
+        "code": "ECR",
+        "name": "eta Carinids"
+    },
+    "ECV": {
+        "code": "ECV",
+        "name": "eta Corvids"
+    },
+    "EDR": {
+        "code": "EDR",
+        "name": "epsilon Draconids"
+    },
+    "EER": {
+        "code": "EER",
+        "name": "epsilon Eridanids"
+    },
+    "EGE": {
+        "code": "EGE",
+        "name": "epsilon Geminids"
+    },
+    "EGR": {
+        "code": "EGR",
+        "name": "epsilon Gruids"
+    },
+    "EHY": {
+        "code": "EHY",
+        "name": "eta Hydrids"
+    },
+    "ELY": {
+        "code": "ELY",
+        "name": "eta Lyrids"
+    },
+    "EMA": {
+        "code": "EMA",
+        "name": "epsilon Canis Majorids"
+    },
+    "EMC": {
+        "code": "EMC",
+        "name": "epsilon Microscopiids"
+    },
+    "EMI": {
+        "code": "EMI",
+        "name": "eta Canis Minorids"
+    },
+    "EMO": {
+        "code": "EMO",
+        "name": "epsilon Monocerotids"
+    },
+    "EOC": {
+        "code": "EOC",
+        "name": "eta1 Coronae Australids"
+    },
+    "EOP": {
+        "code": "EOP",
+        "name": "eta Ophiuchids"
+    },
+    "EOR": {
+        "code": "EOR",
+        "name": "eta Orionids"
+    },
+    "EPC": {
+        "code": "EPC",
+        "name": "October epsilon Piscids"
+    },
+    "EPG": {
+        "code": "EPG",
+        "name": "epsilon Pegasids"
+    },
+    "EPO": {
+        "code": "EPO",
+        "name": "epsilon Ophiuchids"
+    },
+    "EPP": {
+        "code": "EPP",
+        "name": "epsilon Pavonids"
+    },
+    "EPR": {
+        "code": "EPR",
+        "name": "epsilon Perseids"
+    },
+    "EPS": {
+        "code": "EPS",
+        "name": "epsilon Scorpiids"
+    },
+    "EPU": {
+        "code": "EPU",
+        "name": "epsilon Ursae Minorids"
+    },
+    "EPV": {
+        "code": "EPV",
+        "name": "epsilon Virginids"
+    },
+    "EPX": {
+        "code": "EPX",
+        "name": "epsilon Sextantids"
+    },
+    "EQA": {
+        "code": "EQA",
+        "name": "epsilon Aquariids"
+    },
+    "ERI": {
+        "code": "ERI",
+        "name": "eta Eridanids"
+    },
+    "ESC": {
+        "code": "ESC",
+        "name": "eta Sculptorids"
+    },
+    "ESE": {
+        "code": "ESE",
+        "name": "eta Serpentids"
+    },
+    "ESL": {
+        "code": "ESL",
+        "name": "87 Leonids"
+    },
+    "ESU": {
+        "code": "ESU",
+        "name": "eta Scutids"
+    },
+    "ETA": {
+        "code": "ETA",
+        "name": "eta Aquariids"
+    },
+    "ETC": {
+        "code": "ETC",
+        "name": "eta2 Coronae Australids"
+    },
+    "ETD": {
+        "code": "ETD",
+        "name": "eta Draconids"
+    },
+    "ETP": {
+        "code": "ETP",
+        "name": "eta Pegasids"
+    },
+    "ETR": {
+        "code": "ETR",
+        "name": "epsilon Triangulids"
+    },
+    "ETT": {
+        "code": "ETT",
+        "name": "eta Taurids"
+    },
+    "EUM": {
+        "code": "EUM",
+        "name": "epsilon Ursae Majorids"
+    },
+    "EVE": {
+        "code": "EVE",
+        "name": "e Velids"
+    },
+    "EVI": {
+        "code": "EVI",
+        "name": "eta Virginids"
+    },
+    "EVO": {
+        "code": "EVO",
+        "name": "eta Volantids"
+    },
+    "FAC": {
+        "code": "FAC",
+        "name": "February alpha Corvids"
+    },
+    "FAN": {
+        "code": "FAN",
+        "name": "49 Andromedids"
+    },
+    "FAO": {
+        "code": "FAO",
+        "name": "February alpha Orionids"
+    },
+    "FAQ": {
+        "code": "FAQ",
+        "name": "15 Aquariids"
+    },
+    "FAR": {
+        "code": "FAR",
+        "name": "14 Aurigids"
+    },
+    "FAU": {
+        "code": "FAU",
+        "name": "43 Aurigids"
+    },
+    "FBH": {
+        "code": "FBH",
+        "name": "February beta Herculids"
+    },
+    "FBI": {
+        "code": "FBI",
+        "name": "January 15 Bootids"
+    },
+    "FBO": {
+        "code": "FBO",
+        "name": "15 Bootids"
+    },
+    "FCA": {
+        "code": "FCA",
+        "name": "50 Cancrids"
+    },
+    "FCB": {
+        "code": "FCB",
+        "name": "February Comae Berenicids"
+    },
+    "FCE": {
+        "code": "FCE",
+        "name": "56 Cetids"
+    },
+    "FCL": {
+        "code": "FCL",
+        "name": "43 Camelopardalids"
+    },
+    "FCM": {
+        "code": "FCM",
+        "name": "February Canis Majorids"
+    },
+    "FCR": {
+        "code": "FCR",
+        "name": "15 Cancrids"
+    },
+    "FCV": {
+        "code": "FCV",
+        "name": "14 Canum Venaticids"
+    },
+    "FDC": {
+        "code": "FDC",
+        "name": "February delta Cygnids"
+    },
+    "FDE": {
+        "code": "FDE",
+        "name": "14 Delphinids"
+    },
+    "FED": {
+        "code": "FED",
+        "name": "February eta Draconids"
+    },
+    "FEV": {
+        "code": "FEV",
+        "name": "February epsilon Virginids"
+    },
+    "FFA": {
+        "code": "FFA",
+        "name": "55 Arietids"
+    },
+    "FFD": {
+        "code": "FFD",
+        "name": "45 Draconids"
+    },
+    "FFH": {
+        "code": "FFH",
+        "name": "44 Hydrids"
+    },
+    "FFL": {
+        "code": "FFL",
+        "name": "55 Leonids"
+    },
+    "FGV": {
+        "code": "FGV",
+        "name": "February gamma Virginids"
+    },
+    "FHE": {
+        "code": "FHE",
+        "name": "f Herculids"
+    },
+    "FHR": {
+        "code": "FHR",
+        "name": "52 Herculids"
+    },
+    "FHY": {
+        "code": "FHY",
+        "name": "February Hydrids"
+    },
+    "FLE": {
+        "code": "FLE",
+        "name": "15 Leonids"
+    },
+    "FLM": {
+        "code": "FLM",
+        "name": "43 Leonis Minorids"
+    },
+    "FLO": {
+        "code": "FLO",
+        "name": "February Leonids"
+    },
+    "FLY": {
+        "code": "FLY",
+        "name": "15 Lyncids"
+    },
+    "FMV": {
+        "code": "FMV",
+        "name": "February mu Virginids"
+    },
+    "FNC": {
+        "code": "FNC",
+        "name": "59 Cygnids"
+    },
+    "FNP": {
+        "code": "FNP",
+        "name": "59 Perseids"
+    },
+    "FOA": {
+        "code": "FOA",
+        "name": "51 Andromedids"
+    },
+    "FOB": {
+        "code": "FOB",
+        "name": "40 Comae Berenicids"
+    },
+    "FOP": {
+        "code": "FOP",
+        "name": "f Ophiuchids"
+    },
+    "FOR": {
+        "code": "FOR",
+        "name": "Fornacids"
+    },
+    "FPB": {
+        "code": "FPB",
+        "name": "February phi Bootids"
+    },
+    "FPE": {
+        "code": "FPE",
+        "name": "52 Pegasids"
+    },
+    "FPI": {
+        "code": "FPI",
+        "name": "58 Piscids"
+    },
+    "FPL": {
+        "code": "FPL",
+        "name": "February pi Leonids"
+    },
+    "FSA": {
+        "code": "FSA",
+        "name": "47 Andromedids"
+    },
+    "FSL": {
+        "code": "FSL",
+        "name": "February sigma Leonids"
+    },
+    "FSO": {
+        "code": "FSO",
+        "name": "47 Ophiuchids"
+    },
+    "FTA": {
+        "code": "FTA",
+        "name": "omega Taurids"
+    },
+    "FTC": {
+        "code": "FTC",
+        "name": "43 Cassiopeiids"
+    },
+    "FTD": {
+        "code": "FTD",
+        "name": "42 Draconids"
+    },
+    "FTE": {
+        "code": "FTE",
+        "name": "42 Herculids"
+    },
+    "FTR": {
+        "code": "FTR",
+        "name": "f Taurids"
+    },
+    "FUM": {
+        "code": "FUM",
+        "name": "59 Ursae Majorids"
+    },
+    "FVI": {
+        "code": "FVI",
+        "name": "41 Virginids"
+    },
+    "GAD": {
+        "code": "GAD",
+        "name": "gamma Draconids"
+    },
+    "GAQ": {
+        "code": "GAQ",
+        "name": "gamma Aquilids"
+    },
+    "GBO": {
+        "code": "GBO",
+        "name": "gamma Bootids"
+    },
+    "GCA": {
+        "code": "GCA",
+        "name": "gamma Camelopardalids"
+    },
+    "GCE": {
+        "code": "GCE",
+        "name": "Cepheids-Cassiopeiids"
+    },
+    "GCM": {
+        "code": "GCM",
+        "name": "gamma Canis Majorids"
+    },
+    "GCP": {
+        "code": "GCP",
+        "name": "gamma Cepheids"
+    },
+    "GCR": {
+        "code": "GCR",
+        "name": "gamma Crucids"
+    },
+    "GDE": {
+        "code": "GDE",
+        "name": "gamma Delphinids"
+    },
+    "GDO": {
+        "code": "GDO",
+        "name": "gamma Doradids"
+    },
+    "GDR": {
+        "code": "GDR",
+        "name": "July gamma Draconids"
+    },
+    "GEM": {
+        "code": "GEM",
+        "name": "Geminids"
+    },
+    "GER": {
+        "code": "GER",
+        "name": "gamma Eridanids"
+    },
+    "GGR": {
+        "code": "GGR",
+        "name": "gamma Gruids"
+    },
+    "GLE": {
+        "code": "GLE",
+        "name": "Daytime gamma Leonids"
+    },
+    "GLI": {
+        "code": "GLI",
+        "name": "gamma Librids"
+    },
+    "GLU": {
+        "code": "GLU",
+        "name": "gamma Lupids"
+    },
+    "GLY": {
+        "code": "GLY",
+        "name": "gamma Lyrids"
+    },
+    "GMA": {
+        "code": "GMA",
+        "name": "gamma Ursae Majorids"
+    },
+    "GNO": {
+        "code": "GNO",
+        "name": "gamma Normids"
+    },
+    "GPA": {
+        "code": "GPA",
+        "name": "gamma Piscis Austrinids"
+    },
+    "GPG": {
+        "code": "GPG",
+        "name": "gamma Pegasids"
+    },
+    "GPS": {
+        "code": "GPS",
+        "name": "gamma Piscids"
+    },
+    "GPU": {
+        "code": "GPU",
+        "name": "October gamma Puppids"
+    },
+    "GSA": {
+        "code": "GSA",
+        "name": "September gamma Sagittariids"
+    },
+    "GSC": {
+        "code": "GSC",
+        "name": "gamma Sculptorids"
+    },
+    "GSE": {
+        "code": "GSE",
+        "name": "gamma Sextantids"
+    },
+    "GSG": {
+        "code": "GSG",
+        "name": "gamma Sagittariids"
+    },
+    "GTA": {
+        "code": "GTA",
+        "name": "gamma Taurids"
+    },
+    "GTI": {
+        "code": "GTI",
+        "name": "gamma Triangulids"
+    },
+    "GUM": {
+        "code": "GUM",
+        "name": "gamma Ursae Minorids"
+    },
+    "GVE": {
+        "code": "GVE",
+        "name": "gamma Velids"
+    },
+    "GVI": {
+        "code": "GVI",
+        "name": "Daytime gamma Virginids"
+    },
+    "GVR": {
+        "code": "GVR",
+        "name": "gamma Virginid Complex"
+    },
+    "HNJ": {
+        "code": "HNJ",
+        "name": "June 9 Herculids"
+    },
+    "HTV": {
+        "code": "HTV",
+        "name": "110 Virginids"
+    },
+    "HVI": {
+        "code": "HVI",
+        "name": "h Virginids"
+    },
+    "HYD": {
+        "code": "HYD",
+        "name": "sigma Hydrids"
+    },
+    "IAD": {
+        "code": "IAD",
+        "name": "iota Arids"
+    },
+    "IAN": {
+        "code": "IAN",
+        "name": "iota Antliids"
+    },
+    "IAQ": {
+        "code": "IAQ",
+        "name": "iota Aquariid Complex"
+    },
+    "IAR": {
+        "code": "IAR",
+        "name": "November iota Aurigids"
+    },
+    "ICA": {
+        "code": "ICA",
+        "name": "iota Cassiopeiids"
+    },
+    "ICE": {
+        "code": "ICE",
+        "name": "iota Cetids"
+    },
+    "ICN": {
+        "code": "ICN",
+        "name": "iota Centaurids"
+    },
+    "ICS": {
+        "code": "ICS",
+        "name": "October iota Cassiopeiids"
+    },
+    "ICT": {
+        "code": "ICT",
+        "name": "iota Craterids"
+    },
+    "ICY": {
+        "code": "ICY",
+        "name": "iota Cygnids"
+    },
+    "IHD": {
+        "code": "IHD",
+        "name": "iota Hydrusids"
+    },
+    "IHR": {
+        "code": "IHR",
+        "name": "July iota Hydrusids"
+    },
+    "ILI": {
+        "code": "ILI",
+        "name": "iota1 Librids"
+    },
+    "ILU": {
+        "code": "ILU",
+        "name": "iota Lupids"
+    },
+    "IOA": {
+        "code": "IOA",
+        "name": "iota Arietids"
+    },
+    "IOD": {
+        "code": "IOD",
+        "name": "iota Draconids"
+    },
+    "IOL": {
+        "code": "IOL",
+        "name": "iota Leonids"
+    },
+    "ISC": {
+        "code": "ISC",
+        "name": "iota Sculptorids"
+    },
+    "ISR": {
+        "code": "ISR",
+        "name": "iota Serpentids"
+    },
+    "IUM": {
+        "code": "IUM",
+        "name": "iota Ursae Majorids"
+    },
+    "IVI": {
+        "code": "IVI",
+        "name": "Daytime iota Virginids"
+    },
+    "JAC": {
+        "code": "JAC",
+        "name": "July alpha Camelopardalis"
+    },
+    "JAD": {
+        "code": "JAD",
+        "name": "July Andromedids"
+    },
+    "JAQ": {
+        "code": "JAQ",
+        "name": "June Aquilid Complex"
+    },
+    "JAS": {
+        "code": "JAS",
+        "name": "January psi Scorpiids"
+    },
+    "JAU": {
+        "code": "JAU",
+        "name": "January alpha Ursae Majorids"
+    },
+    "JBC": {
+        "code": "JBC",
+        "name": "January beta Craterids"
+    },
+    "JBO": {
+        "code": "JBO",
+        "name": "June Bootids"
+    },
+    "JBP": {
+        "code": "JBP",
+        "name": "July beta Pegasids"
+    },
+    "JCD": {
+        "code": "JCD",
+        "name": "June Cetids"
+    },
+    "JCE": {
+        "code": "JCE",
+        "name": "July Centaurids"
+    },
+    "JCO": {
+        "code": "JCO",
+        "name": "January Comae Berenicids"
+    },
+    "JCT": {
+        "code": "JCT",
+        "name": "July Cetids"
+    },
+    "JDP": {
+        "code": "JDP",
+        "name": "June delta Pavonids"
+    },
+    "JEA": {
+        "code": "JEA",
+        "name": "June epsilon Arietids"
+    },
+    "JEC": {
+        "code": "JEC",
+        "name": "June epsilon Cygnids"
+    },
+    "JED": {
+        "code": "JED",
+        "name": "January eta Draconids"
+    },
+    "JEO": {
+        "code": "JEO",
+        "name": "June epsilon Ophiuchids"
+    },
+    "JEP": {
+        "code": "JEP",
+        "name": "June eta Pegasids"
+    },
+    "JER": {
+        "code": "JER",
+        "name": "June eta Eridanids"
+    },
+    "JES": {
+        "code": "JES",
+        "name": "June epsilon Serpentids"
+    },
+    "JGD": {
+        "code": "JGD",
+        "name": "January gamma Delphinids"
+    },
+    "JGP": {
+        "code": "JGP",
+        "name": "July gamma Pegasids"
+    },
+    "JGS": {
+        "code": "JGS",
+        "name": "July delta Sagittariids"
+    },
+    "JHY": {
+        "code": "JHY",
+        "name": "January Hydrids"
+    },
+    "JID": {
+        "code": "JID",
+        "name": "January iota Draconids"
+    },
+    "JIP": {
+        "code": "JIP",
+        "name": "June iota Pegasids"
+    },
+    "JKL": {
+        "code": "JKL",
+        "name": "January kappa Leonids"
+    },
+    "JLC": {
+        "code": "JLC",
+        "name": "July lambda Capricornids"
+    },
+    "JLE": {
+        "code": "JLE",
+        "name": "January Leonids"
+    },
+    "JLL": {
+        "code": "JLL",
+        "name": "January lambda Leonids"
+    },
+    "JLY": {
+        "code": "JLY",
+        "name": "June Lyrids"
+    },
+    "JMC": {
+        "code": "JMC",
+        "name": "June mu Cassiopeiids"
+    },
+    "JMD": {
+        "code": "JMD",
+        "name": "June mu Draconids"
+    },
+    "JMP": {
+        "code": "JMP",
+        "name": "June mu Pegasids"
+    },
+    "JMV": {
+        "code": "JMV",
+        "name": "January mu Velids"
+    },
+    "JNH": {
+        "code": "JNH",
+        "name": "January nu Hydrids"
+    },
+    "JNO": {
+        "code": "JNO",
+        "name": "January nu Orionids"
+    },
+    "JOP": {
+        "code": "JOP",
+        "name": "July omicron Pavonids"
+    },
+    "JOS": {
+        "code": "JOS",
+        "name": "January omega Serpentids"
+    },
+    "JPE": {
+        "code": "JPE",
+        "name": "July Pegasids"
+    },
+    "JPG": {
+        "code": "JPG",
+        "name": "July eta Pegasids"
+    },
+    "JPS": {
+        "code": "JPS",
+        "name": "June beta Pegasids"
+    },
+    "JPV": {
+        "code": "JPV",
+        "name": "January phi Virginids"
+    },
+    "JRC": {
+        "code": "JRC",
+        "name": "June rho Cygnids"
+    },
+    "JRD": {
+        "code": "JRD",
+        "name": "June rho Draconids"
+    },
+    "JRH": {
+        "code": "JRH",
+        "name": "July rho Herculids"
+    },
+    "JRP": {
+        "code": "JRP",
+        "name": "?June rho Cygnids"
+    },
+    "JSC": {
+        "code": "JSC",
+        "name": "Daytime Scutids"
+    },
+    "JSG": {
+        "code": "JSG",
+        "name": "June 66 Pegasids"
+    },
+    "JSP": {
+        "code": "JSP",
+        "name": "July 77 Pegasids"
+    },
+    "JTL": {
+        "code": "JTL",
+        "name": "January theta Leonids"
+    },
+    "JTP": {
+        "code": "JTP",
+        "name": "June theta Piscids"
+    },
+    "JTR": {
+        "code": "JTR",
+        "name": "July Taurids"
+    },
+    "JTS": {
+        "code": "JTS",
+        "name": "June theta Serpentids"
+    },
+    "JTT": {
+        "code": "JTT",
+        "name": "June theta2 Sagittariids"
+    },
+    "JXA": {
+        "code": "JXA",
+        "name": "July xi Arietids"
+    },
+    "JXS": {
+        "code": "JXS",
+        "name": "June xi1 Sagittariids"
+    },
+    "JZA": {
+        "code": "JZA",
+        "name": "January zeta Aurigids"
+    },
+    "JZB": {
+        "code": "JZB",
+        "name": "January zeta Bootids"
+    },
+    "JZD": {
+        "code": "JZD",
+        "name": "January zeta Draconids"
+    },
+    "KAP": {
+        "code": "KAP",
+        "name": "kappa Perseids"
+    },
+    "KAQ": {
+        "code": "KAQ",
+        "name": "kappa Aquariids"
+    },
+    "KAU": {
+        "code": "KAU",
+        "name": "kappa Aurigids"
+    },
+    "KCA": {
+        "code": "KCA",
+        "name": "kappa Cancrids"
+    },
+    "KCE": {
+        "code": "KCE",
+        "name": "kappa Cepheids"
+    },
+    "KCG": {
+        "code": "KCG",
+        "name": "kappa Cygnids"
+    },
+    "KCR": {
+        "code": "KCR",
+        "name": "kappa Craterids"
+    },
+    "KCT": {
+        "code": "KCT",
+        "name": "kappa Cetids"
+    },
+    "KDP": {
+        "code": "KDP",
+        "name": "kappa Delphinids"
+    },
+    "KDR": {
+        "code": "KDR",
+        "name": "kappa Draconids"
+    },
+    "KHY": {
+        "code": "KHY",
+        "name": "kappa Hydrids"
+    },
+    "KLE": {
+        "code": "KLE",
+        "name": "Daytime kappa Leonids"
+    },
+    "KLI": {
+        "code": "KLI",
+        "name": "Daytime kappa Librids"
+    },
+    "KLY": {
+        "code": "KLY",
+        "name": "kappa Lyrids"
+    },
+    "KOR": {
+        "code": "KOR",
+        "name": "kappa Orionids"
+    },
+    "KPA": {
+        "code": "KPA",
+        "name": "kappa Pavonids"
+    },
+    "KPC": {
+        "code": "KPC",
+        "name": "kappa Cassiopeiids"
+    },
+    "KSE": {
+        "code": "KSE",
+        "name": "kappa Serpentids"
+    },
+    "KUM": {
+        "code": "KUM",
+        "name": "kappa Ursae Majorids"
+    },
+    "KVE": {
+        "code": "KVE",
+        "name": "kappa Velids"
+    },
+    "KVI": {
+        "code": "KVI",
+        "name": "kappa Virginids"
+    },
+    "KVO": {
+        "code": "KVO",
+        "name": "kappa Volantids"
+    },
+    "LAD": {
+        "code": "LAD",
+        "name": "December alpha Lyncids"
+    },
+    "LAL": {
+        "code": "LAL",
+        "name": "lambda Leonids"
+    },
+    "LAP": {
+        "code": "LAP",
+        "name": "lambda Piscids"
+    },
+    "LAQ": {
+        "code": "LAQ",
+        "name": "lambda Aquariids"
+    },
+    "LAR": {
+        "code": "LAR",
+        "name": "lambda Arietids"
+    },
+    "LAU": {
+        "code": "LAU",
+        "name": "lambda Aurigids"
+    },
+    "LAV": {
+        "code": "LAV",
+        "name": "lambda Velorumids"
+    },
+    "LBO": {
+        "code": "LBO",
+        "name": "lambda Bootids"
+    },
+    "LCA": {
+        "code": "LCA",
+        "name": "lambda Caelids"
+    },
+    "LCE": {
+        "code": "LCE",
+        "name": "lambda Centaurids"
+    },
+    "LCM": {
+        "code": "LCM",
+        "name": "lambda Canis Majorids"
+    },
+    "LCP": {
+        "code": "LCP",
+        "name": "lambda Capricornids"
+    },
+    "LCT": {
+        "code": "LCT",
+        "name": "lambda Cetids"
+    },
+    "LCY": {
+        "code": "LCY",
+        "name": "lambda Cygnids"
+    },
+    "LDR": {
+        "code": "LDR",
+        "name": "lambda Draconids"
+    },
+    "LEO": {
+        "code": "LEO",
+        "name": "Leonids"
+    },
+    "LEP": {
+        "code": "LEP",
+        "name": "Leporids"
+    },
+    "LGM": {
+        "code": "LGM",
+        "name": "lambda Geminids"
+    },
+    "LLY": {
+        "code": "LLY",
+        "name": "lambda Lyrids"
+    },
+    "LMI": {
+        "code": "LMI",
+        "name": "Leonis Minorids"
+    },
+    "LOP": {
+        "code": "LOP",
+        "name": "lambda Ophiuchids"
+    },
+    "LPE": {
+        "code": "LPE",
+        "name": "Daytime lambda Pegasids"
+    },
+    "LSA": {
+        "code": "LSA",
+        "name": "lambda Sagittariids"
+    },
+    "LTA": {
+        "code": "LTA",
+        "name": "lambda Taurids"
+    },
+    "LUM": {
+        "code": "LUM",
+        "name": "lambda Ursae Majorids"
+    },
+    "LVI": {
+        "code": "LVI",
+        "name": "lambda Virginids"
+    },
+    "LVL": {
+        "code": "LVL",
+        "name": "lambda Velids"
+    },
+    "LYR": {
+        "code": "LYR",
+        "name": "April Lyrids"
+    },
+    "MAC": {
+        "code": "MAC",
+        "name": "May alpha Comae Berenicids"
+    },
+    "MAL": {
+        "code": "MAL",
+        "name": "May Lacertids"
+    },
+    "MBA": {
+        "code": "MBA",
+        "name": "May beta Aquariids"
+    },
+    "MBC": {
+        "code": "MBC",
+        "name": "May beta Capricornids"
+    },
+    "MBE": {
+        "code": "MBE",
+        "name": "March beta Equuleids"
+    },
+    "MCA": {
+        "code": "MCA",
+        "name": "March Cassiopeiids"
+    },
+    "MCB": {
+        "code": "MCB",
+        "name": "beta Canis Majorids"
+    },
+    "MCE": {
+        "code": "MCE",
+        "name": "mu Cepheids"
+    },
+    "MCN": {
+        "code": "MCN",
+        "name": "March Centaurids"
+    },
+    "MCY": {
+        "code": "MCY",
+        "name": "mu Cygnids"
+    },
+    "MDL": {
+        "code": "MDL",
+        "name": "May delta Leonids"
+    },
+    "MDR": {
+        "code": "MDR",
+        "name": "mu Draconids"
+    },
+    "MED": {
+        "code": "MED",
+        "name": "May epsilon Draconids"
+    },
+    "MHY": {
+        "code": "MHY",
+        "name": "mu Hydrids"
+    },
+    "MIC": {
+        "code": "MIC",
+        "name": "Microscopiids"
+    },
+    "MID": {
+        "code": "MID",
+        "name": "May iota Draconids"
+    },
+    "MKA": {
+        "code": "MKA",
+        "name": "Daytime kappa Aquariids"
+    },
+    "MKQ": {
+        "code": "MKQ",
+        "name": "May kappa Aquariids"
+    },
+    "MLD": {
+        "code": "MLD",
+        "name": "May lambda Draconids"
+    },
+    "MLE": {
+        "code": "MLE",
+        "name": "mu Leonids"
+    },
+    "MLT": {
+        "code": "MLT",
+        "name": "24 Leonis Minorids"
+    },
+    "MLV": {
+        "code": "MLV",
+        "name": "May lambda Virginids"
+    },
+    "MLY": {
+        "code": "MLY",
+        "name": "March Lyncids"
+    },
+    "MMI": {
+        "code": "MMI",
+        "name": "May Microscopiids"
+    },
+    "MML": {
+        "code": "MML",
+        "name": "May mu Leonids"
+    },
+    "MOC": {
+        "code": "MOC",
+        "name": "March omicron Cygnids"
+    },
+    "MON": {
+        "code": "MON",
+        "name": "December Monocerotids"
+    },
+    "MPR": {
+        "code": "MPR",
+        "name": "mu Perseids"
+    },
+    "MPS": {
+        "code": "MPS",
+        "name": "May psi Scorpiids"
+    },
+    "MPV": {
+        "code": "MPV",
+        "name": "May phi Virginids"
+    },
+    "MSE": {
+        "code": "MSE",
+        "name": "mu Serpentids"
+    },
+    "MSR": {
+        "code": "MSR",
+        "name": "July mu Serpentids"
+    },
+    "MTA": {
+        "code": "MTA",
+        "name": "m Taurids"
+    },
+    "MTB": {
+        "code": "MTB",
+        "name": "March 12 Bootids"
+    },
+    "MUA": {
+        "code": "MUA",
+        "name": "mu Aquariids"
+    },
+    "MUC": {
+        "code": "MUC",
+        "name": "May upsilon Cygnids"
+    },
+    "MUL": {
+        "code": "MUL",
+        "name": "mu Lyrids"
+    },
+    "MUS": {
+        "code": "MUS",
+        "name": "78 Ursae Majorids"
+    },
+    "MVE": {
+        "code": "MVE",
+        "name": "mu Velids"
+    },
+    "MVL": {
+        "code": "MVL",
+        "name": "May Vulpeculids"
+    },
+    "MXA": {
+        "code": "MXA",
+        "name": "May xi Aurigids"
+    },
+    "MXD": {
+        "code": "MXD",
+        "name": "March xi Draconids"
+    },
+    "MZC": {
+        "code": "MZC",
+        "name": "May zeta Cygnids"
+    },
+    "MZE": {
+        "code": "MZE",
+        "name": "March zeta Cygnids"
+    },
+    "NAA": {
+        "code": "NAA",
+        "name": "November alpha Aurigids"
+    },
+    "NAC": {
+        "code": "NAC",
+        "name": "November alpha Corvids"
+    },
+    "NAL": {
+        "code": "NAL",
+        "name": "Northern alpha Leonids"
+    },
+    "NAN": {
+        "code": "NAN",
+        "name": "nu Andromedids"
+    },
+    "NAR": {
+        "code": "NAR",
+        "name": "November nu Arietids"
+    },
+    "NAS": {
+        "code": "NAS",
+        "name": "November alpha Sextantids"
+    },
+    "NAT": {
+        "code": "NAT",
+        "name": "nu Arietids"
+    },
+    "NAU": {
+        "code": "NAU",
+        "name": "nu Aurigids"
+    },
+    "NBO": {
+        "code": "NBO",
+        "name": "nu Bootids"
+    },
+    "NBP": {
+        "code": "NBP",
+        "name": "November beta Pyxidids"
+    },
+    "NCA": {
+        "code": "NCA",
+        "name": "19 Canum Venaticids"
+    },
+    "NCB": {
+        "code": "NCB",
+        "name": "November Comae Berenicids"
+    },
+    "NCC": {
+        "code": "NCC",
+        "name": "Northern delta Cancrids"
+    },
+    "NCQ": {
+        "code": "NCQ",
+        "name": "Northern chi Aquariids"
+    },
+    "NCY": {
+        "code": "NCY",
+        "name": "nu Cygnids"
+    },
+    "NDA": {
+        "code": "NDA",
+        "name": "Northern delta Aquariids"
+    },
+    "NDD": {
+        "code": "NDD",
+        "name": "November delta Draconids"
+    },
+    "NDL": {
+        "code": "NDL",
+        "name": "Northern delta Leonids"
+    },
+    "NDR": {
+        "code": "NDR",
+        "name": "nu Draconids"
+    },
+    "NEC": {
+        "code": "NEC",
+        "name": "November Cetids"
+    },
+    "NED": {
+        "code": "NED",
+        "name": "November Draconids"
+    },
+    "NER": {
+        "code": "NER",
+        "name": "November epsilon Eridanids"
+    },
+    "NET": {
+        "code": "NET",
+        "name": "November eta Taurids"
+    },
+    "NEV": {
+        "code": "NEV",
+        "name": "November eta Virginids"
+    },
+    "NFL": {
+        "code": "NFL",
+        "name": "95 Leonids"
+    },
+    "NGB": {
+        "code": "NGB",
+        "name": "November gamma Bootids"
+    },
+    "NGM": {
+        "code": "NGM",
+        "name": "nu Geminids"
+    },
+    "NGP": {
+        "code": "NGP",
+        "name": "November gamma Pegasids"
+    },
+    "NGV": {
+        "code": "NGV",
+        "name": "Northern gamma Virginids"
+    },
+    "NHD": {
+        "code": "NHD",
+        "name": "November Hydrids"
+    },
+    "NHE": {
+        "code": "NHE",
+        "name": "90 Herculids"
+    },
+    "NHR": {
+        "code": "NHR",
+        "name": "9 Herculids"
+    },
+    "NHY": {
+        "code": "NHY",
+        "name": "nu Hydrids"
+    },
+    "NIA": {
+        "code": "NIA",
+        "name": "Northern iota Aquariids"
+    },
+    "NID": {
+        "code": "NID",
+        "name": "November i Draconids"
+    },
+    "NLD": {
+        "code": "NLD",
+        "name": "November lambda Draconids"
+    },
+    "NLL": {
+        "code": "NLL",
+        "name": "Northern Librids-Lupids"
+    },
+    "NLM": {
+        "code": "NLM",
+        "name": "November Leonis Minorids"
+    },
+    "NLV": {
+        "code": "NLV",
+        "name": "November lambda Velids"
+    },
+    "NLY": {
+        "code": "NLY",
+        "name": "November Lyncids"
+    },
+    "NMA": {
+        "code": "NMA",
+        "name": "Northern Daytime May Arietids"
+    },
+    "NMD": {
+        "code": "NMD",
+        "name": "November mu Draconids"
+    },
+    "NMV": {
+        "code": "NMV",
+        "name": "Northern March gamma Virginids"
+    },
+    "NNA": {
+        "code": "NNA",
+        "name": "99 Aquariids"
+    },
+    "NOA": {
+        "code": "NOA",
+        "name": "Northern October delta Arietids"
+    },
+    "NOC": {
+        "code": "NOC",
+        "name": "Northern Daytime omega Cetids"
+    },
+    "NOO": {
+        "code": "NOO",
+        "name": "November Orionids"
+    },
+    "NOP": {
+        "code": "NOP",
+        "name": "Northern May Ophiuchids"
+    },
+    "NPE": {
+        "code": "NPE",
+        "name": "nu Pegasids"
+    },
+    "NPH": {
+        "code": "NPH",
+        "name": "nu Phoenicids"
+    },
+    "NPI": {
+        "code": "NPI",
+        "name": "Northern delta Piscids"
+    },
+    "NPS": {
+        "code": "NPS",
+        "name": "nu Piscids"
+    },
+    "NPU": {
+        "code": "NPU",
+        "name": "November Puppids"
+    },
+    "NRC": {
+        "code": "NRC",
+        "name": "November rho Cygnids"
+    },
+    "NSA": {
+        "code": "NSA",
+        "name": "Northern mu Sagittariids"
+    },
+    "NSC": {
+        "code": "NSC",
+        "name": "Northern omega Scorpiids"
+    },
+    "NSE": {
+        "code": "NSE",
+        "name": "nu Serpentids"
+    },
+    "NSS": {
+        "code": "NSS",
+        "name": "Northern sigma Sagittariids"
+    },
+    "NSU": {
+        "code": "NSU",
+        "name": "November sigma Ursae Majorids"
+    },
+    "NTA": {
+        "code": "NTA",
+        "name": "Northern Taurids"
+    },
+    "NUE": {
+        "code": "NUE",
+        "name": "nu Eridanids"
+    },
+    "NUM": {
+        "code": "NUM",
+        "name": "nu Ursae Majorids"
+    },
+    "NUP": {
+        "code": "NUP",
+        "name": "nu Ophiuchids"
+    },
+    "NUT": {
+        "code": "NUT",
+        "name": "nu Taurids"
+    },
+    "NVI": {
+        "code": "NVI",
+        "name": "Northern March Virginids"
+    },
+    "NXE": {
+        "code": "NXE",
+        "name": "November xi Eridanids"
+    },
+    "NZC": {
+        "code": "NZC",
+        "name": "Northern June Aquilids"
+    },
+    "NZP": {
+        "code": "NZP",
+        "name": "November zeta Perseids"
+    },
+    "NZT": {
+        "code": "NZT",
+        "name": "November zeta Taurids"
+    },
+    "OAB": {
+        "code": "OAB",
+        "name": "October alpha Comae Berenicids"
+    },
+    "OAC": {
+        "code": "OAC",
+        "name": "October alpha Camelopardalids"
+    },
+    "OAG": {
+        "code": "OAG",
+        "name": "October Aurigids"
+    },
+    "OAN": {
+        "code": "OAN",
+        "name": "omicron Andromedids"
+    },
+    "OAP": {
+        "code": "OAP",
+        "name": "October alpha Pyxidids"
+    },
+    "OAQ": {
+        "code": "OAQ",
+        "name": "omicron Aquariids"
+    },
+    "OAR": {
+        "code": "OAR",
+        "name": "October Arietid Complex"
+    },
+    "OAT": {
+        "code": "OAT",
+        "name": "October alpha Triangulids"
+    },
+    "OAU": {
+        "code": "OAU",
+        "name": "omicron Aurigids"
+    },
+    "OAV": {
+        "code": "OAV",
+        "name": "68 Virginids"
+    },
+    "OBC": {
+        "code": "OBC",
+        "name": "October beta Camelopardalids"
+    },
+    "OBP": {
+        "code": "OBP",
+        "name": "October beta Pyxidids"
+    },
+    "OCA": {
+        "code": "OCA",
+        "name": "omega Centaurids"
+    },
+    "OCC": {
+        "code": "OCC",
+        "name": "October Capricornids"
+    },
+    "OCD": {
+        "code": "OCD",
+        "name": "Octantids"
+    },
+    "OCE": {
+        "code": "OCE",
+        "name": "Southern Daytime omega Cetids"
+    },
+    "OCG": {
+        "code": "OCG",
+        "name": "October Cygnids"
+    },
+    "OCH": {
+        "code": "OCH",
+        "name": "October chi Andromedids"
+    },
+    "OCN": {
+        "code": "OCN",
+        "name": "Centaurid I Complex"
+    },
+    "OCO": {
+        "code": "OCO",
+        "name": "omicron Columbids"
+    },
+    "OCP": {
+        "code": "OCP",
+        "name": "October gamma Camelopardalids"
+    },
+    "OCR": {
+        "code": "OCR",
+        "name": "omega Carinids"
+    },
+    "OCS": {
+        "code": "OCS",
+        "name": "omega Cassiopeiids"
+    },
+    "OCT": {
+        "code": "OCT",
+        "name": "October Camelopardalids"
+    },
+    "OCU": {
+        "code": "OCU",
+        "name": "October Ursae Majorids"
+    },
+    "OCY": {
+        "code": "OCY",
+        "name": "omicron Cygnids"
+    },
+    "ODR": {
+        "code": "ODR",
+        "name": "omicron Draconids"
+    },
+    "ODS": {
+        "code": "ODS",
+        "name": "October delta Sextantids"
+    },
+    "OEA": {
+        "code": "OEA",
+        "name": "October epsilon Aurigids"
+    },
+    "OEE": {
+        "code": "OEE",
+        "name": "October eta Eridanids"
+    },
+    "OEH": {
+        "code": "OEH",
+        "name": "78 Virginids"
+    },
+    "OER": {
+        "code": "OER",
+        "name": "omicron Eridanids"
+    },
+    "OEV": {
+        "code": "OEV",
+        "name": "October eta Virginids"
+    },
+    "OGC": {
+        "code": "OGC",
+        "name": "October gamma Cetids"
+    },
+    "OHD": {
+        "code": "OHD",
+        "name": "omega Hydrids"
+    },
+    "OHY": {
+        "code": "OHY",
+        "name": "omicron Hydrids"
+    },
+    "OKD": {
+        "code": "OKD",
+        "name": "October kappa Draconids"
+    },
+    "OLE": {
+        "code": "OLE",
+        "name": "omicron Leonids"
+    },
+    "OLP": {
+        "code": "OLP",
+        "name": "October Leporids"
+    },
+    "OLS": {
+        "code": "OLS",
+        "name": "omega Leonids"
+    },
+    "OLV": {
+        "code": "OLV",
+        "name": "October lambda Velids"
+    },
+    "OLY": {
+        "code": "OLY",
+        "name": "October Lyncids"
+    },
+    "OMA": {
+        "code": "OMA",
+        "name": "Omicron Ursae Majorids"
+    },
+    "OMC": {
+        "code": "OMC",
+        "name": "omega Capricornids"
+    },
+    "OME": {
+        "code": "OME",
+        "name": "omega Eridanids"
+    },
+    "OMG": {
+        "code": "OMG",
+        "name": "omicron Geminids"
+    },
+    "OMH": {
+        "code": "OMH",
+        "name": "October mu Hydrids"
+    },
+    "OMI": {
+        "code": "OMI",
+        "name": "omicron Cetids"
+    },
+    "OML": {
+        "code": "OML",
+        "name": "October mu Leonids"
+    },
+    "OMO": {
+        "code": "OMO",
+        "name": "October Monocerotids"
+    },
+    "OOE": {
+        "code": "OOE",
+        "name": "omicron1 Eridanids"
+    },
+    "OPA": {
+        "code": "OPA",
+        "name": "omicron Pavonids"
+    },
+    "OPC": {
+        "code": "OPC",
+        "name": "omega Piscids"
+    },
+    "OPE": {
+        "code": "OPE",
+        "name": "omicron Perseids"
+    },
+    "OPG": {
+        "code": "OPG",
+        "name": "omicron Pegasids"
+    },
+    "OPH": {
+        "code": "OPH",
+        "name": "May Ophiuchid Complex"
+    },
+    "OPL": {
+        "code": "OPL",
+        "name": "pi Leonids"
+    },
+    "OPU": {
+        "code": "OPU",
+        "name": "October Puppids"
+    },
+    "ORI": {
+        "code": "ORI",
+        "name": "Orionids"
+    },
+    "ORN": {
+        "code": "ORN",
+        "name": "Northern chi Orionids"
+    },
+    "ORS": {
+        "code": "ORS",
+        "name": "Southern chi Orionids"
+    },
+    "OSC": {
+        "code": "OSC",
+        "name": "omega Scorpiid Complex"
+    },
+    "OSD": {
+        "code": "OSD",
+        "name": "October 6 Draconids"
+    },
+    "OSE": {
+        "code": "OSE",
+        "name": "omega Serpentids"
+    },
+    "OSG": {
+        "code": "OSG",
+        "name": "omega Sagittariids"
+    },
+    "OSP": {
+        "code": "OSP",
+        "name": "omicron Serpentids"
+    },
+    "OTA": {
+        "code": "OTA",
+        "name": "130 Taurids"
+    },
+    "OTH": {
+        "code": "OTH",
+        "name": "110 Herculids"
+    },
+    "OUI": {
+        "code": "OUI",
+        "name": "October Ursae Minorids"
+    },
+    "OUM": {
+        "code": "OUM",
+        "name": "omega Ursae Majorids"
+    },
+    "OUR": {
+        "code": "OUR",
+        "name": "October alpha Ursae Minorids"
+    },
+    "OVI": {
+        "code": "OVI",
+        "name": "omicron Virginids"
+    },
+    "PAN": {
+        "code": "PAN",
+        "name": "psi Andromedids"
+    },
+    "PAQ": {
+        "code": "PAQ",
+        "name": "phi Aquariids"
+    },
+    "PAR": {
+        "code": "PAR",
+        "name": "psi1 Aurigids"
+    },
+    "PAU": {
+        "code": "PAU",
+        "name": "Piscis Austrinids"
+    },
+    "PBO": {
+        "code": "PBO",
+        "name": "phi Bootids"
+    },
+    "PCA": {
+        "code": "PCA",
+        "name": "psi Cassiopeiids"
+    },
+    "PCE": {
+        "code": "PCE",
+        "name": "phi Cetids"
+    },
+    "PCI": {
+        "code": "PCI",
+        "name": "42 Piscids"
+    },
+    "PCS": {
+        "code": "PCS",
+        "name": "phi Capricornids"
+    },
+    "PCY": {
+        "code": "PCY",
+        "name": "psi Cygnids"
+    },
+    "PDF": {
+        "code": "PDF",
+        "name": "phi Draconids"
+    },
+    "PEG": {
+        "code": "PEG",
+        "name": "mu Pegasids"
+    },
+    "PER": {
+        "code": "PER",
+        "name": "Perseids"
+    },
+    "PGE": {
+        "code": "PGE",
+        "name": "phi Geminids"
+    },
+    "PHC": {
+        "code": "PHC",
+        "name": "phi Cancrids"
+    },
+    "PHE": {
+        "code": "PHE",
+        "name": "July Phoenicids"
+    },
+    "PHO": {
+        "code": "PHO",
+        "name": "Phoenicids"
+    },
+    "PHP": {
+        "code": "PHP",
+        "name": "phi Pegasids"
+    },
+    "PIC": {
+        "code": "PIC",
+        "name": "pi Cassiopeids"
+    },
+    "PIH": {
+        "code": "PIH",
+        "name": "pi Hydrids"
+    },
+    "PIP": {
+        "code": "PIP",
+        "name": "January pi Puppids"
+    },
+    "PIS": {
+        "code": "PIS",
+        "name": "29 Piscids"
+    },
+    "PLE": {
+        "code": "PLE",
+        "name": "phi Leonids"
+    },
+    "POD": {
+        "code": "POD",
+        "name": "psi Draconids"
+    },
+    "PON": {
+        "code": "PON",
+        "name": "91 Piscids"
+    },
+    "POR": {
+        "code": "POR",
+        "name": "September pi Orionids"
+    },
+    "POS": {
+        "code": "POS",
+        "name": "72 Ophiuchids"
+    },
+    "PPC": {
+        "code": "PPC",
+        "name": "Puppid-Pyxidid Complex"
+    },
+    "PPE": {
+        "code": "PPE",
+        "name": "August phi Pegasids"
+    },
+    "PPH": {
+        "code": "PPH",
+        "name": "psi Phoenicids"
+    },
+    "PPS": {
+        "code": "PPS",
+        "name": "phi Piscids"
+    },
+    "PPU": {
+        "code": "PPU",
+        "name": "pi Puppids"
+    },
+    "PSA": {
+        "code": "PSA",
+        "name": "psi Aurigids"
+    },
+    "PSC": {
+        "code": "PSC",
+        "name": "Piscid Complex"
+    },
+    "PSO": {
+        "code": "PSO",
+        "name": "pi6 Orionids"
+    },
+    "PSP": {
+        "code": "PSP",
+        "name": "psi Pegasids"
+    },
+    "PSQ": {
+        "code": "PSQ",
+        "name": "psi3 Aquariids"
+    },
+    "PSR": {
+        "code": "PSR",
+        "name": "phi Serpentids"
+    },
+    "PSU": {
+        "code": "PSU",
+        "name": "psi Ursae Majorids"
+    },
+    "PTA": {
+        "code": "PTA",
+        "name": "phi Taurids"
+    },
+    "PTS": {
+        "code": "PTS",
+        "name": "p Taurids"
+    },
+    "PUA": {
+        "code": "PUA",
+        "name": "phi Ursae Majorids"
+    },
+    "PUM": {
+        "code": "PUM",
+        "name": "April psi Ursae Majorids"
+    },
+    "PUP": {
+        "code": "PUP",
+        "name": "gamma Puppids"
+    },
+    "PUV": {
+        "code": "PUV",
+        "name": "Puppid-Velid I Complex"
+    },
+    "PVE": {
+        "code": "PVE",
+        "name": "b Puppids"
+    },
+    "PVI": {
+        "code": "PVI",
+        "name": "January pi Virginids"
+    },
+    "PVL": {
+        "code": "PVL",
+        "name": "psi Velids"
+    },
+    "PXS": {
+        "code": "PXS",
+        "name": "September xi Perseids"
+    },
+    "QPE": {
+        "code": "QPE",
+        "name": "Daytime q Pegasids"
+    },
+    "QUA": {
+        "code": "QUA",
+        "name": "Quadrantids"
+    },
+    "RBO": {
+        "code": "RBO",
+        "name": "rho Bootids"
+    },
+    "RER": {
+        "code": "RER",
+        "name": "rho Eridanids"
+    },
+    "RGE": {
+        "code": "RGE",
+        "name": "rho Geminids"
+    },
+    "RLE": {
+        "code": "RLE",
+        "name": "rho Leonids"
+    },
+    "RLM": {
+        "code": "RLM",
+        "name": "R Leonis Minorids"
+    },
+    "RLY": {
+        "code": "RLY",
+        "name": "R Lyrids"
+    },
+    "ROR": {
+        "code": "ROR",
+        "name": "rho Orionids"
+    },
+    "RPH": {
+        "code": "RPH",
+        "name": "rho Phoenicids"
+    },
+    "RPI": {
+        "code": "RPI",
+        "name": "rho Piscids"
+    },
+    "RPU": {
+        "code": "RPU",
+        "name": "rho Puppids"
+    },
+    "RSE": {
+        "code": "RSE",
+        "name": "Serpentids-Coronae Borealids"
+    },
+    "SAG": {
+        "code": "SAG",
+        "name": "Scorpiid-Sagittariid Complex"
+    },
+    "SAL": {
+        "code": "SAL",
+        "name": "Southern alpha Leonids"
+    },
+    "SAN": {
+        "code": "SAN",
+        "name": "62 Andromedids"
+    },
+    "SAP": {
+        "code": "SAP",
+        "name": "Southern alpha Pegasids"
+    },
+    "SAQ": {
+        "code": "SAQ",
+        "name": "September Aquariids"
+    },
+    "SAR": {
+        "code": "SAR",
+        "name": "September mu Arietids"
+    },
+    "SAU": {
+        "code": "SAU",
+        "name": "63 Aurigids"
+    },
+    "SBO": {
+        "code": "SBO",
+        "name": "sigma Bootids"
+    },
+    "SCA": {
+        "code": "SCA",
+        "name": "sigma Capricornids"
+    },
+    "SCC": {
+        "code": "SCC",
+        "name": "Southern delta Cancrids"
+    },
+    "SCE": {
+        "code": "SCE",
+        "name": "77 Cetids"
+    },
+    "SCO": {
+        "code": "SCO",
+        "name": "sigma Columbids"
+    },
+    "SCP": {
+        "code": "SCP",
+        "name": "17 Capricornids"
+    },
+    "SCQ": {
+        "code": "SCQ",
+        "name": "Southern chi Aquariids"
+    },
+    "SCS": {
+        "code": "SCS",
+        "name": "September beta Cassiopeiids"
+    },
+    "SCT": {
+        "code": "SCT",
+        "name": "sigma Cetids"
+    },
+    "SCU": {
+        "code": "SCU",
+        "name": "Scutids"
+    },
+    "SCV": {
+        "code": "SCV",
+        "name": "6 Corvids"
+    },
+    "SCY": {
+        "code": "SCY",
+        "name": "63 Cygnids"
+    },
+    "SDA": {
+        "code": "SDA",
+        "name": "Southern delta Aquariids"
+    },
+    "SDL": {
+        "code": "SDL",
+        "name": "Southern delta Leonids"
+    },
+    "SEC": {
+        "code": "SEC",
+        "name": "September epsilon Columbids"
+    },
+    "SED": {
+        "code": "SED",
+        "name": "September epsilon Draconids"
+    },
+    "SEE": {
+        "code": "SEE",
+        "name": "17 Eridanids"
+    },
+    "SES": {
+        "code": "SES",
+        "name": "17 Sextantids"
+    },
+    "SFD": {
+        "code": "SFD",
+        "name": "64 Draconids"
+    },
+    "SFO": {
+        "code": "SFO",
+        "name": "sigma Fornacids"
+    },
+    "SGC": {
+        "code": "SGC",
+        "name": "sigma1 Cancrids"
+    },
+    "SGE": {
+        "code": "SGE",
+        "name": "March delta Geminids"
+    },
+    "SGI": {
+        "code": "SGI",
+        "name": "June Sagittariids"
+    },
+    "SGM": {
+        "code": "SGM",
+        "name": "68 Geminids"
+    },
+    "SGP": {
+        "code": "SGP",
+        "name": "September gamma Piscids"
+    },
+    "SGV": {
+        "code": "SGV",
+        "name": "Southern gamma Virginids"
+    },
+    "SIA": {
+        "code": "SIA",
+        "name": "Southern iota Aquariids"
+    },
+    "SIC": {
+        "code": "SIC",
+        "name": "September iota Cassiopeiids"
+    },
+    "SIS": {
+        "code": "SIS",
+        "name": "sigma Sagittariid Complex"
+    },
+    "SJA": {
+        "code": "SJA",
+        "name": "Southern July xi Arietids"
+    },
+    "SLD": {
+        "code": "SLD",
+        "name": "Southern lambda Draconids"
+    },
+    "SLE": {
+        "code": "SLE",
+        "name": "sigma Leonids"
+    },
+    "SLL": {
+        "code": "SLL",
+        "name": "Southern Librids-Lupids"
+    },
+    "SLM": {
+        "code": "SLM",
+        "name": "7 Leonis Minorids"
+    },
+    "SLY": {
+        "code": "SLY",
+        "name": "September Lyncids"
+    },
+    "SMA": {
+        "code": "SMA",
+        "name": "Southern Daytime May Arietids"
+    },
+    "SMV": {
+        "code": "SMV",
+        "name": "Southern March gamma Virginids"
+    },
+    "SND": {
+        "code": "SND",
+        "name": "69 Draconids"
+    },
+    "SOA": {
+        "code": "SOA",
+        "name": "Southern October delta Arietids"
+    },
+    "SOL": {
+        "code": "SOL",
+        "name": "September-October Lyncids"
+    },
+    "SOO": {
+        "code": "SOO",
+        "name": "September omicron Orionids"
+    },
+    "SOP": {
+        "code": "SOP",
+        "name": "Southern May Ophiuchids"
+    },
+    "SOR": {
+        "code": "SOR",
+        "name": "sigma Orionids"
+    },
+    "SOV": {
+        "code": "SOV",
+        "name": "61 Virginids"
+    },
+    "SPD": {
+        "code": "SPD",
+        "name": "September psi1 Draconids"
+    },
+    "SPE": {
+        "code": "SPE",
+        "name": "September epsilon Perseids"
+    },
+    "SPG": {
+        "code": "SPG",
+        "name": "sigma Pegasids"
+    },
+    "SPH": {
+        "code": "SPH",
+        "name": "sigma Phoenicids"
+    },
+    "SPI": {
+        "code": "SPI",
+        "name": "Southern delta Piscids"
+    },
+    "SPS": {
+        "code": "SPS",
+        "name": "sigma Perseids"
+    },
+    "SPU": {
+        "code": "SPU",
+        "name": "sigma Puppids"
+    },
+    "SRP": {
+        "code": "SRP",
+        "name": "September rho Pegasids"
+    },
+    "SSA": {
+        "code": "SSA",
+        "name": "sigma Arietids"
+    },
+    "SSC": {
+        "code": "SSC",
+        "name": "Southern omega Scorpiids"
+    },
+    "SSD": {
+        "code": "SSD",
+        "name": "66 Draconids"
+    },
+    "SSE": {
+        "code": "SSE",
+        "name": "sigma Serpentids"
+    },
+    "SSG": {
+        "code": "SSG",
+        "name": "Southern mu Sagittariids"
+    },
+    "SSR": {
+        "code": "SSR",
+        "name": "16 Scorpiids"
+    },
+    "SSS": {
+        "code": "SSS",
+        "name": "Southern sigma Sagittariids"
+    },
+    "SSX": {
+        "code": "SSX",
+        "name": "6 Sextantids"
+    },
+    "STA": {
+        "code": "STA",
+        "name": "Southern Taurids"
+    },
+    "STC": {
+        "code": "STC",
+        "name": "September theta Capricornids"
+    },
+    "STS": {
+        "code": "STS",
+        "name": "s Taurids"
+    },
+    "SUA": {
+        "code": "SUA",
+        "name": "73 Ursae Majorids"
+    },
+    "SUC": {
+        "code": "SUC",
+        "name": "September upsilon Cetids"
+    },
+    "SUM": {
+        "code": "SUM",
+        "name": "61 Ursae Majorids"
+    },
+    "SUR": {
+        "code": "SUR",
+        "name": "September Ursae Majorids"
+    },
+    "SUT": {
+        "code": "SUT",
+        "name": "September upsilon Taurids"
+    },
+    "SVI": {
+        "code": "SVI",
+        "name": "Southern March Virginids"
+    },
+    "SXP": {
+        "code": "SXP",
+        "name": "6 Puppids"
+    },
+    "SZC": {
+        "code": "SZC",
+        "name": "Southern June Aquilids"
+    },
+    "SZE": {
+        "code": "SZE",
+        "name": "September zeta Eridanids"
+    },
+    "TAC": {
+        "code": "TAC",
+        "name": "tau Capricornids"
+    },
+    "TAG": {
+        "code": "TAG",
+        "name": "theta Aurigids"
+    },
+    "TAH": {
+        "code": "TAH",
+        "name": "tau Herculids"
+    },
+    "TAL": {
+        "code": "TAL",
+        "name": "22 Aquilids"
+    },
+    "TAQ": {
+        "code": "TAQ",
+        "name": "tau Aquariids"
+    },
+    "TAR": {
+        "code": "TAR",
+        "name": "tau Arietids"
+    },
+    "TAS": {
+        "code": "TAS",
+        "name": "Daytime theta Aurigids"
+    },
+    "TAT": {
+        "code": "TAT",
+        "name": "tau Taurids"
+    },
+    "TAU": {
+        "code": "TAU",
+        "name": "Taurid Complex"
+    },
+    "TBO": {
+        "code": "TBO",
+        "name": "12 Bootids"
+    },
+    "TCA": {
+        "code": "TCA",
+        "name": "tau Cancrids"
+    },
+    "TCB": {
+        "code": "TCB",
+        "name": "theta Coronae Borealids"
+    },
+    "TCD": {
+        "code": "TCD",
+        "name": "theta Carinids"
+    },
+    "TCE": {
+        "code": "TCE",
+        "name": "Centaurid II Complex"
+    },
+    "TCN": {
+        "code": "TCN",
+        "name": "theta Centaurids"
+    },
+    "TCR": {
+        "code": "TCR",
+        "name": "theta Craterids"
+    },
+    "TCT": {
+        "code": "TCT",
+        "name": "tau Cetids"
+    },
+    "TCV": {
+        "code": "TCV",
+        "name": "Canum Venaticids-Bootids"
+    },
+    "TDE": {
+        "code": "TDE",
+        "name": "13 Delphinids"
+    },
+    "TEI": {
+        "code": "TEI",
+        "name": "tau9 Eridanids"
+    },
+    "TEL": {
+        "code": "TEL",
+        "name": "Telescopiids"
+    },
+    "TER": {
+        "code": "TER",
+        "name": "tau4 Eridanids"
+    },
+    "THA": {
+        "code": "THA",
+        "name": "November theta Aurigids"
+    },
+    "THC": {
+        "code": "THC",
+        "name": "theta Cetids"
+    },
+    "THD": {
+        "code": "THD",
+        "name": "12 Hydrids"
+    },
+    "THO": {
+        "code": "THO",
+        "name": "30 Ophiuchids"
+    },
+    "THP": {
+        "code": "THP",
+        "name": "3 Puppids"
+    },
+    "THY": {
+        "code": "THY",
+        "name": "33 Hydrids"
+    },
+    "TLA": {
+        "code": "TLA",
+        "name": "2 Lacertids"
+    },
+    "TLC": {
+        "code": "TLC",
+        "name": "34 Lyncids"
+    },
+    "TLE": {
+        "code": "TLE",
+        "name": "theta Leonids"
+    },
+    "TLM": {
+        "code": "TLM",
+        "name": "32 Leonis Minorids"
+    },
+    "TLR": {
+        "code": "TLR",
+        "name": "12 Lacertids"
+    },
+    "TLY": {
+        "code": "TLY",
+        "name": "31 Lyncids"
+    },
+    "TOB": {
+        "code": "TOB",
+        "name": "26 Comae Berenicids"
+    },
+    "TOH": {
+        "code": "TOH",
+        "name": "21 Herculids"
+    },
+    "TOL": {
+        "code": "TOL",
+        "name": "28 Lyncids"
+    },
+    "TOP": {
+        "code": "TOP",
+        "name": "tau Ophiuchids"
+    },
+    "TOR": {
+        "code": "TOR",
+        "name": "35 Comae Berenicids"
+    },
+    "TPE": {
+        "code": "TPE",
+        "name": "July theta Perseids"
+    },
+    "TPG": {
+        "code": "TPG",
+        "name": "31 Pegasids"
+    },
+    "TPI": {
+        "code": "TPI",
+        "name": "theta Piscids"
+    },
+    "TPR": {
+        "code": "TPR",
+        "name": "theta Perseids"
+    },
+    "TPS": {
+        "code": "TPS",
+        "name": "2 Pegasids"
+    },
+    "TPU": {
+        "code": "TPU",
+        "name": "tau Puppids"
+    },
+    "TPY": {
+        "code": "TPY",
+        "name": "theta Pyxidids"
+    },
+    "TRD": {
+        "code": "TRD",
+        "name": "October Taurids"
+    },
+    "TRI": {
+        "code": "TRI",
+        "name": "August Triangulids"
+    },
+    "TSB": {
+        "code": "TSB",
+        "name": "26 Bootids"
+    },
+    "TSC": {
+        "code": "TSC",
+        "name": "tau Sculptorids"
+    },
+    "TSM": {
+        "code": "TSM",
+        "name": "27 Monocerotids"
+    },
+    "TSR": {
+        "code": "TSR",
+        "name": "theta Serpentids"
+    },
+    "TTA": {
+        "code": "TTA",
+        "name": "12 Taurids"
+    },
+    "TTB": {
+        "code": "TTB",
+        "name": "22 Bootids"
+    },
+    "TTL": {
+        "code": "TTL",
+        "name": "22 Lyncids"
+    },
+    "TTS": {
+        "code": "TTS",
+        "name": "theta2 Sagittariids"
+    },
+    "TTT": {
+        "code": "TTT",
+        "name": "13 Taurids"
+    },
+    "TUM": {
+        "code": "TUM",
+        "name": "theta Ursae Majorids"
+    },
+    "TVI": {
+        "code": "TVI",
+        "name": "theta Virginids"
+    },
+    "TVL": {
+        "code": "TVL",
+        "name": "35 Vulpeculids"
+    },
+    "TVU": {
+        "code": "TVU",
+        "name": "21 Vulpeculids"
+    },
+    "UAN": {
+        "code": "UAN",
+        "name": "upsilon Andromedids"
+    },
+    "UCA": {
+        "code": "UCA",
+        "name": "upsilon1 Cassiopeiids"
+    },
+    "UCE": {
+        "code": "UCE",
+        "name": "upsilon Cetids"
+    },
+    "UER": {
+        "code": "UER",
+        "name": "upsilon Eridanids"
+    },
+    "UMN": {
+        "code": "UMN",
+        "name": "Northern December omega Ursae Majorids"
+    },
+    "UMS": {
+        "code": "UMS",
+        "name": "August Ursae Majorids"
+    },
+    "UPA": {
+        "code": "UPA",
+        "name": "upsilon Pavonids"
+    },
+    "UPI": {
+        "code": "UPI",
+        "name": "upsilon Piscids"
+    },
+    "UPV": {
+        "code": "UPV",
+        "name": "upsilon Virginids"
+    },
+    "URS": {
+        "code": "URS",
+        "name": "Ursids"
+    },
+    "USG": {
+        "code": "USG",
+        "name": "phi Ophiuchids"
+    },
+    "UUM": {
+        "code": "UUM",
+        "name": "upsilon Ursae Majorids"
+    },
+    "UYL": {
+        "code": "UYL",
+        "name": "UY Lyncids"
+    },
+    "VCF": {
+        "code": "VCF",
+        "name": "4 Canum Venaticids"
+    },
+    "VCT": {
+        "code": "VCT",
+        "name": "10 Canum Venaticids"
+    },
+    "VEL": {
+        "code": "VEL",
+        "name": "Puppid-Velid II Complex"
+    },
+    "VIR": {
+        "code": "VIR",
+        "name": "March Virginid Complex"
+    },
+    "VOL": {
+        "code": "VOL",
+        "name": "Volantids"
+    },
+    "XAR": {
+        "code": "XAR",
+        "name": "xi Arietids"
+    },
+    "XAU": {
+        "code": "XAU",
+        "name": "xi Aurigids"
+    },
+    "XCA": {
+        "code": "XCA",
+        "name": "xi Cassiopeiids"
+    },
+    "XCB": {
+        "code": "XCB",
+        "name": "xi Coronae Borealids"
+    },
+    "XCD": {
+        "code": "XCD",
+        "name": "October Cetids"
+    },
+    "XCE": {
+        "code": "XCE",
+        "name": "xi Cetids"
+    },
+    "XCS": {
+        "code": "XCS",
+        "name": "xi2 Capricornids"
+    },
+    "XDR": {
+        "code": "XDR",
+        "name": "xi Draconids"
+    },
+    "XGM": {
+        "code": "XGM",
+        "name": "xi Geminids"
+    },
+    "XHE": {
+        "code": "XHE",
+        "name": "x Herculids"
+    },
+    "XHY": {
+        "code": "XHY",
+        "name": "xi Hydrids"
+    },
+    "XIC": {
+        "code": "XIC",
+        "name": "Daytime xi Cetids"
+    },
+    "XIE": {
+        "code": "XIE",
+        "name": "xi Eridanids"
+    },
+    "XIP": {
+        "code": "XIP",
+        "name": "xi Perseids"
+    },
+    "XLI": {
+        "code": "XLI",
+        "name": "April chi Librids"
+    },
+    "XLU": {
+        "code": "XLU",
+        "name": "xi2 Lupids"
+    },
+    "XOR": {
+        "code": "XOR",
+        "name": "chi Orionid Complex"
+    },
+    "XRI": {
+        "code": "XRI",
+        "name": "Daytime xi Orionids"
+    },
+    "XSA": {
+        "code": "XSA",
+        "name": "Daytime xi Sagittariids"
+    },
+    "XSC": {
+        "code": "XSC",
+        "name": "xi Scorpiids"
+    },
+    "XUM": {
+        "code": "XUM",
+        "name": "January xi Ursae Majorids"
+    },
+    "XVI": {
+        "code": "XVI",
+        "name": "December chi Virginids"
+    },
+    "XXL": {
+        "code": "XXL",
+        "name": "xi2 Librids"
+    },
+    "YDR": {
+        "code": "YDR",
+        "name": "Y Draconids"
+    },
+    "YOP": {
+        "code": "YOP",
+        "name": "Y Ophiuchids"
+    },
+    "ZAN": {
+        "code": "ZAN",
+        "name": "zeta Antliids"
+    },
+    "ZAR": {
+        "code": "ZAR",
+        "name": "zeta Arietids"
+    },
+    "ZBO": {
+        "code": "ZBO",
+        "name": "zeta Bootids"
+    },
+    "ZCA": {
+        "code": "ZCA",
+        "name": "Daytime zeta Cancrids"
+    },
+    "ZCE": {
+        "code": "ZCE",
+        "name": "zeta Cetids"
+    },
+    "ZCN": {
+        "code": "ZCN",
+        "name": "zeta Cancrids"
+    },
+    "ZCS": {
+        "code": "ZCS",
+        "name": "zeta Cassiopeiids"
+    },
+    "ZCY": {
+        "code": "ZCY",
+        "name": "zeta Cygnids"
+    },
+    "ZDR": {
+        "code": "ZDR",
+        "name": "zeta Draconids"
+    },
+    "ZED": {
+        "code": "ZED",
+        "name": "July zeta Draconids"
+    },
+    "ZER": {
+        "code": "ZER",
+        "name": "zeta Eridanids"
+    },
+    "ZLE": {
+        "code": "ZLE",
+        "name": "zeta Leonids"
+    },
+    "ZOP": {
+        "code": "ZOP",
+        "name": "zeta Ophiuchids"
+    },
+    "ZPA": {
+        "code": "ZPA",
+        "name": "zeta Pavonids"
+    },
+    "ZPE": {
+        "code": "ZPE",
+        "name": "Daytime zeta Perseids"
+    },
+    "ZPH": {
+        "code": "ZPH",
+        "name": "zeta Phoenicids"
+    },
+    "ZPI": {
+        "code": "ZPI",
+        "name": "zeta Piscids"
+    },
+    "ZPU": {
+        "code": "ZPU",
+        "name": "zeta Puppids"
+    },
+    "ZSE": {
+        "code": "ZSE",
+        "name": "zeta Serpentids"
+    },
+    "ZTA": {
+        "code": "ZTA",
+        "name": "zeta Taurids"
+    }
+}

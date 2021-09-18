@@ -4,6 +4,10 @@
   bottom: 30px;
 }
 
+.showerName {
+  font-style: italic;
+}
+
 .averageSpeed {
   font-size: 85%;
 }

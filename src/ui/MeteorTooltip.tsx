@@ -7,11 +7,11 @@ export interface MeteorTooltipProps {
 
 export function MeteorTooltip(props: MeteorTooltipProps) {
   const { meteor } = props;
-  const { showerCode, beginTime, magnitude, duration, stationCodes } = meteor;
+  const { shower, beginTime, magnitude, duration, stationCodes } = meteor;
 
   return (
     <div className="root">
-      <div className="shower">{showerCode}</div>
+      <div className="showerCode">{shower.code}</div>
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>

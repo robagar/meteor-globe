@@ -2,6 +2,7 @@ import fetchline from "fetchline";
 
 import { store } from "../store";
 import { MeteorDataInfo, MeteorData } from "../interfaces";
+import { getShower } from "./showers";
 
 export const DEFAULT_COLOR = [1, 1, 1];
 export const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
@@ -122,7 +123,7 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
     meteors.push({
       index: nextIndex++,
       beginTime,
-      showerCode,
+      shower: getShower(showerCode),
       begin,
       end,
       peakHeight,

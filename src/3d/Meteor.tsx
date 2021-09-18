@@ -19,15 +19,8 @@ const DEFAULT_COLOR = [1, 1, 1];
 const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
 
 export function Meteor(props: MeteorProps) {
-  const {
-    beginTime,
-    showerCode,
-    begin,
-    end,
-    magnitude,
-    duration,
-    stationCodes,
-  } = props.data;
+  const { beginTime, shower, begin, end, magnitude, duration, stationCodes } =
+    props.data;
 
   const brightness = 1 - magnitude * 0.2;
 
@@ -121,7 +114,7 @@ export function Meteor(props: MeteorProps) {
       {highlighted && (
         <Html>
           <div className="tooltip">
-            <div className="shower">{showerCode}</div>
+            <div className="shower">{shower.code}</div>
             <div className="beginTime">{beginTime}</div>
             <div className="magnitude">Mag {magnitude}</div>
             <div className="duration">{duration}s</div>
