@@ -1,11 +1,21 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Toolbar, IconButton } from "@mui/material";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
-export function Settings() {
+interface Props {
+  onClose: () => void;
+}
+
+export function Settings(props: Props) {
+  const { onClose } = props;
+
   return (
-    <Box sx={{ width: 300, p: "10px" }}>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        Settings
-      </Typography>
+    <Box sx={{ width: 300 }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Typography variant="h6">Settings</Typography>
+        <IconButton onClick={onClose}>
+          <ChevronRightRoundedIcon />
+        </IconButton>
+      </Toolbar>
     </Box>
   );
 }

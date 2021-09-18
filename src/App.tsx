@@ -95,7 +95,7 @@ export default function App() {
               >
                 <MenuRoundedIcon />
               </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Typography variant="h5" sx={{ flexGrow: 1 }}>
                 {loading && `Loading ${title}...`}
                 {!loading && title}
                 {numMeteors === 1 && ` — 1 meteor`}
@@ -170,8 +170,13 @@ export default function App() {
             onClose={() => {
               setSidebarVisible(false);
             }}
+            hideBackdrop={true}
           >
-            <Settings />
+            <Settings
+              onClose={() => {
+                setSidebarVisible(false);
+              }}
+            />
           </Drawer>
         </Div100vh>
       </LocalizationProvider>
