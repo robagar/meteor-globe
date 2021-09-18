@@ -6,7 +6,8 @@ IAU_METEOR_SHOWERS_DATA_URL = "https://www.ta3.sk/IAUC22DB/MDC2007/Etc/streamful
 r = requests.get(IAU_METEOR_SHOWERS_DATA_URL)
 r.raise_for_status()
 
-data = {}
+codes = set()
+data = []
 
 for l in r.text.splitlines():
   if not l: continue
@@ -18,12 +19,14 @@ for l in r.text.splitlines():
 
   code = field(3)
 
-  if code not in data:
+  if code not in codes:
+    codes.add(code)
+    
     name = field(4)
 
-    data[code] = {
+    data.append({
       "code": code, 
       "name": name
-    }
+    })
   
 print(json.dumps(data, sort_keys=True, indent=4))

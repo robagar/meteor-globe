@@ -38,7 +38,7 @@ import { Settings } from "./Settings";
 LuxonSettings.defaultZone = "Europe/London";
 
 const queryParams = new URLSearchParams(window.location.search);
-const formatter = new Intl.NumberFormat();
+export const formatter = new Intl.NumberFormat();
 
 export default function App() {
   const [error, setError] = useState<string | undefined>();
