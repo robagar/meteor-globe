@@ -50,7 +50,6 @@ export default function App() {
   const meteors = store.useState((s) => s.meteors);
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
   const filter = store.useState((s) => s.filter);
-  const touched = store.useState((s) => s.touched);
 
   useEffect(initCameras, []);
 
@@ -154,7 +153,8 @@ export default function App() {
           <Box sx={{ flex: "1 1 auto" }}>
             <Globe
               markers={[...markers.values()]}
-              meteors={filterMeteors(filter, meteors)}
+              meteors={meteors}
+              filteredMeteors={filterMeteors(filter, meteors)}
               selectedMeteor={selectedMeteor}
               selectMeteor={(m: MeteorData) => {
                 console.info("SELECT", m);
@@ -162,7 +162,6 @@ export default function App() {
                   s.selectedMeteor = m;
                 });
               }}
-              touched={touched}
             />
             {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
           </Box>

@@ -41,11 +41,15 @@ export interface MeteorData {
 export interface ShowerData {
   code: string;
   name: string;
-  numMeteors: number;
 }
 
 export interface FilterData {
   showers: ShowerData[];
+}
+
+export interface ActiveShowerData {
+  shower: ShowerData;
+  meteors: MeteorData[];
 }
 
 export interface AppState {
@@ -55,7 +59,6 @@ export interface AppState {
   meteorDataInfo: MeteorDataInfo;
   meteors: MeteorData[];
   selectedMeteor: MeteorData | undefined;
-  showers: ShowerData[];
+  activeShowers: ActiveShowerData[];
   filter: FilterData;
-  touched: number;
 }

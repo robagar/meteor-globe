@@ -26,9 +26,8 @@ export const store = new Store<AppState>({
   },
   meteors: [],
   selectedMeteor: undefined,
-  showers: [],
+  activeShowers: [],
   filter: {
     showers: [],
   },
-  touched: 0,
 });

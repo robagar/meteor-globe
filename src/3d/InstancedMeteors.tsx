@@ -31,10 +31,11 @@ export interface InstancedMeteorsProps {
   data: MeteorData[];
   selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
+  filteredMeteors: boolean[];
 }
 
 export function InstancedMeteors(props: InstancedMeteorsProps) {
-  const { data, selectedMeteor, selectMeteor } = props;
+  const { data, selectedMeteor, selectMeteor, filteredMeteors } = props;
 
   const vertexShader = `
     varying vec2 vUv;
@@ -76,7 +77,12 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     if (mesh) {
       for (const meteor of data) {
         const i = meteor.index;
-        mesh.setMatrixAt(i, buildMeteorMatrix(meteor, camera.position));
+        mesh.setMatrixAt(
+          i,
+          filteredMeteors[i]
+            ? buildMeteorMatrix(meteor, camera.position)
+            : ZERO_MATRIX
+        );
         let color = DEFAULT_COLOR;
         if (selectedMeteor && i === selectedMeteor.index)
           color = SELECTED_COLOR;
@@ -97,6 +103,12 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
   const hoverInstanceIdRef = useRef<number | undefined>();
 
   const { invalidate } = useThree();
+
+  const lastFilterMeteorsRef = useRef<boolean[]>([]);
+  if (filteredMeteors !== lastFilterMeteorsRef.current) {
+    lastFilterMeteorsRef.current = filteredMeteors;
+    invalidate();
+  }
 
   return (
     <>

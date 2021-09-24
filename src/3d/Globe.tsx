@@ -14,14 +14,19 @@ export interface GlobeProps {
   meteors: MeteorData[];
   selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
-  touched: number;
+  filteredMeteors: boolean[];
 }
 
 const MIN_CAMERA_HEIGHT = 200;
 const MAX_CAMERA_HEIGHT = 10000;
 
 export function Globe(props: GlobeProps) {
-  const { /*markers,*/ meteors, selectedMeteor, selectMeteor } = props;
+  const {
+    /*markers,*/ meteors,
+    selectedMeteor,
+    selectMeteor,
+    filteredMeteors,
+  } = props;
 
   const camera = {
     fov: 75,
@@ -56,6 +61,7 @@ export function Globe(props: GlobeProps) {
         data={meteors}
         selectedMeteor={selectedMeteor}
         selectMeteor={selectMeteor}
+        filteredMeteors={filteredMeteors}
       />
     </Canvas>
   );

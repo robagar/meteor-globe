@@ -1,13 +1,8 @@
 import fetchline from "fetchline";
 
 import { store } from "../store";
-import {
-  MeteorDataInfo,
-  MeteorData,
-  ShowerData,
-  FilterData,
-} from "../interfaces";
-import { getShower, isSporadic } from "./showers";
+import { MeteorDataInfo, MeteorData, FilterData } from "../interfaces";
+import { getShower, buildActiveShowers } from "./showers";
 
 export const DEFAULT_COLOR = [1, 1, 1];
 export const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
@@ -53,19 +48,17 @@ export async function loadMeteors(info: MeteorDataInfo) {
     s.loading = true;
     s.selectedMeteor = undefined;
     s.meteors = [];
-    s.showers = [];
+    s.activeShowers = [];
   });
 
   try {
     const meteors = await fetchMeteorData(info.url);
-    const showerSet = new Set<ShowerData>(meteors.map((m) => m.shower));
-    const showers = [...showerSet].filter((s) => !isSporadic(s));
-    showers.sort((a, b) => b.numMeteors - a.numMeteors);
+    const activeShowers = buildActiveShowers(meteors);
     store.update((s) => {
       s.loading = false;
       s.meteors = meteors;
-      s.showers = showers;
-      s.filter.showers = showers;
+      s.activeShowers = activeShowers;
+      s.filter.showers = activeShowers.map((a) => a.shower);
     });
   } finally {
     store.update((s) => {
@@ -145,7 +138,6 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
       averageSpeed,
       stationCodes,
     });
-    shower.numMeteors++;
   }
 
   return meteors;
@@ -154,15 +146,11 @@ async function fetchMeteorData(url: string): Promise<MeteorData[]> {
 export function filterMeteors(
   filter: FilterData,
   meteors: MeteorData[]
-): MeteorData[] {
-  const filtered: MeteorData[] = [];
-
-  for (const m of meteors) {
+): boolean[] {
+  return meteors.map((m) => {
     const { shower } = m;
-    if (!filter.showers.includes(shower)) continue;
+    if (!filter.showers.includes(shower)) return false;
 
-    filtered.push(m);
-  }
-
-  return filtered;
+    return true;
+  });
 }

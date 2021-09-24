@@ -2,6 +2,7 @@ import {
   Box,
   Typography,
   Toolbar,
+  Button,
   IconButton,
   FormControl,
   InputLabel,
@@ -14,7 +15,7 @@ import {
 } from "@mui/material";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
-import { ShowerData } from "./interfaces";
+import { ActiveShowerData } from "./interfaces";
 import { store } from "./store";
 import { formatter } from "./App";
 
@@ -25,7 +26,7 @@ interface Props {
 export function Settings(props: Props) {
   const { onClose } = props;
 
-  const showers = store.useState((s) => s.showers);
+  const activeShowers = store.useState((s) => s.activeShowers);
   const filter = store.useState((s) => s.filter);
 
   return (
@@ -41,38 +42,57 @@ export function Settings(props: Props) {
         <Select
           labelId="showers-label"
           multiple
-          value={filter.showers}
+          value={activeShowers.filter((s) => filter.showers.includes(s.shower))}
           input={<OutlinedInput label="Showers" />}
           renderValue={(selected) => {
             if (selected.length === 0) return "(none)";
-            if (selected.length === showers.length) return "(all)";
+            // if (selected.length === showers.length) return "(all)";
             const ss = [...selected];
-            ss.sort((a, b) => b.numMeteors - a.numMeteors);
-            const names = ss.map((s) => s.name);
+            // ss.sort((a, b) => b.numMeteors - a.numMeteors);
+            const names = ss.map((s) => s.shower.name);
             return names.join(", ");
           }}
-          onChange={(event: SelectChangeEvent<ShowerData[]>) => {
+          onChange={(event: SelectChangeEvent<ActiveShowerData[]>) => {
             const { value } = event.target;
             if (typeof value === "string") return;
             store.update((s) => {
-              s.filter.showers = value;
-              s.touched = Date.now();
+              s.filter.showers = value.map((s) => s.shower);
             });
           }}
           MenuProps={MenuProps}
         >
-          {showers.map((s) => (
-            <MenuItem key={s.code} value={s as any}>
-              <Checkbox checked={filter.showers.includes(s)} />
+          {activeShowers.map((s) => (
+            <MenuItem key={s.shower.code} value={s as any}>
+              <Checkbox checked={filter.showers.includes(s.shower)} />
               <ListItemText>
-                {s.name}
+                {s.shower.name}
                 {" ("}
-                {formatter.format(s.numMeteors)}
+                {formatter.format(s.meteors.length)}
                 {")"}
               </ListItemText>
             </MenuItem>
           ))}
         </Select>
+        <Box sx={{ display: "flex", flexFlow: "row" }}>
+          <Button
+            onClick={() => {
+              store.update((s) => {
+                s.filter.showers = activeShowers.map((s) => s.shower);
+              });
+            }}
+          >
+            all
+          </Button>
+          <Button
+            onClick={() => {
+              store.update((s) => {
+                s.filter.showers = [];
+              });
+            }}
+          >
+            none
+          </Button>
+        </Box>
       </FormControl>
     </Box>
   );
@@ -81,6 +101,7 @@ export function Settings(props: Props) {
 const ITEM_HEIGHT = 54;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
+  autoFocus: false, // kludge to stop initial scoll to end
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 6.5 + ITEM_PADDING_TOP,
