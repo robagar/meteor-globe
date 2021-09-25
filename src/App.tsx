@@ -171,7 +171,7 @@ export default function App() {
             onClose={() => {
               setFilterVisible(false);
             }}
-            hideBackdrop={true}
+            variant="persistent"
           >
             <Filter
               onClose={() => {
