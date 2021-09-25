@@ -3,7 +3,7 @@ import { SettingsData } from "./interfaces";
 const SETTINGS = "settings";
 
 const DEFAULT_SETTINGS = {
-  showClouds: false,
+  showClouds: true,
 };
 
 export function saveSettings(settings: SettingsData) {
