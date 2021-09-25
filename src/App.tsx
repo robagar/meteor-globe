@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 import { LocalizationProvider } from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterLuxon";
@@ -37,7 +37,7 @@ import {
 } from "./data/meteors";
 import { MeteorDataInfo, MeteorData } from "./interfaces";
 import { useGMN } from "./GMNProvider";
-import { Settings } from "./Settings";
+import { Filter } from "./ui/Filter";
 
 LuxonSettings.defaultZone = "Europe/London";
 
@@ -66,7 +66,7 @@ export default function App() {
     tryLoadMeteors(meteorDataInfoFromParams(queryParams));
   }, [tryLoadMeteors]);
 
-  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [filterVisible, setFilterVisible] = useState(false);
 
   const Header = () => {
     const loading = store.useState((s) => s.loading);
@@ -105,11 +105,10 @@ export default function App() {
             </Box>
             <IconButton
               onClick={(event) => {
-                setSidebarVisible(!sidebarVisible);
-                // setSidebarAnchorEl(event.currentTarget);
+                setFilterVisible(!filterVisible);
               }}
             >
-              <SettingsRoundedIcon />
+              <SearchRoundedIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -168,15 +167,15 @@ export default function App() {
           <Footer />
           <Drawer
             anchor="right"
-            open={sidebarVisible}
+            open={filterVisible}
             onClose={() => {
-              setSidebarVisible(false);
+              setFilterVisible(false);
             }}
-            hideBackdrop={true}
+            hideBackdrop={false}
           >
-            <Settings
+            <Filter
               onClose={() => {
-                setSidebarVisible(false);
+                setFilterVisible(false);
               }}
             />
           </Drawer>
