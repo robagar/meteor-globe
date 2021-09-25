@@ -148,8 +148,14 @@ export function filterMeteors(
   meteors: MeteorData[]
 ): boolean[] {
   return meteors.map((m) => {
-    const { shower } = m;
+    const { shower, magnitude } = m;
+
+    // by shower
     if (!filter.showers.includes(shower)) return false;
+
+    // by magnitude
+    if (magnitude < filter.magnitude.min) return false;
+    if (magnitude > filter.magnitude.max) return false;
 
     return true;
   });

@@ -29,7 +29,6 @@ export function MagnitudeFilter() {
           },
         ]}
         onChange={(event, value, index) => {
-          console.info(value);
           store.update((s) => {
             if (typeof value === "number") {
               if (index === 0) s.filter.magnitude.min = value;
