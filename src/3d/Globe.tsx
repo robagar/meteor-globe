@@ -4,7 +4,7 @@ import { useTexture, OrbitControls } from "@react-three/drei";
 import { EARTH_RADIUS, position } from "./geometry";
 
 import { /*Marker, */ MarkerProps } from "./Marker";
-import { MeteorData } from "../interfaces";
+import { MeteorData, SettingsData } from "../interfaces";
 import { InstancedMeteors } from "./InstancedMeteors";
 
 import "./Globe.css";
@@ -15,6 +15,7 @@ export interface GlobeProps {
   selectedMeteor?: MeteorData;
   selectMeteor: (meteor: MeteorData) => void;
   filteredMeteors: boolean[];
+  settings: SettingsData;
 }
 
 const MIN_CAMERA_HEIGHT = 200;
@@ -28,6 +29,7 @@ export function Globe(props: GlobeProps) {
     selectedMeteor,
     selectMeteor,
     filteredMeteors,
+    settings,
   } = props;
 
   const camera = {
@@ -58,7 +60,7 @@ export function Globe(props: GlobeProps) {
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial {...material} />
       </mesh>
-      <mesh>
+      <mesh visible={settings.showClouds}>
         <sphereGeometry args={[EARTH_RADIUS + CLOUD_HEIGHT, 128, 128]} />
         <meshPhongMaterial color={0xffffff} alphaMap={clouds.map} transparent />
       </mesh>

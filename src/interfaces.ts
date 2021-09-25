@@ -65,6 +65,10 @@ export interface StationData {
   };
 }
 
+export interface SettingsData {
+  showClouds: boolean;
+}
+
 export interface AppState {
   highlightedMarker: string;
   markers: Map<string, MarkerProps>;
@@ -76,6 +80,7 @@ export interface AppState {
   stationsByCode: Map<StationCode, StationData>;
   stations: StationData[];
   filter: FilterData;
+  settings: SettingsData;
 }
 
 export const MIN_MAGNITUDE = -10;

@@ -1,8 +1,9 @@
 import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
-import { AppState, StationData, StationCode } from "./interfaces";
 import { MarkerProps } from "./3d/Marker";
+import { AppState, StationData, StationCode } from "./interfaces";
+import { loadSettings } from "./settings";
 
 enableMapSet();
 
@@ -34,4 +35,5 @@ export const store = new Store<AppState>({
     magnitude: { min: undefined, max: undefined },
     stationCodes: [],
   },
+  settings: loadSettings(),
 });

@@ -14,6 +14,7 @@ import {
 
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 import { LocalizationProvider } from "@mui/lab";
 import DateAdapter from "@mui/lab/AdapterLuxon";
@@ -21,23 +22,27 @@ import DateAdapter from "@mui/lab/AdapterLuxon";
 import Div100vh from "react-div-100vh";
 import { Settings as LuxonSettings } from "luxon";
 
-import { Globe } from "./3d/Globe";
-import { MeteorInfo } from "./ui/MeteorInfo";
-import { LoadMeteorsMenu } from "./ui/LoadMeteorsMenu";
-import { LoadDailyMeteorsDialog } from "./ui/LoadDailyMeteorsDialog";
-
-import "./App.css";
-
-import { store } from "./store";
 import { initCameras } from "./data/cameras";
 import {
   meteorDataInfoFromParams,
   loadMeteors,
   filterMeteors,
 } from "./data/meteors";
-import { MeteorDataInfo, MeteorData } from "./interfaces";
-import { useGMN } from "./GMNProvider";
+
+import { MeteorInfo } from "./ui/MeteorInfo";
+import { LoadMeteorsMenu } from "./ui/LoadMeteorsMenu";
+import { LoadDailyMeteorsDialog } from "./ui/LoadDailyMeteorsDialog";
 import { Filter } from "./ui/Filter";
+import { Settings } from "./ui/Settings";
+
+import { Globe } from "./3d/Globe";
+
+import { MeteorDataInfo, MeteorData } from "./interfaces";
+import { store } from "./store";
+import { useGMN } from "./GMNProvider";
+import { saveSettings } from "./settings";
+
+import "./App.css";
 
 LuxonSettings.defaultZone = "Europe/London";
 
@@ -67,6 +72,10 @@ export default function App() {
   }, [tryLoadMeteors]);
 
   const [filterVisible, setFilterVisible] = useState(false);
+
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const settings = store.useState((s) => s.settings);
+  store.subscribe((s) => s.settings, saveSettings);
 
   const Header = () => {
     const loading = store.useState((s) => s.loading);
@@ -161,8 +170,18 @@ export default function App() {
                   s.selectedMeteor = m;
                 });
               }}
+              settings={settings}
             />
             {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
+          </Box>
+          <Box sx={{ position: "absolute", right: 24, bottom: 0 }}>
+            <IconButton
+              onClick={(event) => {
+                setSettingsVisible(true);
+              }}
+            >
+              <SettingsRoundedIcon />
+            </IconButton>
           </Box>
           <Footer />
           <Drawer
@@ -176,6 +195,19 @@ export default function App() {
             <Filter
               onClose={() => {
                 setFilterVisible(false);
+              }}
+            />
+          </Drawer>
+          <Drawer
+            anchor="right"
+            open={settingsVisible}
+            onClose={() => {
+              setSettingsVisible(false);
+            }}
+          >
+            <Settings
+              onClose={() => {
+                setSettingsVisible(false);
               }}
             />
           </Drawer>
