@@ -154,8 +154,9 @@ export function filterMeteors(
     if (!filter.showers.includes(shower)) return false;
 
     // by magnitude
-    if (magnitude < filter.magnitude.min) return false;
-    if (magnitude > filter.magnitude.max) return false;
+    const { min, max } = filter.magnitude;
+    if (min !== undefined && magnitude < min) return false;
+    if (max !== undefined && magnitude > max) return false;
 
     return true;
   });

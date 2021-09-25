@@ -1,7 +1,7 @@
 import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
-import { AppState, MIN_MAGNITUDE, MAX_MAGNITUDE } from "./interfaces";
+import { AppState } from "./interfaces";
 import { MarkerProps } from "./3d/Marker";
 
 enableMapSet();
@@ -29,6 +29,6 @@ export const store = new Store<AppState>({
   activeShowers: [],
   filter: {
     showers: [],
-    magnitude: { min: MIN_MAGNITUDE, max: MAX_MAGNITUDE },
+    magnitude: { min: undefined, max: undefined },
   },
 });

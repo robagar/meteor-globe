@@ -46,8 +46,8 @@ export interface ShowerData {
 export interface FilterData {
   showers: ShowerData[];
   magnitude: {
-    min: Magnitude;
-    max: Magnitude;
+    min?: Magnitude;
+    max?: Magnitude;
   };
 }
 
