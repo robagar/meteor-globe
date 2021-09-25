@@ -1,5 +1,5 @@
 import {
-  Box,
+  Stack,
   Button,
   InputLabel,
   Select,
@@ -53,7 +53,7 @@ export function ShowerFilter() {
           </MenuItem>
         ))}
       </Select>
-      <Box sx={{ display: "flex", flexFlow: "row" }}>
+      <Stack direction="row">
         <Button
           onClick={() => {
             store.update((s) => {
@@ -72,7 +72,7 @@ export function ShowerFilter() {
         >
           none
         </Button>
-      </Box>
+      </Stack>
     </>
   );
 }
