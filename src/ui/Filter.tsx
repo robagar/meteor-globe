@@ -1,14 +1,9 @@
-import {
-  Box,
-  Typography,
-  Toolbar,
-  IconButton,
-  FormControl,
-} from "@mui/material";
+import { Box, Typography, Toolbar, IconButton } from "@mui/material";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
 import { ShowerFilter } from "./filter/ShowerFilter";
 import { MagnitudeFilter } from "./filter/MagnitudeFilter";
+import { StationFilter } from "./filter/StationFilter";
 
 interface Props {
   onClose: () => void;
@@ -25,10 +20,9 @@ export function Filter(props: Props) {
           <ChevronRightRoundedIcon />
         </IconButton>
       </Toolbar>
-      <FormControl sx={{ m: 1, width: 280 }}>
-        <ShowerFilter />
-        <MagnitudeFilter />
-      </FormControl>
+      <ShowerFilter />
+      <MagnitudeFilter />
+      <StationFilter />
     </Box>
   );
 }

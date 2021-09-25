@@ -49,11 +49,20 @@ export interface FilterData {
     min?: Magnitude;
     max?: Magnitude;
   };
+  stationCodes: StationCode[];
 }
 
 export interface ActiveShowerData {
   shower: ShowerData;
   meteors: MeteorData[];
+}
+
+export interface StationData {
+  code: string;
+  location?: {
+    latitude: Degrees;
+    longitude: Degrees;
+  };
 }
 
 export interface AppState {
@@ -64,6 +73,8 @@ export interface AppState {
   meteors: MeteorData[];
   selectedMeteor: MeteorData | undefined;
   activeShowers: ActiveShowerData[];
+  stationsByCode: Map<StationCode, StationData>;
+  stations: StationData[];
   filter: FilterData;
 }
 

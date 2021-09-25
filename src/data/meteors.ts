@@ -3,6 +3,7 @@ import fetchline from "fetchline";
 import { store } from "../store";
 import { MeteorDataInfo, MeteorData, FilterData } from "../interfaces";
 import { getShower, buildActiveShowers } from "./showers";
+import { initStations } from "./stations";
 
 export const DEFAULT_COLOR = [1, 1, 1];
 export const HIGHLIGHTED_COLOR = [1.0, 0.27, 0.71]; // CSS hotpink #FF69B4
@@ -58,7 +59,10 @@ export async function loadMeteors(info: MeteorDataInfo) {
       s.loading = false;
       s.meteors = meteors;
       s.activeShowers = activeShowers;
+      s.stations = initStations(meteors, s.stationsByCode);
+
       s.filter.showers = activeShowers.map((a) => a.shower);
+      s.filter.stationCodes = s.stations.map((s) => s.code);
     });
   } finally {
     store.update((s) => {
@@ -148,7 +152,7 @@ export function filterMeteors(
   meteors: MeteorData[]
 ): boolean[] {
   return meteors.map((m) => {
-    const { shower, magnitude } = m;
+    const { shower, magnitude, stationCodes } = m;
 
     // by shower
     if (!filter.showers.includes(shower)) return false;
@@ -157,6 +161,10 @@ export function filterMeteors(
     const { min, max } = filter.magnitude;
     if (min !== undefined && magnitude < min) return false;
     if (max !== undefined && magnitude > max) return false;
+
+    // by station code
+    if (!stationCodes.some((c) => filter.stationCodes.includes(c)))
+      return false;
 
     return true;
   });

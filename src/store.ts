@@ -1,7 +1,7 @@
 import { Store } from "pullstate";
 import { enableMapSet } from "immer";
 
-import { AppState } from "./interfaces";
+import { AppState, StationData, StationCode } from "./interfaces";
 import { MarkerProps } from "./3d/Marker";
 
 enableMapSet();
@@ -27,8 +27,11 @@ export const store = new Store<AppState>({
   meteors: [],
   selectedMeteor: undefined,
   activeShowers: [],
+  stationsByCode: new Map<StationCode, StationData>(),
+  stations: [],
   filter: {
     showers: [],
     magnitude: { min: undefined, max: undefined },
+    stationCodes: [],
   },
 });

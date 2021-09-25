@@ -11,47 +11,42 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { ActiveShowerData } from "../../interfaces";
+import { StationData } from "../../interfaces";
 import { store } from "../../store";
-import { formatter } from "../../App";
 
-export function ShowerFilter() {
-  const activeShowers = store.useState((s) => s.activeShowers);
-  const filterShowers = store.useState((s) => s.filter.showers);
+export function StationFilter() {
+  const stations = store.useState((s) => s.stations);
+  const filterStationCodes = store.useState((s) => s.filter.stationCodes);
 
   return (
     <>
       <FormControl sx={{ m: 1, width: 280 }}>
-        <InputLabel id="showers-label">Showers</InputLabel>
+        <InputLabel id="stations-label">Stations</InputLabel>
         <Select
-          labelId="showers-label"
+          labelId="stations-label"
           multiple
-          value={activeShowers.filter((s) => filterShowers.includes(s.shower))}
-          input={<OutlinedInput label="Showers" />}
+          value={stations.filter((s) => filterStationCodes.includes(s.code))}
+          input={<OutlinedInput label="Stations" />}
           renderValue={(selected) => {
+            if (selected.length === stations.length) return "(all)";
             if (selected.length === 0) return "(none)";
             const ss = [...selected];
-            const names = ss.map((s) => s.shower.name);
-            return names.join(", ");
+            const codes = ss.map((s) => s.code);
+            return codes.join(", ");
           }}
-          onChange={(event: SelectChangeEvent<ActiveShowerData[]>) => {
+          onChange={(event: SelectChangeEvent<StationData[]>) => {
             const { value } = event.target;
             if (typeof value === "string") return;
             store.update((s) => {
-              s.filter.showers = value.map((s) => s.shower);
+              s.filter.stationCodes = value.map((s) => s.code);
             });
           }}
           MenuProps={MenuProps}
         >
-          {activeShowers.map((s) => (
-            <MenuItem key={s.shower.code} value={s as any}>
-              <Checkbox checked={filterShowers.includes(s.shower)} />
-              <ListItemText>
-                {s.shower.name}
-                {" ("}
-                {formatter.format(s.meteors.length)}
-                {")"}
-              </ListItemText>
+          {stations.map((s) => (
+            <MenuItem key={s.code} value={s as any}>
+              <Checkbox checked={filterStationCodes.includes(s.code)} />
+              <ListItemText>{s.code}</ListItemText>
             </MenuItem>
           ))}
         </Select>
@@ -60,7 +55,7 @@ export function ShowerFilter() {
         <Button
           onClick={() => {
             store.update((s) => {
-              s.filter.showers = activeShowers.map((s) => s.shower);
+              s.filter.stationCodes = stations.map((s) => s.code);
             });
           }}
         >
@@ -69,7 +64,7 @@ export function ShowerFilter() {
         <Button
           onClick={() => {
             store.update((s) => {
-              s.filter.showers = [];
+              s.filter.stationCodes = [];
             });
           }}
         >
