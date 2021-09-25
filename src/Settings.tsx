@@ -12,10 +12,11 @@ import {
   MenuItem,
   Checkbox,
   ListItemText,
+  Slider,
 } from "@mui/material";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
-import { ActiveShowerData } from "./interfaces";
+import { ActiveShowerData, MIN_MAGNITUDE, MAX_MAGNITUDE } from "./interfaces";
 import { store } from "./store";
 import { formatter } from "./App";
 
@@ -92,6 +93,42 @@ export function Settings(props: Props) {
           >
             none
           </Button>
+        </Box>
+
+        <Box sx={{ my: "16px", px: "24px" }}>
+          <Slider
+            min={MIN_MAGNITUDE}
+            max={MAX_MAGNITUDE}
+            value={[filter.magnitude.min, filter.magnitude.max]}
+            valueLabelDisplay="auto"
+            step={0.1}
+            marks={[
+              {
+                value: MIN_MAGNITUDE,
+                label: `${MIN_MAGNITUDE}`,
+              },
+              {
+                value: 0,
+                label: "Magnitude",
+              },
+              {
+                value: MAX_MAGNITUDE,
+                label: `${MAX_MAGNITUDE}`,
+              },
+            ]}
+            onChange={(event, value, index) => {
+              console.info(value);
+              store.update((s) => {
+                if (typeof value === "number") {
+                  if (index === 0) s.filter.magnitude.min = value;
+                  else s.filter.magnitude.max = value;
+                } else {
+                  s.filter.magnitude.min = value[0];
+                  s.filter.magnitude.max = value[1];
+                }
+              });
+            }}
+          />
         </Box>
       </FormControl>
     </Box>

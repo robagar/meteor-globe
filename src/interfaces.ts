@@ -45,6 +45,10 @@ export interface ShowerData {
 
 export interface FilterData {
   showers: ShowerData[];
+  magnitude: {
+    min: Magnitude;
+    max: Magnitude;
+  };
 }
 
 export interface ActiveShowerData {
@@ -62,3 +66,6 @@ export interface AppState {
   activeShowers: ActiveShowerData[];
   filter: FilterData;
 }
+
+export const MIN_MAGNITUDE = -10;
+export const MAX_MAGNITUDE = 10;
