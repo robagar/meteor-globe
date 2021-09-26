@@ -10,13 +10,9 @@ export function position(
   longitude: Degrees,
   altitude: Km
 ): XYZ {
-  const lat = radians(latitude);
-  const long = radians(longitude);
+  const [x, y, z] = localUp(latitude, longitude);
   const r = altitude + EARTH_RADIUS;
-  const x = r * Math.cos(lat) * Math.cos(-long);
-  const y = r * Math.sin(lat);
-  const z = r * Math.cos(lat) * Math.sin(-long);
-  return [x, y, z];
+  return [r * x, r * y, r * z];
 }
 
 export function xyz(point: LatLongHt): XYZ {
@@ -27,5 +23,14 @@ export function xyz(point: LatLongHt): XYZ {
   const x = r * Math.cos(lat) * Math.cos(-long);
   const y = r * Math.sin(lat);
   const z = r * Math.cos(lat) * Math.sin(-long);
+  return [x, y, z];
+}
+
+export function localUp(latitude: Degrees, longitude: Degrees): XYZ {
+  const lat = radians(latitude);
+  const long = radians(longitude);
+  const x = Math.cos(lat) * Math.cos(-long);
+  const y = Math.sin(lat);
+  const z = Math.cos(lat) * Math.sin(-long);
   return [x, y, z];
 }
