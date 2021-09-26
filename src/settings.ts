@@ -4,6 +4,7 @@ const SETTINGS = "settings";
 
 const DEFAULT_SETTINGS = {
   showClouds: true,
+  light: true,
 };
 
 export function saveSettings(settings: SettingsData) {

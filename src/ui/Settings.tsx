@@ -1,5 +1,6 @@
 import {
   Box,
+  Stack,
   Typography,
   Toolbar,
   IconButton,
@@ -17,7 +18,7 @@ interface Props {
 export function Settings(props: Props) {
   const { onClose } = props;
 
-  const { showClouds } = store.useState((s) => s.settings);
+  const { showClouds, light } = store.useState((s) => s.settings);
 
   return (
     <Box sx={{ width: 300 }}>
@@ -28,7 +29,7 @@ export function Settings(props: Props) {
         </IconButton>
       </Toolbar>
 
-      <Box sx={{ px: 2 }}>
+      <Stack direction="column" sx={{ px: 2 }}>
         <FormControlLabel
           control={
             <Switch
@@ -42,7 +43,20 @@ export function Settings(props: Props) {
           }
           label="Clouds"
         />
-      </Box>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={light}
+              onChange={(event) => {
+                store.update((s) => {
+                  s.settings.light = event.target.checked;
+                });
+              }}
+            />
+          }
+          label="Light"
+        />
+      </Stack>
     </Box>
   );
 }

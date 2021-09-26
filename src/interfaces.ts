@@ -67,6 +67,7 @@ export interface StationData {
 
 export interface SettingsData {
   showClouds: boolean;
+  light: boolean;
 }
 
 export interface AppState {
