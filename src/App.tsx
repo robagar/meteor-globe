@@ -42,6 +42,7 @@ import { MeteorDataInfo, MeteorData, CameraControlData } from "./interfaces";
 import { store } from "./store";
 import { useGMN } from "./GMNProvider";
 import { saveSettings } from "./settings";
+import { DEFAULT_CAMERA_CONTROL } from "./constants";
 
 import "./App.css";
 
@@ -78,10 +79,14 @@ export default function App() {
   const { gmn } = useGMN();
 
   const tryLoadMeteors = useCallback((info: MeteorDataInfo) => {
-    loadMeteors(info).catch((e) => {
-      console.error("loading", info, e);
-      setError(`Failed to load ${info.title}`);
-    });
+    loadMeteors(info)
+      .then(() => {
+        setCameraControl(DEFAULT_CAMERA_CONTROL);
+      })
+      .catch((e) => {
+        console.error("loading", info, e);
+        setError(`Failed to load ${info.title}`);
+      });
   }, []);
 
   useEffect(() => {
