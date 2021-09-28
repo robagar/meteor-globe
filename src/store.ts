@@ -4,6 +4,7 @@ import { enableMapSet } from "immer";
 import { MarkerProps } from "./3d/Marker";
 import { AppState, StationData, StationCode } from "./interfaces";
 import { loadSettings } from "./settings";
+import { DEFAULT_CAMERA_CONTROL } from "./constants";
 
 enableMapSet();
 
@@ -35,5 +36,6 @@ export const store = new Store<AppState>({
     magnitude: { min: undefined, max: undefined },
     stationCodes: [],
   },
+  cameraControl: DEFAULT_CAMERA_CONTROL,
   settings: loadSettings(),
 });

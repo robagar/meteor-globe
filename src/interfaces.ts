@@ -65,6 +65,13 @@ export interface StationData {
   };
 }
 
+export interface CameraControlData {
+  target: XYZ;
+  up: XYZ;
+  minDistance: Km;
+  maxDistance: Km;
+}
+
 export interface SettingsData {
   showClouds: boolean;
   light: boolean;
@@ -81,8 +88,6 @@ export interface AppState {
   stationsByCode: Map<StationCode, StationData>;
   stations: StationData[];
   filter: FilterData;
+  cameraControl: CameraControlData;
   settings: SettingsData;
 }
-
-export const MIN_MAGNITUDE = -10;
-export const MAX_MAGNITUDE = 10;

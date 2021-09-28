@@ -1,5 +1,6 @@
+import { Vector3 } from "three";
 import { Degrees, Radians, Km, XYZ, LatLongHt } from "../interfaces";
-export const EARTH_RADIUS: Km = 6371.37;
+import { EARTH_RADIUS } from "../constants";
 
 export function radians(degrees: Degrees): Radians {
   return (Math.PI * degrees) / 180;
@@ -33,4 +34,9 @@ export function localUp(latitude: Degrees, longitude: Degrees): XYZ {
   const y = Math.sin(lat);
   const z = Math.cos(lat) * Math.sin(-long);
   return [x, y, z];
+}
+
+export function vector3EqualsXYZ(v: Vector3, xyz: XYZ): boolean {
+  const [x, y, z] = xyz;
+  return v.x === x && v.y === y && v.z === z;
 }

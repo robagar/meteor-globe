@@ -30,7 +30,7 @@ const ZERO_MATRIX = new Matrix4();
 export interface InstancedMeteorsProps {
   data: MeteorData[];
   selectedMeteor?: MeteorData;
-  selectMeteor: (meteor: MeteorData) => void;
+  selectMeteor: (meteor: MeteorData, focus: boolean) => void;
   filteredMeteors: boolean[];
 }
 
@@ -117,12 +117,20 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
           ref={ref}
           args={[undefined, undefined, MAX_METEORS /*data.length*/]}
           onClick={(e) => {
-            // console.info("onClick", e.instanceId);
             const i = e.instanceId;
             if (i !== undefined) {
-              selectMeteor(data[i]);
+              selectMeteor(data[i], false);
               invalidate();
             }
+            e.stopPropagation();
+          }}
+          onDoubleClick={(e) => {
+            const i = e.instanceId;
+            if (i !== undefined) {
+              selectMeteor(data[i], true);
+              invalidate();
+            }
+            e.stopPropagation();
           }}
           onPointerOver={(e) => {
             // console.info("onPointerOver", e.instanceId);

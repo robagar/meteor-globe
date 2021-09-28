@@ -1,6 +1,7 @@
 import { Box, Slider } from "@mui/material";
 
-import { Magnitude, MIN_MAGNITUDE, MAX_MAGNITUDE } from "../../interfaces";
+import { Magnitude } from "../../interfaces";
+import { MIN_MAGNITUDE, MAX_MAGNITUDE } from "../../constants";
 import { store } from "../../store";
 
 export function MagnitudeFilter() {

@@ -36,8 +36,9 @@ import { Filter } from "./ui/Filter";
 import { Settings } from "./ui/Settings";
 
 import { Globe } from "./3d/Globe";
+import { xyz, localUp } from "./3d/geometry";
 
-import { MeteorDataInfo, MeteorData } from "./interfaces";
+import { MeteorDataInfo, MeteorData, CameraControlData } from "./interfaces";
 import { store } from "./store";
 import { useGMN } from "./GMNProvider";
 import { saveSettings } from "./settings";
@@ -54,6 +55,22 @@ export default function App() {
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
+  const selectMeteor = (m: MeteorData, focus: boolean) => {
+    console.info("SELECT", m);
+    store.update((s) => {
+      s.selectedMeteor = m;
+      if (focus) {
+        console.info("FOCUS", m.end);
+        const { latitude, longitude } = m.end;
+        s.cameraControl = {
+          minDistance: 100,
+          maxDistance: 10000,
+          target: xyz(m.end),
+          up: localUp(latitude, longitude),
+        };
+      }
+    });
+  };
   const filter = store.useState((s) => s.filter);
 
   useEffect(initCameras, []);
@@ -76,6 +93,13 @@ export default function App() {
   const [settingsVisible, setSettingsVisible] = useState(false);
   const settings = store.useState((s) => s.settings);
   store.subscribe((s) => s.settings, saveSettings);
+
+  const cameraControl = store.useState((s) => s.cameraControl);
+  const setCameraControl = (cameraControl: CameraControlData) => {
+    store.update((s) => {
+      s.cameraControl = cameraControl;
+    });
+  };
 
   const Header = () => {
     const loading = store.useState((s) => s.loading);
@@ -164,13 +188,10 @@ export default function App() {
               meteors={meteors}
               filteredMeteors={filterMeteors(filter, meteors)}
               selectedMeteor={selectedMeteor}
-              selectMeteor={(m: MeteorData) => {
-                console.info("SELECT", m);
-                store.update((s) => {
-                  s.selectedMeteor = m;
-                });
-              }}
+              selectMeteor={selectMeteor}
               settings={settings}
+              cameraControl={cameraControl}
+              setCameraControl={setCameraControl}
             />
             {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
           </Box>

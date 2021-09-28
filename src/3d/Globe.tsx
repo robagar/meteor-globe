@@ -1,12 +1,19 @@
 import { Canvas } from "@react-three/fiber";
-import { useTexture, OrbitControls } from "@react-three/drei";
-import { Color } from "three";
+import { useTexture } from "@react-three/drei";
 
-import { EARTH_RADIUS, position } from "./geometry";
+import { MeteorData, SettingsData, CameraControlData } from "../interfaces";
+import {
+  EARTH_RADIUS,
+  DEFAULT_CAMERA_CONTROL,
+  CLOUD_HEIGHT,
+  CITY_LIGHTS_COLOR,
+} from "../constants";
+
+import { position } from "./geometry";
 
 import { /*Marker, */ MarkerProps } from "./Marker";
-import { MeteorData, SettingsData } from "../interfaces";
 import { InstancedMeteors } from "./InstancedMeteors";
+import { CameraControls, CAMERA_CONFIG } from "./CameraControls";
 
 import "./Globe.css";
 
@@ -14,17 +21,12 @@ export interface GlobeProps {
   markers: MarkerProps[];
   meteors: MeteorData[];
   selectedMeteor?: MeteorData;
-  selectMeteor: (meteor: MeteorData) => void;
+  selectMeteor: (meteor: MeteorData, focus: boolean) => void;
   filteredMeteors: boolean[];
   settings: SettingsData;
+  cameraControl: CameraControlData;
+  setCameraControl: (cameraControl: CameraControlData) => void;
 }
-
-const MIN_CAMERA_HEIGHT = 200;
-const MAX_CAMERA_HEIGHT = 10000;
-
-const CLOUD_HEIGHT = 20;
-
-const CITY_LIGHTS_COLOR = new Color(0xffff80);
 
 export function Globe(props: GlobeProps) {
   const {
@@ -33,33 +35,30 @@ export function Globe(props: GlobeProps) {
     selectMeteor,
     filteredMeteors,
     settings,
+    cameraControl,
+    setCameraControl,
   } = props;
 
-  const camera = {
-    fov: 75,
-    near: 10,
-    far: 100000,
-    position: position(50.22, -4.95, 1500),
-  };
+  console.info("[Globe]", cameraControl);
+
   const material = useTexture(chooseTextures(settings));
   const clouds = useTexture({
     map: "/meteor-globe/textures/fair_clouds_4k.jpeg",
   });
   return (
-    <Canvas className="globeCanvas" frameloop="demand" camera={camera}>
-      <OrbitControls
-        minDistance={EARTH_RADIUS + MIN_CAMERA_HEIGHT}
-        maxDistance={EARTH_RADIUS + MAX_CAMERA_HEIGHT}
-        zoomSpeed={0.1}
-        rotateSpeed={0.1}
-      />
+    <Canvas className="globeCanvas" frameloop="demand" camera={CAMERA_CONFIG}>
+      <CameraControls {...cameraControl} />
       <ambientLight intensity={0.1} />
       <directionalLight
         color="white"
         position={position(0, 0, 1)}
         visible={settings.light}
       />
-      <mesh>
+      <mesh
+        onDoubleClick={() => {
+          setCameraControl(DEFAULT_CAMERA_CONTROL);
+        }}
+      >
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial
           {...material}
