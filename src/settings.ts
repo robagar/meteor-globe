@@ -5,6 +5,7 @@ const SETTINGS = "settings";
 const DEFAULT_SETTINGS = {
   showClouds: true,
   light: true,
+  cityLights: false,
 };
 
 export function saveSettings(settings: SettingsData) {

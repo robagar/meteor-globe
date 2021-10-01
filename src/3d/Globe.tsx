@@ -62,7 +62,11 @@ export function Globe(props: GlobeProps) {
         <sphereGeometry args={[EARTH_RADIUS, 128, 128]} />
         <meshPhongMaterial
           {...material}
-          emissive={settings.light ? undefined : CITY_LIGHTS_COLOR}
+          emissive={
+            settings.light || !settings.cityLights
+              ? undefined
+              : CITY_LIGHTS_COLOR
+          }
         />
       </mesh>
       <mesh visible={settings.showClouds}>
@@ -84,8 +88,8 @@ export function Globe(props: GlobeProps) {
 }
 
 function chooseTextures(settings: SettingsData): { [k: string]: string } {
-  const { light } = settings;
-  if (light) {
+  const { light, cityLights } = settings;
+  if (light || !cityLights) {
     return {
       map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
       bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",

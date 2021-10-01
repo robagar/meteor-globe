@@ -18,7 +18,7 @@ interface Props {
 export function Settings(props: Props) {
   const { onClose } = props;
 
-  const { showClouds, light } = store.useState((s) => s.settings);
+  const { showClouds, light, cityLights } = store.useState((s) => s.settings);
 
   return (
     <Box sx={{ width: 300 }}>
@@ -55,6 +55,19 @@ export function Settings(props: Props) {
             />
           }
           label="Light"
+        />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={cityLights}
+              onChange={(event) => {
+                store.update((s) => {
+                  s.settings.cityLights = event.target.checked;
+                });
+              }}
+            />
+          }
+          label="City lights"
         />
       </Stack>
     </Box>

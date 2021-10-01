@@ -75,6 +75,7 @@ export interface CameraControlData {
 export interface SettingsData {
   showClouds: boolean;
   light: boolean;
+  cityLights: boolean;
 }
 
 export interface AppState {
