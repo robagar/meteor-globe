@@ -10,6 +10,7 @@ import {
   Alert,
   Snackbar,
   Drawer,
+  Tooltip,
 } from "@mui/material";
 
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -148,13 +149,15 @@ export default function App() {
                 {numMeteors > 1 && ` — ${formatter.format(numMeteors)} meteors`}
               </Typography>
             </Box>
-            <IconButton
-              onClick={(event) => {
-                setFilterVisible(!filterVisible);
-              }}
-            >
-              <SearchRoundedIcon />
-            </IconButton>
+            <Tooltip title="Filter visible meteors">
+              <IconButton
+                onClick={(event) => {
+                  setFilterVisible(!filterVisible);
+                }}
+              >
+                <SearchRoundedIcon />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
         <LoadMeteorsMenu
@@ -215,13 +218,15 @@ export default function App() {
             )}
           </Box>
           <Box sx={{ position: "absolute", right: 24, bottom: 0 }}>
-            <IconButton
-              onClick={(event) => {
-                setSettingsVisible(true);
-              }}
-            >
-              <SettingsRoundedIcon />
-            </IconButton>
+            <Tooltip title="App settings">
+              <IconButton
+                onClick={(event) => {
+                  setSettingsVisible(true);
+                }}
+              >
+                <SettingsRoundedIcon />
+              </IconButton>
+            </Tooltip>
           </Box>
           <Footer />
           <Drawer

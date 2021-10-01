@@ -1,4 +1,4 @@
-import { Box, Stack, IconButton } from "@mui/material";
+import { Box, Stack, IconButton, Tooltip } from "@mui/material";
 import CenterFocusStrongRoundedIcon from "@mui/icons-material/CenterFocusStrongRounded";
 
 import { MeteorData } from "../interfaces";
@@ -36,13 +36,15 @@ export function MeteorInfo(props: MeteorInfoProps) {
           )}
           <span className="showerName">{shower.name}</span>
         </div>
-        <IconButton
-          onClick={() => {
-            focusMeteor();
-          }}
-        >
-          <CenterFocusStrongRoundedIcon />
-        </IconButton>
+        <Tooltip title="Focus view on this meteor">
+          <IconButton
+            onClick={() => {
+              focusMeteor();
+            }}
+          >
+            <CenterFocusStrongRoundedIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>
