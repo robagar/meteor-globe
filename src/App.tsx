@@ -102,6 +102,7 @@ export default function App() {
   }, [tryLoadMeteors]);
 
   const [filterVisible, setFilterVisible] = useState(false);
+  const meteorVisibility = filterMeteors(filter, meteors);
 
   const [settingsVisible, setSettingsVisible] = useState(false);
   const settings = store.useState((s) => s.settings);
@@ -118,10 +119,30 @@ export default function App() {
     const loading = store.useState((s) => s.loading);
     const title = store.useState((s) => s.meteorDataInfo.title);
     const numMeteors = store.useState((s) => s.meteors.length);
+    const numVisibleMeteors = meteorVisibility.filter((v) => v).length;
     const [menuVisible, setMenuVisible] = useState(false);
     const [menuAnchorEl, setMenuAnchorEl] = useState<HTMLElement | null>(null);
     const [loadDailyMeteorsDialogOpen, setLoadDailyMeteorsDialogOpen] =
       useState(false);
+
+    const titleSuffix = () => {
+      const n = formatter.format(numMeteors);
+      if (numMeteors === numVisibleMeteors) {
+        switch (numMeteors) {
+          case 1:
+            return "1 meteor";
+          default:
+            return `${n} meteors`;
+        }
+      }
+      const v = formatter.format(numVisibleMeteors);
+      switch (numMeteors) {
+        case 1:
+          return "0 of 1 meteor";
+        default:
+          return `${v} of ${n} meteors`;
+      }
+    };
 
     return (
       <>
@@ -144,9 +165,7 @@ export default function App() {
               </IconButton>
               <Typography variant="h5" sx={{ flexGrow: 1 }}>
                 {loading && `Loading ${title}...`}
-                {!loading && title}
-                {numMeteors === 1 && ` — 1 meteor`}
-                {numMeteors > 1 && ` — ${formatter.format(numMeteors)} meteors`}
+                {!loading && `${title} — ${titleSuffix()}`}
               </Typography>
             </Box>
             <Tooltip title="Filter visible meteors">
@@ -201,7 +220,7 @@ export default function App() {
             <Globe
               markers={[...markers.values()]}
               meteors={meteors}
-              filteredMeteors={filterMeteors(filter, meteors)}
+              filteredMeteors={meteorVisibility}
               selectedMeteor={selectedMeteor}
               selectMeteor={selectMeteor}
               settings={settings}
