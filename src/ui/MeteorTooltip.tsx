@@ -10,7 +10,7 @@ export function MeteorTooltip(props: MeteorTooltipProps) {
   const { shower, beginTime, magnitude, duration, stationCodes } = meteor;
 
   return (
-    <div className="root">
+    <div className="meteorTooltip">
       <div className="showerCode">{shower.code}</div>
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>

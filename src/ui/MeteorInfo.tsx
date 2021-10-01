@@ -1,13 +1,17 @@
+import { Box, Stack, IconButton } from "@mui/material";
+import CenterFocusStrongRoundedIcon from "@mui/icons-material/CenterFocusStrongRounded";
+
 import { MeteorData } from "../interfaces";
 import { isSporadic } from "../data/showers";
 import "./MeteorInfo.css";
 
 export interface MeteorInfoProps {
   meteor: MeteorData;
+  focusMeteor: () => void;
 }
 
 export function MeteorInfo(props: MeteorInfoProps) {
-  const { meteor } = props;
+  const { meteor, focusMeteor } = props;
   const {
     shower,
     beginTime,
@@ -18,21 +22,33 @@ export function MeteorInfo(props: MeteorInfoProps) {
   } = meteor;
 
   return (
-    <div className="root">
-      <div>
-        {!isSporadic(shower) && (
-          <span className="showerCode">
-            {shower.code}
-            {" — "}
-          </span>
-        )}
-        <span className="showerName">{shower.name}</span>
-      </div>
+    <Box className="root">
+      <Stack
+        direction="row"
+        sx={{ justifyContent: "space-between", alignItems: "center" }}
+      >
+        <div>
+          {!isSporadic(shower) && (
+            <span className="showerCode">
+              {shower.code}
+              {" — "}
+            </span>
+          )}
+          <span className="showerName">{shower.name}</span>
+        </div>
+        <IconButton
+          onClick={() => {
+            focusMeteor();
+          }}
+        >
+          <CenterFocusStrongRoundedIcon />
+        </IconButton>
+      </Stack>
       <div className="beginTime">{beginTime}</div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>
       {/*<div className="averageSpeed">{averageSpeed}kms⁻¹</div>*/}
       <div className="stationCodes">{stationCodes.join(", ")}</div>
-    </div>
+    </Box>
   );
 }

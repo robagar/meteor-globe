@@ -60,18 +60,25 @@ export default function App() {
     console.info("SELECT", m);
     store.update((s) => {
       s.selectedMeteor = m;
-      if (focus) {
-        console.info("FOCUS", m.end);
-        const { latitude, longitude } = m.end;
-        s.cameraControl = {
-          minDistance: 100,
-          maxDistance: 10000,
-          target: xyz(m.end),
-          up: localUp(latitude, longitude),
-        };
-      }
+      if (focus) s.cameraControl = focusedMeteorCameraControl(m);
     });
   };
+  const focusedMeteorCameraControl = (m: MeteorData) => {
+    const { latitude, longitude } = m.end;
+    return {
+      minDistance: 100,
+      maxDistance: 10000,
+      target: xyz(m.end),
+      up: localUp(latitude, longitude),
+    };
+  };
+  const focusMeteor = (m: MeteorData) => {
+    console.info("FOCUS", m);
+    store.update((s) => {
+      s.cameraControl = focusedMeteorCameraControl(m);
+    });
+  };
+
   const filter = store.useState((s) => s.filter);
 
   useEffect(initCameras, []);
@@ -198,7 +205,14 @@ export default function App() {
               cameraControl={cameraControl}
               setCameraControl={setCameraControl}
             />
-            {selectedMeteor && <MeteorInfo meteor={selectedMeteor} />}
+            {selectedMeteor && (
+              <MeteorInfo
+                meteor={selectedMeteor}
+                focusMeteor={() => {
+                  focusMeteor(selectedMeteor);
+                }}
+              />
+            )}
           </Box>
           <Box sx={{ position: "absolute", right: 24, bottom: 0 }}>
             <IconButton
