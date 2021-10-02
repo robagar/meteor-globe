@@ -1,4 +1,4 @@
-import { Menu, MenuItem } from "@mui/material";
+import { Menu, MenuItem, Divider } from "@mui/material";
 
 import { MeteorDataInfo } from "../interfaces";
 import { METEORS_YESTERDAY, METEORS_LATEST_DAILY } from "../data/meteors";
@@ -9,10 +9,18 @@ interface Props {
   onClose: () => void;
   onLoadMeteors: (info: MeteorDataInfo) => void;
   showLoadDailyDialog: () => void;
+  resetView: () => void;
 }
 
-export function LoadMeteorsMenu(props: Props) {
-  const { anchorEl, open, onClose, onLoadMeteors, showLoadDailyDialog } = props;
+export function AppMenu(props: Props) {
+  const {
+    anchorEl,
+    open,
+    onClose,
+    onLoadMeteors,
+    showLoadDailyDialog,
+    resetView,
+  } = props;
 
   return (
     <Menu open={open} onClose={onClose} anchorEl={anchorEl}>
@@ -31,6 +39,8 @@ export function LoadMeteorsMenu(props: Props) {
         {METEORS_LATEST_DAILY.title}
       </MenuItem>
       <MenuItem onClick={showLoadDailyDialog}>Daily...</MenuItem>
+      <Divider />
+      <MenuItem onClick={resetView}>Reset view</MenuItem>
     </Menu>
   );
 }

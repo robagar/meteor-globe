@@ -30,8 +30,8 @@ import {
   filterMeteors,
 } from "./data/meteors";
 
+import { AppMenu } from "./ui/AppMenu";
 import { MeteorInfo } from "./ui/MeteorInfo";
-import { LoadMeteorsMenu } from "./ui/LoadMeteorsMenu";
 import { LoadDailyMeteorsDialog } from "./ui/LoadDailyMeteorsDialog";
 import { Filter } from "./ui/Filter";
 import { Settings } from "./ui/Settings";
@@ -54,6 +54,17 @@ export const formatter = new Intl.NumberFormat();
 
 export default function App() {
   const [error, setError] = useState<string | undefined>();
+
+  const cameraControl = store.useState((s) => s.cameraControl);
+  const setCameraControl = useCallback((cameraControl: CameraControlData) => {
+    store.update((s) => {
+      s.cameraControl = cameraControl;
+    });
+  }, []);
+  const resetView = useCallback(() => {
+    setCameraControl(DEFAULT_CAMERA_CONTROL);
+  }, [setCameraControl]);
+
   const markers = store.useState((s) => s.markers);
   const meteors = store.useState((s) => s.meteors);
   const selectedMeteor = store.useState((s) => s.selectedMeteor);
@@ -86,16 +97,19 @@ export default function App() {
 
   const { gmn } = useGMN();
 
-  const tryLoadMeteors = useCallback((info: MeteorDataInfo) => {
-    loadMeteors(info)
-      .then(() => {
-        setCameraControl(DEFAULT_CAMERA_CONTROL);
-      })
-      .catch((e) => {
-        console.error("loading", info, e);
-        setError(`Failed to load ${info.title}`);
-      });
-  }, []);
+  const tryLoadMeteors = useCallback(
+    (info: MeteorDataInfo) => {
+      loadMeteors(info)
+        .then(() => {
+          resetView();
+        })
+        .catch((e) => {
+          console.error("loading", info, e);
+          setError(`Failed to load ${info.title}`);
+        });
+    },
+    [resetView]
+  );
 
   useEffect(() => {
     tryLoadMeteors(meteorDataInfoFromParams(queryParams));
@@ -107,13 +121,6 @@ export default function App() {
   const [settingsVisible, setSettingsVisible] = useState(false);
   const settings = store.useState((s) => s.settings);
   store.subscribe((s) => s.settings, saveSettings);
-
-  const cameraControl = store.useState((s) => s.cameraControl);
-  const setCameraControl = (cameraControl: CameraControlData) => {
-    store.update((s) => {
-      s.cameraControl = cameraControl;
-    });
-  };
 
   const Header = () => {
     const loading = store.useState((s) => s.loading);
@@ -179,7 +186,7 @@ export default function App() {
             </Tooltip>
           </Toolbar>
         </AppBar>
-        <LoadMeteorsMenu
+        <AppMenu
           open={menuVisible}
           onClose={() => setMenuVisible(false)}
           anchorEl={menuAnchorEl}
@@ -189,6 +196,10 @@ export default function App() {
           }}
           showLoadDailyDialog={() => {
             setLoadDailyMeteorsDialogOpen(true);
+            setMenuVisible(false);
+          }}
+          resetView={() => {
+            resetView();
             setMenuVisible(false);
           }}
         />
