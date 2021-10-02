@@ -28,7 +28,6 @@ function filter(stations: StationData[], rawPrefixes: string): StationCode[] {
   if (rawPrefixes === "") return stations.map((s) => s.code);
 
   const prefixes = rawPrefixes.split(/[^a-zA-Z0-9]+/);
-  console.info(prefixes);
 
   const filtered = new Set<StationCode>();
   for (const prefix of prefixes) {

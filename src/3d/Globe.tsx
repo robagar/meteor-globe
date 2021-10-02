@@ -40,8 +40,6 @@ export function Globe(props: GlobeProps) {
     setCameraControl,
   } = props;
 
-  console.info("[Globe]", cameraControl);
-
   const material = useTexture(chooseTextures(settings));
   const clouds = useTexture({
     map: "/meteor-globe/textures/fair_clouds_4k.jpeg",

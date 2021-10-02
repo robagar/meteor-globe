@@ -1,4 +1,4 @@
-import { createRef, useEffect } from "react";
+import { createRef } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -19,12 +19,9 @@ export interface CameraControlsProps extends CameraControlData {}
 export function CameraControls(props: CameraControlsProps) {
   const { up } = props;
 
-  console.info("[CameraControls]", up);
+  // console.info("[CameraControls]", up);
 
   const ref = createRef<OrbitControlsImpl>();
-  useEffect(() => {
-    console.info("[CameraControls] ref", ref.current);
-  });
 
   const state = useThree();
   useFrame(() => {
