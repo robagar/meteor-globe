@@ -47,7 +47,7 @@ import { DEFAULT_CAMERA_CONTROL } from "./constants";
 
 import "./App.css";
 
-LuxonSettings.defaultZone = "Europe/London";
+LuxonSettings.defaultZone = "UTC";
 
 const queryParams = new URLSearchParams(window.location.search);
 export const formatter = new Intl.NumberFormat();
