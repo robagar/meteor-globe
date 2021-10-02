@@ -62,7 +62,7 @@ export async function loadMeteors(info: MeteorDataInfo) {
       s.stations = initStations(meteors, s.stationsByCode);
 
       s.filter.showers = activeShowers.map((a) => a.shower);
-      s.filter.stationCodes = s.stations.map((s) => s.code);
+      s.filter.stations.codes = s.stations.map((s) => s.code);
     });
   } finally {
     store.update((s) => {
@@ -163,7 +163,7 @@ export function filterMeteors(
     if (max !== undefined && magnitude > max) return false;
 
     // by station code
-    if (!stationCodes.some((c) => filter.stationCodes.includes(c)))
+    if (!stationCodes.some((c) => filter.stations.codes.includes(c)))
       return false;
 
     return true;

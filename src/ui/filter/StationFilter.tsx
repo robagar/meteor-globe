@@ -16,7 +16,7 @@ import { store } from "../../store";
 
 export function StationFilter() {
   const stations = store.useState((s) => s.stations);
-  const filterStationCodes = store.useState((s) => s.filter.stationCodes);
+  const codes = store.useState((s) => s.filter.stations.codes);
 
   return (
     <>
@@ -25,7 +25,7 @@ export function StationFilter() {
         <Select
           labelId="stations-label"
           multiple
-          value={stations.filter((s) => filterStationCodes.includes(s.code))}
+          value={stations.filter((s) => codes.includes(s.code))}
           input={<OutlinedInput label="Stations" />}
           renderValue={(selected) => {
             if (selected.length === stations.length) return "(all)";
@@ -38,14 +38,17 @@ export function StationFilter() {
             const { value } = event.target;
             if (typeof value === "string") return;
             store.update((s) => {
-              s.filter.stationCodes = value.map((s) => s.code);
+              s.filter.stations = {
+                codes: value.map((s) => s.code),
+                prefixes: "",
+              };
             });
           }}
           MenuProps={MenuProps}
         >
           {stations.map((s) => (
             <MenuItem key={s.code} value={s as any}>
-              <Checkbox checked={filterStationCodes.includes(s.code)} />
+              <Checkbox checked={codes.includes(s.code)} />
               <ListItemText>{s.code}</ListItemText>
             </MenuItem>
           ))}
@@ -55,7 +58,10 @@ export function StationFilter() {
         <Button
           onClick={() => {
             store.update((s) => {
-              s.filter.stationCodes = stations.map((s) => s.code);
+              s.filter.stations = {
+                codes: stations.map((s) => s.code),
+                prefixes: "",
+              };
             });
           }}
         >
@@ -64,7 +70,10 @@ export function StationFilter() {
         <Button
           onClick={() => {
             store.update((s) => {
-              s.filter.stationCodes = [];
+              s.filter.stations = {
+                codes: [],
+                prefixes: "",
+              };
             });
           }}
         >

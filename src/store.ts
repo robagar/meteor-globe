@@ -34,7 +34,10 @@ export const store = new Store<AppState>({
   filter: {
     showers: [],
     magnitude: { min: undefined, max: undefined },
-    stationCodes: [],
+    stations: {
+      codes: [],
+      prefixes: "",
+    },
   },
   cameraControl: DEFAULT_CAMERA_CONTROL,
   settings: loadSettings(),

@@ -49,7 +49,10 @@ export interface FilterData {
     min?: Magnitude;
     max?: Magnitude;
   };
-  stationCodes: StationCode[];
+  stations: {
+    codes: StationCode[];
+    prefixes: string;
+  };
 }
 
 export interface ActiveShowerData {
