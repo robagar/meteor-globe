@@ -21,3 +21,4 @@ export const DEFAULT_CAMERA_CONTROL: CameraControlData = {
 export const CLOUD_HEIGHT = 10;
 
 export const CITY_LIGHTS_COLOR = new Color(0xffff80);
+export const AMBIENT_LIGHT_INTENSITY = 0.075;

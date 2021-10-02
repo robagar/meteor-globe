@@ -7,6 +7,7 @@ import {
   DEFAULT_CAMERA_CONTROL,
   CLOUD_HEIGHT,
   CITY_LIGHTS_COLOR,
+  AMBIENT_LIGHT_INTENSITY,
 } from "../constants";
 
 import { position } from "./geometry";
@@ -48,7 +49,10 @@ export function Globe(props: GlobeProps) {
   return (
     <Canvas className="globeCanvas" frameloop="demand" camera={CAMERA_CONFIG}>
       <CameraControls {...cameraControl} />
-      <ambientLight intensity={0.1} />
+      <ambientLight
+        intensity={AMBIENT_LIGHT_INTENSITY}
+        visible={settings.light}
+      />
       <directionalLight
         color="white"
         position={position(0, 0, 1)}
@@ -71,7 +75,7 @@ export function Globe(props: GlobeProps) {
       </mesh>
       <mesh visible={settings.showClouds}>
         <sphereGeometry args={[EARTH_RADIUS + CLOUD_HEIGHT, 128, 128]} />
-        <meshPhongMaterial color={0xffffff} alphaMap={clouds.map} transparent />
+        <meshBasicMaterial color={0xffffff} alphaMap={clouds.map} transparent />
       </mesh>
       {/*      {markers.map((m) => (
         <Marker key={`marker-${m.identifier}`} {...m} />
@@ -87,17 +91,18 @@ export function Globe(props: GlobeProps) {
   );
 }
 
-function chooseTextures(settings: SettingsData): { [k: string]: string } {
+function chooseTextures(settings: SettingsData): {
+  [k: string]: string;
+} {
   const { light, cityLights } = settings;
-  if (light || !cityLights) {
-    return {
-      map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
-      bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",
-      specularMap: "/meteor-globe/textures/water_4k.png",
-    };
-  }
-  return {
+  const textures: any = {
+    map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
+    bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",
     specularMap: "/meteor-globe/textures/water_4k.png",
-    emissiveMap: "/meteor-globe/textures/5_night_4k.jpeg",
   };
+
+  if (!light && cityLights)
+    textures["emissiveMap"] = "/meteor-globe/textures/5_night_4k.jpeg";
+
+  return textures;
 }
