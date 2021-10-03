@@ -1,4 +1,5 @@
 import { MeteorData } from "../interfaces";
+import { formatDateTime } from "../format";
 import "./MeteorTooltip.css";
 
 export interface MeteorTooltipProps {
@@ -12,7 +13,7 @@ export function MeteorTooltip(props: MeteorTooltipProps) {
   return (
     <div className="meteorTooltip">
       <div className="showerCode">{shower.code}</div>
-      <div className="beginTime">{beginTime}</div>
+      <div className="beginTime">{formatDateTime(beginTime)}</div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>
 

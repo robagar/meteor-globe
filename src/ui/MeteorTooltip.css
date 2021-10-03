@@ -1,4 +1,5 @@
 .meteorTooltip {
+  min-width: 200px;
   pointer-events: none;
 }
 

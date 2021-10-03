@@ -1,13 +1,20 @@
-.root {
+.meteorInfo {
   position: absolute;
   left: 10px;
   bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 
 .showerName {
   font-style: italic;
 }
 
-.averageSpeed {
+.meteorDetails {
   font-size: 85%;
+}
+
+.meteorDetails th {
+  font-weight: normal;
+  text-align: right;
 }

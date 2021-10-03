@@ -1,10 +1,10 @@
 import { Box, Stack, IconButton, Tooltip } from "@mui/material";
 import CenterFocusStrongRoundedIcon from "@mui/icons-material/CenterFocusStrongRounded";
 
-import { DateTime } from "luxon";
-
 import { MeteorData } from "../interfaces";
 import { isSporadic } from "../data/showers";
+import { formatDateTime, formatLatLongHt, formatSpeed } from "../format";
+
 import "./MeteorInfo.css";
 
 export interface MeteorInfoProps {
@@ -17,19 +17,16 @@ export function MeteorInfo(props: MeteorInfoProps) {
   const {
     shower,
     beginTime,
+    begin,
+    end,
     magnitude,
     duration,
-    // averageSpeed,
+    averageSpeed,
     stationCodes,
   } = meteor;
 
-  const _beginTime = DateTime.fromISO(beginTime.replace(" ", "T"), {
-    zone: "UTC",
-  });
-  console.info(beginTime, _beginTime);
-
   return (
-    <Box className="root">
+    <Box className="meteorInfo" sx={{ px: 1, pb: 1 }}>
       <Stack
         direction="row"
         sx={{ justifyContent: "space-between", alignItems: "center" }}
@@ -53,12 +50,26 @@ export function MeteorInfo(props: MeteorInfoProps) {
           </IconButton>
         </Tooltip>
       </Stack>
-      <div className="beginTime">
-        {_beginTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS)} UTC
+      <div className="beginTime">{formatDateTime(beginTime)}</div>
+      <div className="meteorDetails">
+        {formatLatLongHt(begin)} → {formatLatLongHt(end)}
       </div>
-      <div className="magnitude">Mag {magnitude}</div>
-      <div className="duration">{duration}s</div>
-      {/*<div className="averageSpeed">{averageSpeed}kms⁻¹</div>*/}
+      <table className="meteorDetails">
+        <tbody>
+          <tr>
+            <th>Magnitude</th>
+            <td>{magnitude}</td>
+          </tr>
+          <tr>
+            <th>Duration</th>
+            <td>{duration}s</td>
+          </tr>
+          <tr>
+            <th>Average speed</th>
+            <td>{formatSpeed(averageSpeed)}</td>
+          </tr>
+        </tbody>
+      </table>
       <div className="stationCodes">{stationCodes.join(", ")}</div>
     </Box>
   );
