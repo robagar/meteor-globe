@@ -1,6 +1,8 @@
 import { Box, Stack, IconButton, Tooltip } from "@mui/material";
 import CenterFocusStrongRoundedIcon from "@mui/icons-material/CenterFocusStrongRounded";
 
+import { DateTime } from "luxon";
+
 import { MeteorData } from "../interfaces";
 import { isSporadic } from "../data/showers";
 import "./MeteorInfo.css";
@@ -20,6 +22,11 @@ export function MeteorInfo(props: MeteorInfoProps) {
     // averageSpeed,
     stationCodes,
   } = meteor;
+
+  const _beginTime = DateTime.fromISO(beginTime.replace(" ", "T"), {
+    zone: "UTC",
+  });
+  console.info(beginTime, _beginTime);
 
   return (
     <Box className="root">
@@ -46,7 +53,9 @@ export function MeteorInfo(props: MeteorInfoProps) {
           </IconButton>
         </Tooltip>
       </Stack>
-      <div className="beginTime">{beginTime}</div>
+      <div className="beginTime">
+        {_beginTime.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS)} UTC
+      </div>
       <div className="magnitude">Mag {magnitude}</div>
       <div className="duration">{duration}s</div>
       {/*<div className="averageSpeed">{averageSpeed}kms⁻¹</div>*/}
