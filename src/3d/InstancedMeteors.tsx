@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, ReactNode } from "react";
 import {
   Matrix4,
   Vector3,
@@ -22,8 +22,7 @@ const DEFAULT_COLOR = new Color("white");
 const HIGHLIGHTED_COLOR = new Color("goldenrod");
 const SELECTED_COLOR = new Color("hotpink");
 
-// workaround for R3F bug - pointer events stop working if instanced mesh is reinstantiated
-const MAX_METEORS = 10000;
+const BATCH_SIZE = 1000;
 
 const ZERO_MATRIX = new Matrix4();
 
@@ -63,43 +62,42 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     }
   `;
 
-  const ref = useRef<InstancedMesh>();
-  const old = useRef<InstancedMesh>();
+  const ref = useRef<any[]>([]);
 
   useFrame(({ camera }) => {
-    if (old.current !== ref.current) {
-      console.warn("new InstancedMesh", ref.current);
-      old.current = ref.current;
-    }
-
     // console.info("frame!", data.length);
-    const mesh = ref.current;
-    if (mesh) {
-      for (const meteor of data) {
-        const i = meteor.index;
-        mesh.setMatrixAt(
-          i,
-          filteredMeteors[i]
-            ? buildMeteorMatrix(meteor, camera.position)
-            : ZERO_MATRIX
-        );
-        let color = DEFAULT_COLOR;
-        if (selectedMeteor && i === selectedMeteor.index)
-          color = SELECTED_COLOR;
-        else if (i === hoverInstanceIdRef.current) color = HIGHLIGHTED_COLOR;
-        mesh.setColorAt(i, color);
+    const meshes = ref.current;
+    if (meshes) {
+      for (let j = 0; j < meshes.length; ++j) {
+        const mesh = meshes[j];
+        if (mesh) {
+          for (let i = 0; i < BATCH_SIZE; ++i) {
+            const meteor = data[j * BATCH_SIZE + i];
+            if (meteor) {
+              mesh.setMatrixAt(
+                i,
+                filteredMeteors[i]
+                  ? buildMeteorMatrix(meteor, camera.position)
+                  : ZERO_MATRIX
+              );
+              let color = DEFAULT_COLOR;
+              if (meteor === selectedMeteor) color = SELECTED_COLOR;
+              else if (meteor === hover?.meteor) color = HIGHLIGHTED_COLOR;
+              mesh.setColorAt(i, color);
+            } else {
+              mesh.setMatrixAt(i, ZERO_MATRIX);
+            }
+            mesh.instanceMatrix.needsUpdate = true;
+            if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+          }
+        }
       }
-
-      for (let i = data.length; i < MAX_METEORS; ++i) {
-        mesh.setMatrixAt(i, ZERO_MATRIX);
-      }
-
-      mesh.instanceMatrix.needsUpdate = true;
-      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
     }
   });
 
-  const [hover, setHover] = useState<MeteorData | undefined>(undefined);
+  const [hover, setHover] = useState<
+    { batch: number; meteor: MeteorData } | undefined
+  >(undefined);
   const hoverInstanceIdRef = useRef<number | undefined>();
 
   const { invalidate } = useThree();
@@ -110,71 +108,84 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     invalidate();
   }
 
-  return (
-    <>
-      {data.length && (
-        <instancedMesh
-          ref={ref}
-          args={[undefined, undefined, MAX_METEORS /*data.length*/]}
-          onClick={(e) => {
-            const i = e.instanceId;
-            if (i !== undefined) {
-              selectMeteor(data[i], false);
-              invalidate();
-            }
-            e.stopPropagation();
-          }}
-          onDoubleClick={(e) => {
-            const i = e.instanceId;
-            if (i !== undefined) {
-              selectMeteor(data[i], true);
-              invalidate();
-            }
-            e.stopPropagation();
-          }}
-          onPointerOver={(e) => {
-            // console.info("onPointerOver", e.instanceId);
-            const i = e.instanceId;
-            if (i !== undefined) {
-              setHover(data[i]);
-              if (hoverInstanceIdRef.current !== i) {
-                hoverInstanceIdRef.current = i;
-              }
-            }
-          }}
-          onPointerOut={(e) => {
-            setHover(undefined);
-            if (hoverInstanceIdRef.current === e.instanceId) {
+  const renderBatch = (batch: number, offset: number) => {
+    return (
+      <instancedMesh
+        key={`batch-${batch}`}
+        ref={(mesh) => {
+          if (ref.current) ref.current[batch] = mesh;
+        }}
+        args={[undefined, undefined, BATCH_SIZE /*data.length*/]}
+        onClick={(e) => {
+          if (e.instanceId !== undefined) {
+            const i = e.instanceId + offset;
+            selectMeteor(data[i], false);
+            invalidate();
+          }
+          e.stopPropagation();
+        }}
+        onDoubleClick={(e) => {
+          if (e.instanceId !== undefined) {
+            const i = e.instanceId + offset;
+            selectMeteor(data[i], true);
+            invalidate();
+          }
+          e.stopPropagation();
+        }}
+        onPointerOver={(e) => {
+          // console.info("onPointerOver", e.instanceId);
+          if (e.instanceId !== undefined) {
+            const i = e.instanceId + offset;
+            const meteor = data[i];
+            setHover({ batch, meteor });
+            hoverInstanceIdRef.current = e.instanceId;
+          }
+        }}
+        onPointerOut={(e) => {
+          setHover(undefined);
+          if (e.instanceId !== undefined) {
+            if (hoverInstanceIdRef.current === e.instanceId)
               hoverInstanceIdRef.current = undefined;
-            }
-          }}
-        >
-          <planeGeometry args={[1, 1]} />
-          <shaderMaterial
-            vertexShader={vertexShader}
-            fragmentShader={fragmentShader}
-            transparent={true}
-            depthWrite={false}
-          />
+          }
+        }}
+      >
+        <planeGeometry args={[1, 1]} />
+        <shaderMaterial
+          vertexShader={vertexShader}
+          fragmentShader={fragmentShader}
+          transparent={true}
+          depthWrite={false}
+        />
 
-          {hover && (
-            <Html
-              calculatePosition={(el, camera, size) =>
-                calculateTooltipPosition(
-                  el,
-                  camera,
-                  size,
-                  () => hoverInstanceIdRef.current
-                )
-              }
-            >
-              <MeteorTooltip meteor={hover} />
-            </Html>
-          )}
-        </instancedMesh>
-      )}
-    </>
+        {hover && hover.batch === batch && (
+          <Html
+            calculatePosition={(el, camera, size) =>
+              calculateTooltipPosition(
+                el,
+                camera,
+                size,
+                () => hoverInstanceIdRef.current
+              )
+            }
+          >
+            <MeteorTooltip meteor={hover.meteor} />
+          </Html>
+        )}
+      </instancedMesh>
+    );
+  };
+
+  const nodes: ReactNode[] = [];
+  const n = data.length;
+  const numBatches = Math.ceil(n / BATCH_SIZE);
+  console.info(
+    `[InstanceMeteors] ${n} meteors in ${numBatches} batches of ${BATCH_SIZE}`
   );
+  for (let j = 0; j < numBatches; ++j) {
+    nodes.push(renderBatch(j, j * BATCH_SIZE));
+  }
+
+  return <>{nodes}</>;
 }
 
 const v1 = new Vector3();
