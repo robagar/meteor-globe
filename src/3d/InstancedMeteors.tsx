@@ -96,9 +96,8 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
   });
 
   const [hover, setHover] = useState<
-    { batch: number; meteor: MeteorData } | undefined
+    { batch: number; meteor: MeteorData; instanceId: number } | undefined
   >(undefined);
-  const hoverInstanceIdRef = useRef<number | undefined>();
 
   const { invalidate } = useThree();
 
@@ -134,19 +133,15 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
         }}
         onPointerOver={(e) => {
           // console.info("onPointerOver", e.instanceId);
-          if (e.instanceId !== undefined) {
-            const i = e.instanceId + offset;
+          const { instanceId } = e;
+          if (instanceId !== undefined) {
+            const i = instanceId + offset;
             const meteor = data[i];
-            setHover({ batch, meteor });
-            hoverInstanceIdRef.current = e.instanceId;
+            setHover({ batch, meteor, instanceId });
           }
         }}
         onPointerOut={(e) => {
           setHover(undefined);
-          if (e.instanceId !== undefined) {
-            if (hoverInstanceIdRef.current === e.instanceId)
-              hoverInstanceIdRef.current = undefined;
-          }
         }}
       >
         <planeGeometry args={[1, 1]} />
@@ -160,12 +155,7 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
         {hover && hover.batch === batch && (
           <Html
             calculatePosition={(el, camera, size) =>
-              calculateTooltipPosition(
-                el,
-                camera,
-                size,
-                () => hoverInstanceIdRef.current
-              )
+              calculateTooltipPosition(el, camera, size, hover?.instanceId)
             }
           >
             <MeteorTooltip meteor={hover.meteor} />
@@ -175,17 +165,17 @@ export function InstancedMeteors(props: InstancedMeteorsProps) {
     );
   };
 
-  const nodes: ReactNode[] = [];
+  const batches: ReactNode[] = [];
   const n = data.length;
   const numBatches = Math.ceil(n / BATCH_SIZE);
-  console.info(
-    `[InstanceMeteors] ${n} meteors in ${numBatches} batches of ${BATCH_SIZE}`
-  );
+  // console.info(
+  //   `[InstanceMeteors] ${n} meteors in ${numBatches} batches of ${BATCH_SIZE}`
+  // );
   for (let j = 0; j < numBatches; ++j) {
-    nodes.push(renderBatch(j, j * BATCH_SIZE));
+    batches.push(renderBatch(j, j * BATCH_SIZE));
   }
 
-  return <>{nodes}</>;
+  return <>{batches}</>;
 }
 
 const v1 = new Vector3();
@@ -194,10 +184,8 @@ function calculateTooltipPosition(
   el: Object3D,
   camera: Camera,
   size: { width: number; height: number },
-  getIndex: () => number | undefined
+  index: number | undefined
 ) {
-  const index = getIndex();
-
   if (el.parent instanceof InstancedMesh && index !== undefined) {
     el.parent.getMatrixAt(index, m);
   } else {
