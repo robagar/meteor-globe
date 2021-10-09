@@ -79,6 +79,7 @@ export interface SettingsData {
   showClouds: boolean;
   light: boolean;
   cityLights: boolean;
+  highResolutionTextures: boolean;
 }
 
 export interface AppState {

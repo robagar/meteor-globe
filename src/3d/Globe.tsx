@@ -92,9 +92,11 @@ export function Globe(props: GlobeProps) {
 function chooseTextures(settings: SettingsData): {
   [k: string]: string;
 } {
-  const { light, cityLights } = settings;
+  const { light, cityLights, highResolutionTextures } = settings;
   const textures: any = {
-    map: "/meteor-globe/textures/2_no_clouds_4k.jpeg",
+    map: `/meteor-globe/textures/2_no_clouds_${
+      highResolutionTextures ? "8k" : "4k"
+    }.jpeg`,
     bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",
     specularMap: "/meteor-globe/textures/water_4k.png",
   };

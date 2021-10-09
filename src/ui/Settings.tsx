@@ -18,7 +18,8 @@ interface Props {
 export function Settings(props: Props) {
   const { onClose } = props;
 
-  const { showClouds, light, cityLights } = store.useState((s) => s.settings);
+  const { showClouds, light, cityLights, highResolutionTextures } =
+    store.useState((s) => s.settings);
 
   return (
     <Box sx={{ width: 300 }}>
@@ -30,6 +31,19 @@ export function Settings(props: Props) {
       </Toolbar>
 
       <Stack direction="column" sx={{ px: 2 }}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={highResolutionTextures}
+              onChange={(event) => {
+                store.update((s) => {
+                  s.settings.highResolutionTextures = event.target.checked;
+                });
+              }}
+            />
+          }
+          label="High resolution textures"
+        />
         <FormControlLabel
           control={
             <Switch

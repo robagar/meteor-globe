@@ -6,6 +6,7 @@ const DEFAULT_SETTINGS = {
   showClouds: true,
   light: true,
   cityLights: false,
+  highResolutionTextures: true,
 };
 
 export function saveSettings(settings: SettingsData) {
