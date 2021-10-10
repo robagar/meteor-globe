@@ -48,10 +48,7 @@ export function Globe(props: GlobeProps) {
   return (
     <Canvas className="globeCanvas" frameloop="demand" camera={CAMERA_CONFIG}>
       <CameraControls {...cameraControl} />
-      <ambientLight
-        intensity={AMBIENT_LIGHT_INTENSITY}
-        visible={settings.light}
-      />
+      <ambientLight intensity={AMBIENT_LIGHT_INTENSITY} />
       <directionalLight
         color="white"
         position={position(0, 0, 1)}
