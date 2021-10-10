@@ -8,6 +8,7 @@ import {
   CLOUD_HEIGHT,
   CITY_LIGHTS_COLOR,
   AMBIENT_LIGHT_INTENSITY,
+  BLACK,
 } from "../constants";
 
 import { position } from "./geometry";
@@ -65,9 +66,7 @@ export function Globe(props: GlobeProps) {
         <meshPhongMaterial
           {...material}
           emissive={
-            settings.light || !settings.cityLights
-              ? undefined
-              : CITY_LIGHTS_COLOR
+            settings.light || !settings.cityLights ? BLACK : CITY_LIGHTS_COLOR
           }
         />
       </mesh>
@@ -92,17 +91,15 @@ export function Globe(props: GlobeProps) {
 function chooseTextures(settings: SettingsData): {
   [k: string]: string;
 } {
-  const { light, cityLights, highResolutionTextures } = settings;
+  const { highResolutionTextures } = settings;
   const textures: any = {
     map: `/meteor-globe/textures/2_no_clouds_${
       highResolutionTextures ? "8k" : "4k"
     }.jpeg`,
     bumpMap: "/meteor-globe/textures/elev_bump_4k.jpeg",
     specularMap: "/meteor-globe/textures/water_4k.png",
+    emissiveMap: "/meteor-globe/textures/5_night_4k.jpeg",
   };
-
-  if (!light && cityLights)
-    textures["emissiveMap"] = "/meteor-globe/textures/5_night_4k.jpeg";
 
   return textures;
 }
