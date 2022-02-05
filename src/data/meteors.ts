@@ -72,22 +72,39 @@ export async function loadMeteors(info: MeteorDataInfo) {
 }
 
 // column indices
+// const BEGIN_UTC_TIME = 1;
+// const IAU_CODE = 3;
+// const AVERAGE_SPEED = 58;
+// const BEGIN_LATITUDE = 60;
+// const BEGIN_LONGITUDE = 62;
+// const BEGIN_HEIGHT = 64;
+// const END_LATITUDE = 66;
+// const END_LONGITUDE = 68;
+// const END_HEIGHT = 70;
+// const DURATION = 72;
+// const MAGNITUDE = 73;
+// const PEAK_HEIGHT = 74;
+// const MASS = 76;
+// const STATION_CODES = 82;
+
+// const NUM_COLUMNS = 83;
+
 const BEGIN_UTC_TIME = 1;
 const IAU_CODE = 3;
-const AVERAGE_SPEED = 58;
-const BEGIN_LATITUDE = 60;
-const BEGIN_LONGITUDE = 62;
-const BEGIN_HEIGHT = 64;
-const END_LATITUDE = 66;
-const END_LONGITUDE = 68;
-const END_HEIGHT = 70;
-const DURATION = 72;
-const MAGNITUDE = 73;
-const PEAK_HEIGHT = 74;
-const MASS = 76;
-const STATION_CODES = 82;
+const AVERAGE_SPEED = 60;
+const BEGIN_LATITUDE = 62;
+const BEGIN_LONGITUDE = 64;
+const BEGIN_HEIGHT = 66;
+const END_LATITUDE = 68;
+const END_LONGITUDE = 70;
+const END_HEIGHT = 72;
+const DURATION = 74;
+const MAGNITUDE = 75;
+const PEAK_HEIGHT = 76;
+const MASS = 78;
+const STATION_CODES = 84;
 
-const NUM_COLUMNS = 83;
+const NUM_COLUMNS = 85;
 
 async function fetchMeteorData(url: string): Promise<MeteorData[]> {
   const meteors: MeteorData[] = [];
