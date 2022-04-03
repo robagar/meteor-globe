@@ -89,33 +89,61 @@ export async function loadMeteors(info: MeteorDataInfo) {
 
 // const NUM_COLUMNS = 83;
 
-const BEGIN_UTC_TIME = 1;
-const IAU_CODE = 3;
-const AVERAGE_SPEED = 60;
-const BEGIN_LATITUDE = 62;
-const BEGIN_LONGITUDE = 64;
-const BEGIN_HEIGHT = 66;
-const END_LATITUDE = 68;
-const END_LONGITUDE = 70;
-const END_HEIGHT = 72;
-const DURATION = 74;
-const MAGNITUDE = 75;
-const PEAK_HEIGHT = 76;
-const MASS = 78;
-const STATION_CODES = 84;
+const BEGIN_UTC_TIME = 2;
+const IAU_CODE = 4;
+const AVERAGE_SPEED = 61;
+const BEGIN_LATITUDE = 63;
+const BEGIN_LONGITUDE = 65;
+const BEGIN_HEIGHT = 67;
+const END_LATITUDE = 69;
+const END_LONGITUDE = 71;
+const END_HEIGHT = 73;
+const DURATION = 75;
+const MAGNITUDE = 76;
+const PEAK_HEIGHT = 77;
+const MASS = 79;
+const STATION_CODES = 85;
 
-const NUM_COLUMNS = 85;
+const NUM_COLUMNS = 86;
 
 async function fetchMeteorData(url: string): Promise<MeteorData[]> {
   const meteors: MeteorData[] = [];
   let nextIndex = 0;
+  const headers: string[] = [];
   for await (let line of fetchline(url)) {
-    if (line.length === 0) continue;
+    if (line.trim().length === 0) continue;
     if (line[0] === "\r") line = line.slice(1); // fetchline bug?
-    if (line[0] === "#") continue; // comment, probably column headers
+    if (line[0] === "#") {
+      // comment
+      if (line.startsWith("# Summary")) {
+        // description
+        console.info(line);
+      } else if (line.startsWith("# ---")) {
+        // end of column headers
+        console.info("headers:");
+        for (let i = 0; i < headers.length; ++i) {
+          console.info(i, headers[i]);
+        }
+      } else {
+        // probably column headers
+        const fields = line.slice(1).split(";");
+        for (let i = 0; i < fields.length; ++i) {
+          const f = fields[i].trim();
+          if (headers[i] === undefined) headers[i] = f;
+          else headers[i] += " " + f;
+        }
+      }
+      continue;
+    }
 
     const fields = line.split(";");
-    if (fields.length !== NUM_COLUMNS) continue;
+    if (fields.length !== NUM_COLUMNS) {
+      console.warn(
+        `wrong number of columns - ${fields.length}, expected ${NUM_COLUMNS}`,
+        line
+      );
+      continue;
+    }
 
     const s = (i: number): string => {
       const f = fields[i];
